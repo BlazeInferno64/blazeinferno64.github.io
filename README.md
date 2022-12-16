@@ -12,6 +12,37 @@ Under development
 Meanwhile check this out-
 `
 
+```
+Hello everyone thanks for paying a visit 
+to this repository and to the .If you 
+all Have any feedback/issues/bugs 
+feel free to email me at the 
+email address provided in the 
+README.md file or post it in the discussion,
+I would try my best to update it 
+as soon as possible within 4-5days time 
+interval it would be fixed and upgraded 
+to a better version which would improve 
+your experience.Btw Make sure to pay 
+a visit to this repository 
+after 3-4 days time interval 
+to check what has changed,
+If not possible it can be checked 
+after a week. 
+Anyways thanks for reading
+Have a nice day :) 👍
+```
+
+# Check SECURITY.md for more info about security policy or click down in that box-
+
+<a href="./SECURITY.md"> 
+
+```
+Check SECURITY.md for more info or click here.
+```
+</a>
+
+
 <!--[![leisure]-->
 `
 Fun link.Click Down👇
