@@ -3,10 +3,10 @@ My own homepage on A.I ,it's an webpage specially designed for discussion conseq
 |---------------|
 # View it here-
 
-<a href="blaizinginfernodragon123.github.io/">
+<a href="https://blaizinginfernodragon123.github.io/">
 
 ```
-blaizinginfernodragon123.github.io/
+https://blaizinginfernodragon123.github.io/
 ```
 </a>
 
