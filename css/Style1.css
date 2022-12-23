@@ -158,7 +158,7 @@ footer {
   bottom: 200px;
 }
 }
- @media only screen and (min-width: 200px) {
+ @media only screen and (max-width: 200px) {
  .text {
  text-align: center;
  color: #33b5e5;
@@ -175,7 +175,7 @@ footer {
 }
 
 /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-@media screen and (max-width: 470px) {
+@media screen and (max-width: 400px) {
   .navbar a {
     float: none;
     width: 100%;
