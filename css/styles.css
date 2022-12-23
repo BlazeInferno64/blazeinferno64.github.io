@@ -199,7 +199,7 @@ footer {
   bootom: 100;
 }
 }
- @media only screen and (min-width: 200px) {
+ @media only screen and (max-width: 200px) {
  .text {
  text-align: center;
  color: #33b5e5;
