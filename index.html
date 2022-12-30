@@ -449,11 +449,26 @@ copyText.querySelector("button").addEventListener("click",function(){
     </div>
     </div>
     <script type="application/javascript"> 
-      function getIP(json) { 
-        document.getElementById("ip").value ;
-        document.getElementById("ip").innerHTML = "Your ip address is :",json.ip;
-  
-      //document.write("My public IP address is: ", json.ip); 
+      function getIP() {
+  return new Promise((resolve, reject) => {
+    const resolver = new doh.DohResolver("https://1.1.1.1/dns-query");
+    resolver
+      .query(location.hostname, "A")
+      .then((response) => {
+        response.answers.forEach((ans) => {
+          resolve(ans.data)
+        });
+        if (response.answers.length == 0) {
+          resolve(location.hostname)
+        }
+      })
+      .catch((err) => reject(err));
+  });
+}
+
+getIP().then((res) => {
+  document.getElementById("ip").innerText = res;
+});
       } 
       function showIP(){
         alert("Just use a VPN or use chrome incognito mode and try again!!");
@@ -461,6 +476,7 @@ copyText.querySelector("button").addEventListener("click",function(){
       </script> 
       <script type="application/javascript" src="http://ipinfo.io/?format=jsonp&callback=getIP">
       </script>
+        <script src="https://cdn.jsdelivr.net/npm/dohjs@latest/dist/doh.min.js"></script>
   <hr>
         
 </center>
