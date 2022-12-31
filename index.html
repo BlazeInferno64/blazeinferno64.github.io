@@ -15,6 +15,9 @@
    <link rel="icon" type="image/png" href="img/BlaizeInfernoDP.jpeg" />
    <link rel="stylesheet" href="css/github-markdown.css" />
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+    async defer>
+</script>
  </head>
  <body onload="exeFunc()">
   <div id="loader"></div>
@@ -434,6 +437,12 @@ copyText.querySelector("button").addEventListener("click",function(){
 <br>
 <br>
 
+<div class="g-recaptcha" data-sitekey="6LcQfIwjAAAAAK5yIFsznYjOJTynsHbp_FpdrsFU"></div>
+      <br/>
+
+<br>
+<br>
+<br>
 
 <hr>
 <div class="ip-counter">
@@ -812,6 +821,8 @@ getIP().then((res) => {
         </select>
         <label for="subject">Subject</label>
         <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px" required></textarea>
+         <div class="g-recaptcha" data-sitekey="6LcQfIwjAAAAAK5yIFsznYjOJTynsHbp_FpdrsFU"></div>
+      <br/>
         <button type="submit" class="submit-btn" value="Send"><i class="fa fa-send"></i>   Submit</button>
         <button type="reset" class="reset-btn" value="Reset"><i class="fa fa-refresh"></i>  Reset</button>
       </form>
