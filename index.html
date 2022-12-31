@@ -13,6 +13,7 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
    <link rel="icon" type="image/png" href="img/BlaizeInfernoDP.jpeg" />
    <link rel="stylesheet" href="css/github-markdown.css" />
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
  </head>
  <body onload="exeFunc()">
   <div id="loader"></div>
@@ -890,7 +891,18 @@ getIP().then((res) => {
     </font>
 		 </footer>
      </div>
-<audio controls src="sounds/Microsoft Windows 7 Startup Sound (animated).mp3" autoplay="true" hidden="true"></audio>
+<audio controls src="sounds/Microsoft Windows 7 Startup Sound (animated).mp3" autoplay="true" hidden="true" id="playAudio"></audio>
+<iframe src="sounds/Microsoft Windows 7 Startup Sound (animated).mp3" allow="autoplay" style="display:none" hidden="true" id="iframeAudio">
+</iframe>
+<script>
+var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+  if (!isChrome){
+      $('#iframeAudio').remove()
+  }
+  else {
+      $('#playAudio').remove() // just to make sure that it will not have 2x audio in the background 
+  }
+</script>
 <script src="js/script.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
