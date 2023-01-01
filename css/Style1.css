@@ -278,6 +278,10 @@ footer {
     position: relative;
     top: -100px;
   }
+  .map{
+   width:300px; 
+   height:250px;
+ }
 }
 
 @media only screen and (min-width: 768px) {
@@ -323,6 +327,10 @@ footer {
     position: relative;
     left: 20px;
   }
+    .map{
+   width:500px; 
+   height:450px;
+ }
 }
 @media only screen and (max-width: 689px) {
   .search-btn {
@@ -358,4 +366,8 @@ footer {
     right: 15px;
     width: 489px;
   }
+    .map{
+   width:500px; 
+   height:450px;
+ }
 }
