@@ -1,20 +1,26 @@
 ---
 name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
+about: 'Create a report to help us improve and support in our future projects '
+title: 'Bug/issue report '
+labels: bug
+assignees: BlaizingInfernoDragon123
 
 ---
 
 **Describe the bug**
-A clear and concise description of what the bug is.
+It maybe any bug/issue , but you all are always free to contact me in my email address provided at my repository or click here
+<a href="mailto: blazinginfernodragon123@gmail.com">
+
+```
+blazinginfernodragon123@gmail.com
+```
+</a>
 
 **To Reproduce**
 Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
+1. Go to 'the readme.md file of this repository'
+2. Click on 'mail photo'
+3. Scroll down to 'click on mail option'
 4. See error
 
 **Expected behavior**
@@ -35,4 +41,4 @@ If applicable, add screenshots to help explain your problem.
  - Version [e.g. 22]
 
 **Additional context**
-Add any other context about the problem here.
+So hope it HELPS btw feel free to mail me if you all have any issues/bugs
