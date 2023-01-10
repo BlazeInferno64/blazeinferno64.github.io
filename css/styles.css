@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');  
 ::selection{ 
 color: #fff; 
-background: #664AFF; 
+background-color: springgreen; 
 } 
 .wrapper{ 
 height: 60px; 
@@ -198,63 +198,7 @@ footer {
   background: #000;
   bootom: 100;
 }
-}
- @media only screen and (max-width: 200px) {
- .text {
- text-align: center;
- color: #33b5e5;
- background-color: green;
- }
-   .topnav-icon {
-  display: none;
-  width: 100%;
-  }
-  .navbar li{
-  display:none;
-  width:100%;
-  }
-}
 
-/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-@media screen and (max-width: 400px) {
-  .navbar a {
-    float: none;
-    width: 100%;
-  }
-  .links {
-  color: #00000;
-  }
-  .text {
- float: right;
- color: #33b5e5;
- background-color: #00000;
-  }
-  .topnav-icon {
-  display: none;
-  width: 100%;
-  }
-  .navbar li{
-  display:none;
-  width:50%;
-  position: ;
-  }
-  .navbar li a {
-  position: fixed;
-  }
-}
-
-@media only screen and (min-width: 768px) {
- .text {
- text-align: center;
- color: #33b5e5;
- background-color: white;
- }
-.topnav-icon {
- display: block;
- color: black;
- background-color: #333;
- }
-}
 .search-box {
   justify-content: center;
   position: sticky;
@@ -1125,4 +1069,60 @@ select,option a{
   .ip-counter:active{
     background-image:linear-gradient(315deg, #09f156 0%, #02aedd 74%);
   }
-  
+  }
+ @media only screen and (max-width: 200px) {
+ .text {
+ text-align: center;
+ color: #33b5e5;
+ background-color: green;
+ }
+   .topnav-icon {
+  display: none;
+  width: 100%;
+  }
+  .navbar li{
+  display:none;
+  width:100%;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+  .links {
+  color: #00000;
+  }
+  .text {
+ float: right;
+ color: #33b5e5;
+ background-color: #00000;
+  }
+  .topnav-icon {
+  display: none;
+  width: 100%;
+  }
+  .navbar li{
+  display:none;
+  width:50%;
+  position: ;
+  }
+  .navbar li a {
+  position: fixed;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+ .text {
+ text-align: center;
+ color: #33b5e5;
+ background-color: white;
+ }
+.topnav-icon {
+ display: block;
+ color: black;
+ background-color: #333;
+ }
+}
