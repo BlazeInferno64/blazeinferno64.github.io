@@ -396,6 +396,7 @@
 <br>
 <br>
 		<center>
+<!---
 		<div class="wrapper"> 
 <input type="checkbox" id="click"> 
   <label class="btn-1" for="click" onclick="showAlert2()">Subscribe</label> 
@@ -406,6 +407,7 @@
   </div> 
   <br>
   <br>
+-->
 <hr>
 <br><br>
 </center>
@@ -924,7 +926,7 @@ var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator
       $('#iframeAudio').remove()
   }
   else {
-      $('#playAudio').remove() // just to make sure that it will not have 2x audio in the background 
+      $('#playAudio').play() // just to make sure that it will not have 2x audio in the background 
   }
 </script>
 <!--
