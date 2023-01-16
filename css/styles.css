@@ -3,6 +3,9 @@
 color: #fff; 
 background: #22F2B3; 
 } 
+html {
+  scroll-behavior: smooth;
+}
 .wrapper{ 
 height: 60px; 
 width: 400px; 
