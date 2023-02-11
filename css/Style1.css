@@ -122,6 +122,7 @@ footer {
   -ms-flex-wrap: wrap; /* IE10 */
   flex-wrap: wrap;
   transition: all ease-in-out 250ms;
+  position: absolute;
 }
 
 /* Create two unequal columns that sits next to each other */
