@@ -284,7 +284,7 @@ footer {
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media screen and (min-width: 700px) {
  .text {
  text-align: center;
  color: #33b5e5;
@@ -328,7 +328,7 @@ footer {
     left: 20px;
   }
 }
-@media only screen and (max-width: 689px) {
+@media screen and (max-width: 689px) {
   .search-btn {
     width:10%;
   }
