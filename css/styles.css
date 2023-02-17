@@ -1117,7 +1117,7 @@ select,option a{
   }
 }
 
-@media only screen and (min-width: 700px) {
+@media screen and (min-width: 700px) {
  .text {
  text-align: center;
  color: #33b5e5;
