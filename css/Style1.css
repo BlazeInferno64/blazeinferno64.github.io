@@ -205,7 +205,7 @@ footer {
   margin-right: 3rem;
   }
   .navbar li a {
-  position: relative;
+  position: fixed;
   }
   .search-btn {
     width:20%;
