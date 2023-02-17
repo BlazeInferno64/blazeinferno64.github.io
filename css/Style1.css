@@ -262,6 +262,7 @@ footer {
   .news-btn,.news-input{
     width: 100%;
     position: relative;
+   margin: .5rem;
     
   }
   .news-btn{
