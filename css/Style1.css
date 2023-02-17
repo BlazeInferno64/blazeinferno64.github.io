@@ -201,10 +201,11 @@ footer {
   .navbar li{
   display:none;
   width:50%;
-  position: ;
+  position: relative;
+  margin-right: 3rem;
   }
   .navbar li a {
-  position: fixed;
+  position: relative;
   }
   .search-btn {
     width:20%;
