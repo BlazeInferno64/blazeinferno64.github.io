@@ -200,9 +200,9 @@ footer {
   }
   .navbar li{
   display:none;
-  width:50%;
-  position: relative;
-  margin-right: 3rem;
+  width:80%;
+  position: ;
+ /* margin-right: 3rem; */
   }
   .navbar li a {
   position: fixed;
