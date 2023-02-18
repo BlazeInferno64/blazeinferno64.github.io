@@ -1110,7 +1110,7 @@ select,option a{
   }
   .navbar li{
   display:none;
-  width:80%;
+  width:50%;
   position: ;
   /* margin-right: 2.5rem; */
   }
