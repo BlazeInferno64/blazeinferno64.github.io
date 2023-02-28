@@ -1,34 +1,62 @@
-function closeProfile(){
-  document.getElementById("about-profile").style.width = "0";
-  document.getElementById("about-profile").style.display = "none";
- }
- function openAbout() {
-   document.getElementById("about-profile").style.width = "500px";
-   document.getElementById("about-profile").style.display = "block";
-   console.log("Profile opened sucessfully");
+var acc = document.getElementsByClassName("accordion");
+var i;
 
- }
-function openNav() {
-document.getElementById("mySidenav").style.height = "360px";
-document.getElementById("closebtn1").style.display ="block";
-document.getElementById("links1").style.display ="none";
-console.log("nav was successfully opened")
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+function checkOnline(){
+    const btn = document.getElementById('btn');
+    const txt = document.getElementById('online');
+    txt.innerHTML = 'Checking...'
+    btn.innerHTML = 'Checking...'
+    setTimeout(fun,3000);
+    
+    function fun(){
+
+    if(navigator.onLine == true){
+        btn.innerHTML = 'Check again';
+        txt.innerHTML = 'You are currently online';
+    }
+    else{
+        btn.innerHTML = 'Check again';
+        txt.innerHTML = 'Seems like you are currently offline, try the tester again being online ';
+    }
+}
+}
+function copy(){
+    const copy = document.getElementById('copy')
+    const code = document.getElementById('code').innerText
+    navigator.clipboard.writeText(code);
+    copy.innerText = 'Copied!';
+    console.log('Copied successfully :' +code);
+}
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
 }
 
-function closeNav() {
-document.getElementById("mySidenav").style.height = "0";
-document.getElementById("closebtn1").style.display ="none";
-document.getElementById("links1").style.display ="block";
-console.log("nav was successfully closed")
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
 }
-function exeFunc() {
- document.getElementById("mySidenav").style.height = "0";
- document.getElementById("about-profile").style.width = "0";
- document.getElementById("about-profile").style.display = "none";
- console.log("Profile hiddened sucessfully");
- myVar = setTimeout(showPage, 3000);
- 
- function setCookie(Default, value, options = {}) {
+function bufferContent(){
+  function setCookie(Default, value, options = {}) {
 
     options = {
       path: '',
@@ -54,7 +82,7 @@ function exeFunc() {
   }
   
   // Example of use:
-  setCookie('user', 'John', {secure: true, 'max-age': 3600});
+  setCookie('user', 'Visitor', {secure: true, 'max-age': 3600});
   
   function deleteCookie(Default) {
     setCookie(Default, "", {
@@ -70,134 +98,10 @@ function exeFunc() {
     ));
     return matches ? decodeURIComponent(matches[1]) : undefined;
   }
+  console.log('Welcome here @'+document.cookie);
   
 } 
-function showPage() {
-  document.getElementById("loader").style.display = "none";
-  document.getElementById("myDiv").style.display = "block";
-}
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "block";
-    }
-  });
+function showAlert(){
+  alert("Thanks for contacting, I would soon try to reach you, plss note that it might take around 24-48hours time but I would try my best to reach soon!");
 }
 
-function showAlert2() {
-  var myText = "Make sure to enter a valid email address";
-  alert (myText);
-  }
-
-  function showAlert() {
-    var myText = "Thanks for subcribing to our post we would love to hear your feedback,for more info. a verifictaion mail will be sent to your email address to verify its you";
-    alert (myText);
-  }
-  function showTime(){
-    var d = new Date();
-    var year = d.getFullYear();
-    var month = d.getMonth();
-    var date = d.getDate();
-    var day =d.getDay();
-    var hour = d.getHours();
-    var min = d.getMinutes();
-    var sec = d.getSeconds();
-
-    switch(month){
-        case 1:
-            month="January";
-            break;
-        case 2:
-            month="February";
-            break;
-        case 3:
-            month="March";
-            break;
-        case 4:
-            month="April";
-            break;
-        case 5:
-            month="May"
-            break;
-        case 6:
-            month="June"
-            break;
-        case 7:
-            month="July"
-            break;
-        case 8:
-            month="August"
-            break;
-        case 9:
-            month="September"
-            break;
-        case 10:
-            month="October"
-            break;
-        case 11:
-            month="November"
-            break;
-        case 12:
-            month="December"
-            break;
-        default:
-
-    }
-
-    switch(day){
-        case 1:
-            day="Monday";
-            break;
-        case 2:
-            day="Tuesday";
-            break;
-        case 3:
-            day="Wednesday";
-            break;
-        case 4:
-            day="Thursday";
-            break;
-        case 5:
-            day="Friday";
-            break;
-        case 6:
-            day="Saturday";
-            break;
-        case 7:
-            day="Sunday";
-            break;
-        default:   
-    }
-
-
-    //console.log("old: ", hour);
-    var MV = "AM";
-    if(hour == 12){
-        MV = "PM";
-    }
-    if(hour > 12){
-        hour = hour % 12;
-        MV = "PM";
-    }
-    //console.log("new: ", hour);
-
-    hour = ("0" + hour).slice(-2);
-    min = ("0" + min).slice(-2);
-    sec = ("0" + sec).slice(-2);
-
-    //console.log("mod: ",hour);
-
-    document.getElementById("clock").innerHTML = "<b>Date and Time is:</b> "+day+" "+date+"th "+month+" "+year+", "+hour+":"+min+":"+sec+" "+MV;
-}
-    
-setInterval(showTime,1000);
-        
-        
-        
