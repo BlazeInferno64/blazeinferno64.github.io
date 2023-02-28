@@ -121,7 +121,7 @@ input[type=checkbox]{
     border: 2px solid #ccc;
     padding: 2px 13px;
     border-radius: 6px;
-    transition: 0.3s ease;
+    transition:height 0.3s ease-in-out;
 }
 .hamburger:hover{
     background-color: #2a2b2b;
@@ -366,7 +366,7 @@ input[type=checkbox]{
    text-align: left;
    outline: none;
    font-size: 18px;
-   transition: all ease-in-out 250ms;
+   transition:height 0.3s ease-in-out;
    border-radius: 5px;
  }
  .accordion::after{
@@ -377,7 +377,7 @@ input[type=checkbox]{
  
  .active, .accordion:hover {
    background-color: #ccc; 
-   transition: all ease-in-out 250ms;
+   transition:height 0.3s ease-in-out;
  }
  .active::after{
     content: '−';
@@ -389,6 +389,7 @@ input[type=checkbox]{
    display: none;
    background-color: white;
    overflow: hidden;
+	transition:height 0.3s ease-in-out;
    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
  }
  .online-check-btn{
