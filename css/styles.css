@@ -440,6 +440,7 @@ input[type=checkbox]{
     padding: 20px 20px;
     font-size: 16px;
     border-radius: 8px;
+    overflow-x: scroll;
  }
  .linker{
     color: brown;
