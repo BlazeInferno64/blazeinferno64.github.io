@@ -22,6 +22,9 @@ input,input:active,textarea,textarea:active,select,option{
 a{
     text-decoration: none;
 }
+label{
+padding: 1em 1em
+}
 /*ul,li,p,h1,h2,h3{
     animation: flipdown 0.5s ease both
 }
