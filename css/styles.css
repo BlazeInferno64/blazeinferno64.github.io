@@ -549,6 +549,8 @@ input[type=checkbox]{
 }
 .name:hover,.email:hover,.country:hover,option:hover,textarea:hover{
     background-color: #dedede;
+     transition: 0.3s ease;
+    box-shadow: 0 12px 16px 0 hsla(157, 94%, 48%,.17),0 17px 50px 0 hsla(157, 94%, 33%,.27);
 }
 textarea{
     font-family: Verdana, Arial;
