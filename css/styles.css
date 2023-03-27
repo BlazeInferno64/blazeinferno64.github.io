@@ -16,7 +16,7 @@ body{
     font-family: 'Open Sans', sans-serif;
     transition: all 450ms ease-in-out;
 }
-input,input:active{
+input,input:active,textarea,textarea:active{
     outline: none;
 }
 a{
