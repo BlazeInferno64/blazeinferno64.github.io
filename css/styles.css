@@ -448,7 +448,8 @@ input[type=checkbox]{
     padding: 20px 20px;
     font-size: 16px;
     border-radius: 8px;
-    overflow-x: scroll;
+    width: 130px;
+    overflow: scroll;
  }
  .linker{
     color: brown;
@@ -472,8 +473,6 @@ input[type=checkbox]{
     border-radius: 8px;
     cursor: pointer;
     margin-top: .2rem;
-     overflow: scroll;
-    width: 150px;
  }
  .copy:hover{
     background-color: hsl(241, 98%, 42%);
