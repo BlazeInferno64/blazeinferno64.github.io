@@ -442,18 +442,17 @@ input[type=checkbox]{
     color: #fff;
     font-size: 15px;
  }
- code{
+ .code{
     background-color: #ecc885;
     border: 1px solid #dedede;
     padding: 20px 20px;
     font-size: 16px;
     border-radius: 8px;
-    width: 130px;
-    overflow-x: scroll;
+    overflow: auto;
         overflow-y: hidden;
         display: block;
-        line-height: 1.6em;
-        white-space: pre; 
+       /* line-height: 1.6em;*/
+        white-space: pre-line; 
         word-wrap: normal;
  }
  .linker{
