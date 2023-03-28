@@ -472,6 +472,8 @@ input[type=checkbox]{
     border-radius: 8px;
     cursor: pointer;
     margin-top: .2rem;
+     overflow: scroll;
+    width: 150px;
  }
  .copy:hover{
     background-color: hsl(241, 98%, 42%);
@@ -550,7 +552,7 @@ input[type=checkbox]{
     color: #000;
     transition: 0.3s ease;
 }
-.name:hover,.email:hover,.country:hover,option:hover,textarea:hover{
+.name:hover,.email:hover,.country:hover,option:hover,textarea:hover,input:focus,textarea:focus{
     background-color: #dedede;
      transition: 0.3s ease;
     box-shadow: 0 12px 16px 0 hsla(157, 94%, 48%,.17),0 17px 50px 0 hsla(157, 94%, 33%,.27);
