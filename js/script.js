@@ -105,3 +105,23 @@ function showAlert(){
   alert("Thanks for contacting, I would soon try to reach you, plss note that it might take around 24-48hours time but I would try my best to reach soon!");
 }
 
+/*const clicker = document.getElementById("display")
+const data = document.getElementById("data")
+
+clicker.onclick = function(){
+  data.style.display = "block";
+}*/
+
+function display(){
+  document.getElementById("data").style.display = "block";
+}
+function txt(){
+  const copy = document.getElementById('dis')
+  const code = document.getElementById('ip').innerText
+  navigator.clipboard.writeText(code);
+  copy.innerText = 'Copied!';
+  console.log('Copied successfully :' +code);
+}
+            //function display(){
+            //fetch("https://checkip.amazonaws.com/").then(res => res.text()).then(data => document.getElementById('ip').innerHTML = data)
+            //}

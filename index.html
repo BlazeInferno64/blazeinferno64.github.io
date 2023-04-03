@@ -271,6 +271,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
                 <button class="btn-left" onclick="plusDivs(-1)">&#10094;</button>
                 <button class="btn-right" onclick="plusDivs(1)">&#10095;</button>
               </div>
@@ -343,10 +344,36 @@
             </h3>
             <br>
             <br>
+            <button class="accordion">What is my Public Ip address?</button>
+<div class="panel">
+  <p>
+    The address given below is your public ip address , which is used for many purposes like - tracking your location, getting information about your device,etc .
+    <br><br><br>
+        <p class="ip" id="ip">
+
+        </p>
+    <br>
+    <br>
+    <button class="copy" id="dis" onclick="txt()">
+        <i class="fa fa-clone"></i>  Copy 
+    </button>  
+    <br>
+  <br>
+  <script>
+    /*$.getJSON("https://api.ipify.org?format=json", function(data){
+
+        //Giving out the output
+        $("#gfg").html(data.ip);
+    })*/
+    $.getJSON("https://api.ipify.org?format=json", function(data){
+        $("#ip").html(data.ip);
+    })
+    </script>
+</div>
         <button class="accordion">How to know if we have some issues with our network?</button>
 <div class="panel">
   <p>
-    If you wanna know whether you are online or not,i e, whether you have any defects with your network, then why not check it here only
+    If you wanna know whether you are online or not due to network issues,i e, whether you have any defects with your network, then why not check it here only
     click the button below and get your result 
   </p>
   <button type="submit" class="online-check-btn" id="btn" onclick="checkOnline()">
@@ -370,7 +397,7 @@
   <p>
     Yeah , I make, I also remember my Calculator app which I had designed for Android. But it isn't on Google
     Play Store yet. As, I made it for demo purpose, and about desktop application I also made a one but it was
-    programmed in batch , which I later converted it into a executable by a script.
+    programmed in python , which I later converted it into a executable by a script.
   </p>
   <br>
 </div>
@@ -390,7 +417,8 @@
   <p>
     Yeah sure the link is here-
     <a class="yt" href="https://github.com/blaizinginfernodragon123" >
-        https://github.com/blaizinginfernodragon123
+        https://github.com/blaizing
+        infernodragon123
     </a>
   </p>
   <br>
@@ -481,5 +509,8 @@
         </div>
     </footer>
     <script src="./js/script.js"></script>
+    <script src="./js/ripple.js"></script>
+    <script src="./js/jquery.min.3.2.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
 </html>
