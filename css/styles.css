@@ -774,7 +774,7 @@ textarea{
         left: 0;
         text-align: center;
         padding: 16px 0;
-        transition:all 0.3s ease-in-out;
+        transition:height 0.4s ease-in-out;
         animation: dropdown 0.5s ease-in-out;
     }
     /*@keyframes flipdown {
@@ -820,6 +820,7 @@ textarea{
     }
     input[type=checkbox]:checked ~ .menu{
         display: block;
+         transition:height 0.4s ease-in-out;
     }
     .hamburger{
         display: block;
