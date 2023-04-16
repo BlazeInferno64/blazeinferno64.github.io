@@ -431,14 +431,25 @@ input[type=checkbox]{
     0%{
         transform: translate(0%,-5%);
     }
-    50%{
+    20%{
         transform-origin: top center;
         transform: translate(0%,-3%);
     }
-    100%{
+    40%{
         transform-origin: center;
-        transform: translate(0%,0%);
+        transform: translate(0%,-1%);
     }
+     60%{
+      transform: translate(0%,0%);
+     }
+     80%{
+           transform-origin: top center;
+        transform: translate(0%,0%);
+}
+100%{
+           transform-origin: center;
+        transform: translate(0%,0%);
+}
  }
  .online-check-btn{
     padding: 12px 18px;
