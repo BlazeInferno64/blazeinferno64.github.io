@@ -22,12 +22,12 @@ function checkOnline(){
     function fun(){
 
     if(navigator.onLine == true){
-        btn.innerHTML = 'Check again';
-        txt.innerHTML = 'You are currently online';
+        btn.innerHTML = 'Check Status again';
+        txt.innerHTML = 'Status : You are currently online';
     }
     else{
-        btn.innerHTML = 'Check again';
-        txt.innerHTML = 'Seems like you are currently offline, try the tester again being online ';
+        btn.innerHTML = 'Check Status again';
+        txt.innerHTML = 'Status : Seems like you are currently offline, try the tester again after being online ';
     }
 }
 }
