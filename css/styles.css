@@ -292,7 +292,7 @@ input[type=checkbox]{
     margin-top: -.6rem;
 }
 .about-section{
-    border: 1px solid transparent;
+    border:none;
     padding: 25px 20px;
     height: 250px;
     margin-top: .5rem;
@@ -303,7 +303,7 @@ input[type=checkbox]{
 
 }
 .my-skills{
-    border: 1px solid #000;
+    border: none;
     padding: 40px 20px;
     text-align: center;
     color: #fff;
