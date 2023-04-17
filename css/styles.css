@@ -615,13 +615,14 @@ input[type=checkbox]{
     border: 1px solid transparent;
     border-radius: 8px;
     width: 30%;
-    font-size: 14px;
+    font-size: 18px;
  }
  .query{
     padding: 15px 40px;
     border: 1px solid transparent;
     border-radius: 6px;
     width: 30%;
+    font-size: 18px;
  }
  .contact-form-img{
     border: 1px solid transparent;
@@ -638,7 +639,7 @@ input[type=checkbox]{
  }
  .form-sub,.form-res{
     padding: 14px 35px;
-    font-size: 16px;
+    font-size: 18px;
     margin: .5rem;
     border: 1px solid transparent;
     border-radius: 8px;
