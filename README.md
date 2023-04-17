@@ -1,4 +1,4 @@
-# blaizinginfernodragon123.github.io-an-A.I-project
+# blaizinginfernodragon123.github.io Information 
 My own website a.k.a Homepage/Landing Page anyways you all can use it but plss don't misuse it for HARRASING/SPAMMING OR ABUSING OTHER PEOPLE IF ANY OF THIS OCCURS I ARENT RESPONSIBLE FOR ANYTHING AND SHOULDN'T BE RESPONSIBLE 
 |---------------|
 # View it here-
@@ -18,7 +18,7 @@ Meanwhile check this out-
 
 ```
 Hello everyone thanks for paying a visit 
-to this repository and to the .If you 
+to this repository .If you 
 all Have any feedback/issues/bugs 
 feel free to email me at the 
 email address provided in the 
