@@ -1,390 +1,443 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
-/*@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');*/
 ::selection{
     color: #fff;
-    background-color: rgb(77, 248, 154);
+    background: rgb(4, 172, 116);
 }
-* {
-    margin: 0;
+*{
     padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
     box-sizing: border-box;
-}    
+}
+body{
+    font-family:'Open Sans', sans-serif;
+}
 html{
     scroll-behavior: smooth;
 }
-body{
-    font-family: 'Open Sans', sans-serif;
-    transition: all 450ms ease-in-out;
+p,h3,h2,h4{
+    animation: pop 0.5s ease-in-out;
 }
-input,input:active,textarea,textarea:active,select,option,input:focus,textarea:focus {
-    outline: none;
-}
-a{
-    text-decoration: none;
-}
-label{
-padding: 1em 1em
-}
-/*ul,li,p,h1,h2,h3{
-    animation: flipdown 0.5s ease both
-}
-@keyframes flipdown {
-    0% {
-      opacity: 0;
-      transform-origin: top center;
-      transform: rotateX(-90deg);
-    }
-    5% {
-      opacity: 1;
-    }
-    80% {
-      transform: rotateX(8deg);
-    }
-    83% {
-      transform: rotateX(6deg);
-    }
-    92% {
-      transform: rotateX(-3deg);
-    }
-    100% {
-      transform-origin: top center;
-      transform: rotateX(0deg);
-    }
-  }
-  /*
-ul::after{
-    transform: translate(2px, 0) rotate(-45deg);
-}
-ul::before{
-    transform: translate(-2px, 0) rotate(-45deg);
-}*/
-li{
-    list-style: none;
-}
-.navbar{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    background-color: black;
-    color: #fff;
+header{
     position: sticky;
     top: 0;
-    transition: 0.3s ease;
-    opacity: 1;
 }
-.nav-links a{
+nav{
+    background: #000;
+    height: 80px;
+    width: 100%;
+   /* color: #fff;*/
+}
+label.logo{
     color: #fff;
-}
-.logo{
-    font-size: 32px;
-}
-.menu{
-    display: inline-block;
-    gap: 1em;
-    font-size: 18px;
-}
-.menu li{
-    padding: 5px 14px;
-    display: inline-block;
-    transition: all 0.25s ease-in-out;
-    animation: flipdown 0.5s ease-in-out;
-}
-
-@keyframes flipdown {
-    0%{
-        opacity: 0;
-        transform-origin: center;
-        transform: rotate(-50deg);
-    }
-    5%{
-        opacity: 1;
-    }
-    80%{
-        transform: rotate(8deg);
-    }
-    92%{
-        transform: rotate(-3deg);
-    }
-    100%{
-        transform-origin: top center;
-        transform: rotate(0deg);
-    }
-}
-.menu li:hover{
-    background-color: #2a2b2b;
-    border-radius: 5px;
-    transition: 0.3s ease;
-}
-.support{
-    position: relative;
-}
-.dropdown{
-    background-color: #000;
-    padding: 1em 0;
-    position: absolute;
-    display: none;
-    border-radius: 8px;
-    top: 35px;
-}
-.dropdown li + li{
-    margin-top: 10px;
-}
-.dropdown li{
-    padding: 0.5em 1em;
-    width: 8em;
-    text-align: center;
-}
-.dropdown li:hover{
-    background-color: #2a2b2b;
-}
-.support:hover + .dropdown{
-    display: block;
-}
-input[type=checkbox]{
-    display: none;
-}
-.hamburger{
-    display: none;
-    font-size: 24px;
-    user-select: none;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 50px;
+    font-weight: bold;
+    transition: all .5s;
     cursor: pointer;
-    border: 2px solid #ccc;
-    padding: 2px 13px;
-    border-radius: 6px;
-    transition:all 0.3s ease-in-out;
 }
-.hamburger:hover{
-    background-color: #2a2b2b;
-    transition: 0.3s ease;
+nav ul{
+    float: right;
+    margin-right: 20px;
 }
-.hamburger:active{
-    border: 2px solid #4c9e9e;
-    transition: 0.3s ease;
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
 }
-.welcome-section{
-    text-align: center;
-    border: 1px solid ;
-    padding-top: 10rem;
-    height: 480px;
-	background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../img/beautiful-gradient-spring-landscape_23-2148448598.avif);
-}
-.span{
+nav ul li a{
     color: #fff;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 10px 13px;
+    border-radius: 3px;
 }
-.welcome-text{
-   color: #4c9e9e; 
-   font-size: 35px;
+a.active,nav ul li a:hover{
+    background: #46494b;
+    transition: .5s;
+    color: aqua;
+}
+.checkbtn{
+    font-size: 30px;
+    color: #fff;
+    float: right;
+    line-height: 80px;
+    margin-right: 20px;
+    display: none;
+    cursor: pointer;
+    transition: all .5s;
+}
+.checkbtn:hover{
+    color: rgb(187, 185, 183);
+}
+label.logo:hover{
+    color: rgb(187, 185, 183);
+}
+#check{
+    display: none;
+}
+.welcome{
+    border: 1px solid none;
+    height: 470px;
+    color: #fff;
+    text-align: center;
+    padding: 10rem 1rem;
+    font-size: 1.7rem;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),url(../img/beautiful-gradient-spring-landscape_23-2148448598.avif) top center;;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 .welcome-btn{
-    color: #000;
-    padding: 20px 40px;
-    background-color: hsl(157, 95%, 38%);
-    border: 3px solid transparent;
-    font-size: 20px;
-    border-radius: 8px;
+    margin-top: 1rem;
+    padding: 1.5rem 3.3rem;
+    border: none;
+    font-size: 1.2rem;
+    position: static;
     cursor: pointer;
-    margin-top: 2rem;
-    transition: 0.3s ease;
+    color: #fff;
+    background: linear-gradient(90deg,rgb(4, 150, 77),60%,rgb(0, 153, 255));
+    border-radius: .7rem;
+    transition: all .7s;
+    animation: ripple 1.5s linear infinite;
+    box-shadow: 0 0 0 0 rgba(51,217,178,0.7);
 }
 .welcome-btn:hover{
-    background-color: hsl(157, 94%, 33%);
-    border: 3px solid transparent;
-    color: black;
-    transition: 0.3s ease;
-    box-shadow: 0 12px 16px 0 hsla(157, 94%, 48%,.17),0 17px 50px 0 hsla(157, 94%, 33%,.27);
+    transform: scale(0.9);
 }
-.welcome-btn:active{
-    border: 3px solid hsl(157, 95%, 38%);
-    border-radius: 8px;
-    transition: 0.3s ease;
-}
-.welcome-btn::after{
-    content: '\00bb';
-    color: transparent;
-    font-size: 24px;
-    transition: 0.3s ease;
-}
-.welcome-btn::before{
-    content: '\00bb';
-    color: #000;
-    font-size: 24px;
-}
-.welcome-btn:hover::after{
-    content: '\00bb';
-    font-size: 24px;
-    color: #000;
-    transition: 0.3s ease;
-    transition-duration: 250ms;
-}
-.welcome-btn:hover:before{
-    content: '';
-    font-size: 24px;
-    color: #000;
-    transition: 0.3s ease;
-    transition-duration: 250ms;
-}
-.footer{
-    text-align: center;
+.welcome-btn a:hover{
+    background: none;
     color: #fff;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../img/beautiful-gradient-spring-landscape_23-2148448598.avif);
-    padding: 30px 0px;
 }
-.footer-text{
-    font-size: 20px;
-    border-bottom: 1px solid inherit;
-    
+.fa-times,.fa-bars{
+    border: none;
+    padding: .7rem;
 }
-.news-input{
-    padding: 12px 12px;
-    border: 1px solid transparent;
-    font-size: 19px;
-    border-radius: 8px;
-    transition: 0.3s ease;
-}
-.news-input:hover{
-    background-color: #dedede;
-    transition: 0.3s ease;
-    box-shadow: 0 12px 16px 0 hsla(157, 94%, 48%,.17),0 17px 50px 0 hsla(157, 94%, 33%,.27);
-}
-.news-btn{
-    padding: 12px 10px;
-    font-size: 20px;
-    border: 1px solid transparent;
-    border-radius: 6px;
-    background-color: hsl(180, 100%, 25%);
+a{
     color: #fff;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-.news-btn:hover{
-    background-color: hsl(180, 100%, 25%);
-    color: black;
-    transition: 0.3s ease;
-    box-shadow: 0 12px 16px 0 hsla(157, 94%, 48%,.17),0 17px 50px 0 hsla(157, 94%, 33%,.27);
-}
-.news-btn:active{
-    border: 1px solid #4c9e9e;
-    border-radius: 8px;
-    transition: 0.3s ease;
-}
-.news-btn::after{
-    content: '\00bb';
-    color: #fff;
-    font-size: 20px;
-    transition: 0.3s ease;
-}
-.news-btn:hover::after{
-    content: '\00bb';
-    font-size: 20px;
-    color: #000;
-    transition: 0.3s ease;
 }
 .link{
-    color: #4c9e9e;
+    transition: all .5s;
 }
 .link:hover{
-    color: hsl(180, 35%, 56%);
-    text-decoration:underline;
+    background: none;
+    padding: 0;
+    color: rgb(187, 185, 183);
 }
-.content{
-    text-align: center;
-    margin-top: -.6rem;
+.img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    top: 13px;
 }
-.about-section{
-    border:none;
-    padding: 25px 20px;
-    height: 250px;
-    margin-top: .5rem;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../img/bg2.jpg);
-}
-.about-text{
-    font-size: 20px;
-
-}
-.my-skills{
+.footer{
     border: none;
-    padding: 40px 20px;
-    text-align: center;
     color: #fff;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../img/hand-drawn-flat-design-mountain-landscape_23-2149158786.avif);
-}
-.html-skills{
-    padding: 23px 20px;
-    border: 8px solid rgb(238, 89, 3);
-    width: 90px;
-    height: 90px;
-    display: inline-block;
-    border-radius: 100px;
-    font-size: 20px;
-    padding-left: 10px;
-    padding-bottom: 20px;
-}
-.css-skills{
-    padding: 23px 20px;
-    padding: 23px 20px;
-    border: 8px solid rgb(4, 149, 206);
-    width: 90px;
-    height: 90px;
-    display: inline-block;
-    border-radius: 100px;
-    font-size: 20px;
-    padding-left: 10px;
-    padding-bottom: 20px;
-}
-.js-skills{
-    padding: 23px 20px;
-    border: 8px solid rgb(206, 152, 4);
-    width: 90px;
-    height: 90px;
-    display: inline-block;
-    border-radius: 100px;
-    font-size: 20px;
-    padding-left: 10px;
-    padding-bottom: 20px;
-}
-.skills-list li{
-    display: inline-block;
-    padding: 10px 0px;
-    padding-right: 15px;
-    font-size: 20px;
-}
-.padd{
-   gap: 20px;
-}
-.html{
-    color: rgb(238, 89, 3);
-}
-.css{
-    color: rgb(4, 149, 206);;
-}
-.js{
-    color:rgb(206, 152, 4);
-}
-.html-skills,.js-skills,.css-skills{
-    margin-right: .7rem;
-}
-.html,.js,.css{
-    margin-right: .7rem;
-    
-}
-.my-skills h3{
-    font-size: 27px;
+    text-align: center;
+    padding: 2rem 2rem 1rem;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),url(../img/beautiful-gradient-spring-landscape_23-2148448598.avif) top center;;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 .foot-links li{
     display: inline-block;
+    transition: all .5s;
+    margin-top: .8rem;
+    margin-bottom: .8rem;
 }
-.foot-links a{
-    color: hsl(180, 35%, 46%);
-    padding: 20px 20px;
-    font-size: 18px;
+.foot-links li a{
+    color: rgb(2, 202, 202);
+    padding: 1rem .7rem;
+    background: transparent;
+    transition: all .5s;
+    border-radius: .7rem;
+    border: 1px solid transparent;
 }
-.foot-links a:hover{
-    color: hsl(180, 35%, 56%);
+.foot-links li a:hover{
+    background: rgba(5, 96, 112, 0.171);
+    border: 1px solid rgb(2, 190, 190);
+    border-radius: .7rem;
+}
+.foot-links li a::before{
+    content: '\00bb';
+}
+.border{
+    border-top: 1px solid rgb(0, 163, 163);
+    padding: 20px;
+    width: 100%;
+}
+.git{
+    color: rgb(3, 150, 150);
+    transition: all .5s;
+}
+.git:hover{
+    padding: 0;
+    background: none;
+    color: rgb(7, 194, 194);
     text-decoration: underline;
 }
-.foot-links a::before{
-    content: '\00bb';
+.news-input{
+    padding: .7rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+    border-radius: .7rem;
+    transition: all .5s;
+}
+.news-input:focus{
+    box-shadow: 0 12px 16px 0 hsla(157, 94%, 48%,.17),0 17px 50px 0 hsla(157, 94%, 33%,.27);
+}
+.news-input:hover{
+    background: #dedede;
+    box-shadow: 0 12px 16px 0 hsla(157, 94%, 48%,.17),0 17px 50px 0 hsla(157, 94%, 33%,.27);
+}
+.news-btn{
+    padding: .7rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+    border-radius: .7rem;
+    cursor: pointer;
+    transition: all .5s;
+    background: linear-gradient(90deg,rgb(4, 150, 77),60%,rgb(0, 153, 255));
+    color: #fff;
+}
+.news-btn:hover{
+    transform: scale(0.9);
+    box-shadow: 0 12px 16px 0 hsla(157, 94%, 48%,.17),0 17px 50px 0 hsla(157, 94%, 33%,.27);
+}
+.news{
+    border-bottom: 1px solid rgb(12, 147, 165);
+    padding: 2rem;
+}
+@keyframes ripple {
+    0%{
+        box-shadow: 0px 0px 10px 10px rgba(51,217,178,0.7) 100px 100px 10px 80px rgba(51,217,178,0.7);
+    }
+    70%{
+        box-shadow: 0px 0px 25px 25px rgba(51,217,178,0);
+    }
+    100%{
+        box-shadow: 0px 0px 10px 10px rgba(51,217,178,0);
+    }
+}
+.casual{
+    color: rgb(12, 147, 165);
+}
+.casual:hover{
+    background: none;
+    color: rgb(12, 147, 165);
+    padding: 0;
+}
+.about{
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),url(../img/bg2.jpg) top center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.bio{
+    border: none;
+    padding: 2rem;
+    border-radius: .7rem;
+    color: #fff;
+    width: 500px;
+    box-shadow: 0 12px 16px 0 hsla(157, 94%, 48%,.17),0 17px 50px 0 hsla(157, 94%, 33%,.27);
+    border: 1px solid rgb(2, 190, 190);
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),url(../img/bg2.jpg);
+    text-align: center;
+}
+.bio-head{
+    background: #46494b;
+    color: rgb(1, 187, 187);
+    padding: 1rem;
+    border-radius: .7rem;
+}
+.demo{
+    text-align: center;
+    padding: 1rem 1rem;
+    color: #fff;
+    font-size: 1.3rem;
+    background: linear-gradient(90deg,rgb(3, 179, 91),60%,rgb(0, 153, 255));
+}
+.position{
+    align-items: center;
+    justify-content: center;
+}
+@keyframes pop {
+    0%{
+        transform: scale(0);
+        opacity: 0;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.info{
+        padding: 18px 10px;
+        word-spacing: 2px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background: #0009;
+        height: 10px;
+        margin-top: .8rem;
+        font-size: 1.3rem;
+        border-top-right-radius: .6rem;
+        border-top-left-radius: .6rem;
+        animation: pop 0.5s ease-in-out;
+}
+.position{
+    padding: 0 20rem;
+}
+.code{
+    width: 100%;
+    height: 50%;
+    background: #1f1f1f;
+    color: #fff;
+    padding: 13px 20px;
+    border: 0;
+    outline: 0;
+    overflow: auto;
+    overflow-y: hidden;
+    font-family: monospace;
+    font-size: 18px;
+    white-space:nowrap ;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    animation: pop 0.5s ease-in-out;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.green{
+    color: rgb(3, 209, 157);
+    text-decoration: underline;
+}
+.green1{
+    color: rgb(5, 240, 150);
+    text-decoration: none;
+}
+.red{
+    color: rgb(253, 51, 95);
+}
+hr{
+    border: 1px solid rgb(4, 153, 121);
+}
+.yellow{
+    color: rgb(209, 209, 2);
+}
+.orange{
+    color: orange;
+}
+.copy{
+    margin-top: 1.2rem;
+    padding: .7rem 2rem;
+    border: none;
+    border-radius: .7rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background:#0f31c9 ;
+    color: #fff;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    transition: all .5s;
+}
+.copy:hover{
+    transform: scale(0.9);
+    box-shadow: 0 12px 16px 0 rgba(12, 10, 139, 0.24),0 17px 50px 0 rgba(25, 6, 196, 0.19);
+}
+.contact{
+    text-align: center;
+    padding: 2rem 30rem;
+    font-size: 1.3rem;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),url(../img/hand-drawn-flat-design-mountain-landscape_23-2149158786.avif) top center;
+    color: #fff;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.name,.email,.country,.query{
+    padding: .8rem 2.5rem;
+    width: 100%;
+    border: none;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    outline: none;
+    font-size: 1.1rem;
+    transition: all .5s;
+    animation: pop 0.5s ease-in-out;
+}
+.form-sub,.form-res{
+    padding: .7rem 3rem;
+    border: none;
+    border-radius: .6rem;
+    font-size: 1.1rem;
+    margin-top: .7rem;
+    cursor: pointer;
+    transition: all .5s;
+    color: #fff;
+}
+.name:hover,.query:hover,.email:hover,.country:hover{
+    background: #dedede;
+    box-shadow: 0 12px 16px 0 hsla(157, 94%, 48%,.17),0 17px 50px 0 hsla(157, 94%, 33%,.27);
+}
+input:focus,.query:focus,.select:focus{
+    box-shadow: 0 12px 16px 0 hsla(157, 94%, 48%,.17),0 17px 50px 0 hsla(157, 94%, 33%,.27);
+}
+.query{
+    font-family: 'Open Sans',sans-serif;
+}
+.fname,.lname,.text,.mail,.select{
+    padding: 18px 10px;
+    word-spacing: 2px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    height: 10px;
+    margin-top: .8rem;
+    font-size: 1.3rem;
+    border-top-right-radius: .6rem;
+    border-top-left-radius: .6rem;
+    animation: pop 0.5s ease-in-out;
+}
+.form-sub{
+    background: linear-gradient(90deg,rgb(12, 190, 101),60%,rgb(0, 183, 255));
+}
+.form-res{
+    background: linear-gradient(90deg,rgb(201, 9, 50),60%,rgb(255, 145, 0));
+}
+.form-sub:hover{
+    animation: ripple 1.5s linear infinite;
+    box-shadow: 0 12px 16px 0 hsla(157, 94%, 48%,.17),0 17px 50px 0 hsla(157, 94%, 33%,.27);
+}
+.form-res:hover{
+    animation: ripple 1.5s linear infinite;
+    box-shadow: 0 12px 16px 0 rgba(237, 80, 7, 0.17),0 17px 50px 0 rgba(196, 7, 32, 0.27);
+}
+.form-res:hover,.form-sub:hover{
+    transform: scale(0.90);
+}
+.faqs-only{
+    padding: 2rem 3rem 2rem;
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),url(../img/bg.jpg) top center;;
+    background-repeat: no-repeat;
+    color: #fff;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.faqs-only h3{
+    font-size: 1.7rem;
 }
 .accordion {
     position: static;
@@ -400,6 +453,7 @@ input[type=checkbox]{
    transition:all 0.3s ease-in-out;
    border-radius: 5px;
    overflow: auto;
+   color: #000;
  }
  .accordion::after{
     content: '+';
@@ -407,11 +461,11 @@ input[type=checkbox]{
     font-size: 18px;
  }
  
- .active, .accordion:hover {
+ .active1, .accordion:hover {
    background-color: #ccc; 
    transition:all 0.3s ease-in-out;
  }
- .active::after{
+ .active1::after{
     content: '−';
     font-size: 18px;
  }
@@ -421,463 +475,120 @@ input[type=checkbox]{
    display: none;
    background-color: white;
    overflow: hidden;
+   color: #000;
    border-bottom-left-radius: 5px;
    border-bottom-right-radius: 5px; 
-   transition:height 0.3s ease-in-out;
-   animation: drop 0.3s ease-in-out;
+   transition:all 0.3s ease-in-out;
+   animation: drop 0.5s ease-in-out;
    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
  }
  @keyframes drop {
     0%{
-        transform: translate(0%,-5%);
+        transform: translate(0%,-30%);
     }
-    20%{
-        transform-origin: top center;
-        transform: translate(0%,-3%);
-    }
-    40%{
-        transform-origin: center;
-        transform: translate(0%,-1%);
-    }
-     60%{
-      transform: translate(0%,0%);
-     }
-     80%{
-           transform-origin: top center;
+    100%{
         transform: translate(0%,0%);
-}
-100%{
-           transform-origin: center;
-        transform: translate(0%,0%);
-}
+    }
  }
  .online-check-btn{
-    padding: 12px 18px;
-    border: 1px solid transparent;
-    background-color: hsl(150, 94%, 41%);
-    border-radius: 8px;
-    font-size: 18px;
-    margin-bottom: .5rem;
+    padding: .7rem 1rem;
+    font-size: 1.2rem;
     margin-top: .5rem;
+    border: none;
     color: #fff;
+    border-radius: .8rem;
+    background: rgb(8, 158, 101);
+    transition: all .5s;
     cursor: pointer;
- }
- .online-check-btn:hover{
-    background-color: hsl(150, 94%, 31%);
-    box-shadow: 0 12px 16px 0 rgba(7, 237, 149, 0.123),0 17px 50px 0 hsla(157, 94%, 33%,.27);
- }
- .online-check-btn,.online{
-    display: inline-block;
  }
  .online-check-btn::before{
     content: '\00bb';
-    padding: 0px 5px;
+    padding-right: 3px;
  }
- .faqs{
-    border: none;
-    padding: 40px 10px;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../img/hand-drawn-flat-design-mountain-landscape_23-2149158786.avif);
- }
- .faqs h2{
-    color: #fff;
-    font-size: 30px;
- }
- .yt{
-    text-decoration: none;
-    color: rgb(245, 83, 83);
- }
- .yt:hover{
-    text-decoration: underline;
- }
- .sub-head{
-    color: #fff;
-    font-size: 15px;
- }
-         /* Adding styles to button */
-         .btn {
-        	padding: 12px 50px;
-        	border: none;
-        	border-radius: 5px;
-        	background-color: #1abc9c;
-        	color: #fff;
-        	font-size: 18px;
-        	outline: none;
-        	cursor: pointer;
-        
-        	/* We need this to position
-        		span inside button */
-        	position: relative;
-        	overflow: hidden;
-        	box-shadow: 6px 7px 40px -4px
-        			rgba(0, 0, 0, 0.2);
-        }
-        .btn span {
-            	position: absolute;
-            	border-radius: 50%;
-            	/* To make it round */
-            	background-color: rgba(0, 0, 0, 0.3);
-            
-            	width: 100px;
-            	height: 100px;
-            	margin-top: -50px;
-            	/* for positioning */
-            	margin-left: -50px;
-            
-            	animation: ripple 1s;
-            	opacity: 0;
-            }
-            
-            /* Add animation */
-            @keyframes ripple {
-            	from {
-            		opacity: 1;
-            		transform: scale(0);
-            	}
-            
-            	to {
-            		opacity: 0;
-            		transform: scale(10);
-            	}
-            }
- .ip{
-    background-color: #ffca96;
-    border: 1px solid #dedede;
-    color: rgb(136, 41, 41);
-    padding: 10px 10px;
-    font-size: 16px;
-    padding-bottom: 25px;
-    width: auto;
-    font-family: monospace;
-    border-radius: 8px;
-    overflow: auto;
-        overflow-y: hidden;
-        display: block;
-       /* line-height: 1.6em;*/
-        white-space: pre-line; 
-        word-wrap: normal;
- }
- .code{
-    background-color: #ecc885;
-    border: 1px solid #dedede;
-    padding: 20px 20px;
-    font-size: 16px;
-    border-radius: 8px;
-    overflow: auto;
-    font-family: monospace;
-        overflow-y: hidden;
-        display: block;
-       /* line-height: 1.6em;*/
-        white-space: pre-line; 
-        word-wrap: normal;
- }
- .linker{
-    color: brown;
- }
- .lt-gt{
-    color: rgb(255, 60, 0);
- }
- .href{
-    color: green;
-    text-decoration: underline;
- }
- .lnk-txt{
-    color: firebrick;
- }
- .copy{
-    padding: 10px 13px;
-    border: 1px solid transparent;
-    background-color: hsl(241, 98%, 62%);
-    color: #fff;
-    font-size: 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: .1rem;
-    transition: 0.4s ease-in-out;
- }
- .copy:hover{
-    background-color: hsl(241, 98%, 42%);
-    box-shadow: 0 12px 16px 0 rgba(7, 183, 237, 0.123),0 17px 50px 0 rgba(5, 73, 163, 0.27);
-
- }
- .contact{
-    text-align: center;
-    padding: 20px 20px;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../img/beautiful-gradient-spring-landscape_23-2148448598.avif);
- }
- label{
-    color: #fff;
-    padding: 10px 5px;
-    font-size: 18px;
- }
- 
- .name,.email,.country,option{
-    padding: 15px 40px;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    width: 30%;
-    font-size: 18px;
- }
- .query{
-    padding: 15px 40px;
-    border: 1px solid transparent;
-    border-radius: 6px;
-    width: 30%;
-    font-size: 18px;
+ .online-check-btn:hover{
+    box-shadow: 0 12px 16px 0 rgba(8, 197, 65, 0.24),0 17px 50px 0 rgba(9, 179, 136, 0.19);
  }
  .contact-form-img{
     border: 1px solid transparent;
     border-radius: 12px;
-    padding: 2px 2px;
     height: 250px;
-    width: 400px;
+    width: 100%;
     object-fit: cover;
  }
- .hed{
-    font-size: 23px;
-    color: #fff;
-    padding-bottom: 10px;
+ .panel a{
+    color: hsl(347, 100%, 50%);
  }
- .form-sub,.form-res{
-    padding: 14px 35px;
-    font-size: 18px;
-    margin: .5rem;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    cursor: pointer;
+ .panel a:hover{
+    color: hsl(347, 100%, 40%);
+    text-decoration: underline;
  }
- .form-sub{
-    background-color: hsl(147, 88%, 38%);
-    color: #fff;
-    transition: 0.3s ease;
+ .casual:hover{
+    text-decoration: underline;
  }
- .form-res{
-    background-color: hsl(12, 76%, 36%);
-    color: #fff;
- }
- .form-sub::before{
-    content: '\00bb';
-    padding: 5px 5px;
- }
- .form-res::before{
-    content: '\00bb';
-    padding: 5px 5px;
- }
- .form-sub:hover{
-    background-color: hsl(147, 88%, 42%);
-    box-shadow: 0 12px 16px 0 hsla(157, 94%, 48%,.17),0 17px 50px 0 hsla(157, 94%, 33%,.27);
-    color: #000;
-    transition: 0.3s ease;
-}
-.form-res:hover{
-    background-color: hsl(12, 76%, 39%);
-    box-shadow: 0 12px 16px 0 rgba(237, 72, 7, 0.17),0 17px 50px 0 rgba(163, 42, 5, 0.27);
-    color: #000;
-    transition: 0.3s ease;
-}
-.name:hover,.email:hover,.country:hover,option:hover,textarea:hover,input:focus,textarea:focus{
-    background-color: #dedede;
-     transition: 0.3s ease;
-    box-shadow: 0 12px 16px 0 hsla(157, 94%, 48%,.17),0 17px 50px 0 hsla(157, 94%, 33%,.27);
-}
-textarea{
-    font-family: Verdana, Arial;
-}
-.my-repos{
-    padding: 20px 20px;
-    border: 1px solid transparent;
-    transition: 0.3s ease;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../img/hand-drawn-flat-design-mountain-landscape_23-2149158786.avif);
-}
-.btn-left,.btn-right{
-    padding: 8px 8px;
-    font-size: 19px;
-    height: 60px;
-    width: 70px;
-    border: 1px solid transparent;
-    border-radius: 18rem;
-    background-color: #969b9b;
-    color: #000;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-.btn-left:hover,.btn-right:hover{
-    background-color: #cecfcf;
-    color: #000;
-    transition: 0.3s ease;
-}
-.btn-left:active,.btn-right:active{
-    background-color: #8a9eb6;
-    border: 3px solid #444;
-    transition: 0.3s ease;
-}
-.my-repos h3{
-    font-size: 28px;
-    color: #fff;
-    transition: 0.3s ease;
-    margin-bottom: .6rem;
-}
-.mySlides{
-    text-align: center;
-    border: .1px light transparent;
-    height: 300px;
-    width: 300px;
-    border-radius: 12px;
-    transition: 0.3s ease;
-}
-.yt-dwn{
-    color: #000;
-    border: .1px solid #858483;
-    padding: 40px 20px;
-    background-color: #eee;
-    border-radius: 8px;
-}
-.yt-dwn h3{
-    color: #000;
-}
- @media(max-width: 350px){
-    .about-section{
-        height: 500px;
+@media (max-width:952px) {
+    label.logo{
+        font-size: 30px;
+        padding-left: 50px;
     }
-
- }
- @media(min-width: 360px){
-    .foot-links a{
-        padding: 20px 12px;
-    }
-    .footer{
-        height: 510px;
-    }
-
-}
-@media(min-width: 392px){
-    .foot-links a{
-        padding: 20px 15px;
-    }
-
-
-}
-@media(min-width: 700px){
-    .menu li{
-        display: inline-block;
-    }
-    .footer{
-        height: 350px;
-    }
-    .contact-form-img{
-        margin-left: 14rem;
-    }
-    .mySlides{
-        width: 50%;
-        margin-left: 20rem;
-    }
-    .my-repos{
-        padding: 20px 50px;
-    }
-    .btn-left,.btn-right{
-        margin-top: none;
+    nav ul li a{
+        font-size: 16px;
     }
 }
-@media(max-width: 768px){
+@media (max-width:858px){
+    .checkbtn{
+        display: block;
+    }
     .menu{
-        display: none;
-        position: absolute;
-        background-color: #000;
-        right: 0;
-        left: 0;
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background-color: #161313;
+        top: 80px;
+        left: -100%;
         text-align: center;
-        padding: 16px 0;
-        transition:height 0.4s ease-in-out;
-        animation: dropdown 0.5s ease-in-out;
+        transition: all .5s;
+        opacity: 0.95;
     }
-    /*@keyframes flipdown {
-        0%{
-            opacity: 0;
-            transform-origin: center;
-            transform: rotate(-50deg);
-        }
-        5%{
-            opacity: 1;
-        }
-        80%{
-            transform: rotate(8deg);
-        }
-        92%{
-            transform: rotate(-3deg);
-        }
-        100%{
-            transform-origin: top center;
-            transform: rotate(0deg);
-        }
-    }*/
-    @keyframes dropdown {
-        0%{
-            transform: translate(0%,-50%);
-        }
-        50%{
-            transform-origin: top center;
-            transform: translate(0%,15%);
-        }
-        100%{
-            transform-origin: center;
-            transform: translateZ(30%);
-        }
-    }
-    .menu li:hover{
-        display: inline-block;
-        background-color: #2a2b2b;
-        transition:all 0.3s ease-in-out;
-    }
-    .menu li + li{
-        margin-top: 12px;
-    }
-    input[type=checkbox]:checked ~ .menu{
+    nav ul li{
         display: block;
-         transition:height 0.4s ease-in-out;
+        margin: 50px 0;
+        line-height: 30px;
     }
-    .hamburger{
-        display: block;
+    nav ul li a{
+        font-size: 20px;
     }
-    .dropdown{
-        left: 50%;
-        top: 30px;
-        transform: translateX(35%);
+    nav ul li a:hover,a.active{
+        background: rgb(99, 98, 98);
+        color: aqua;
+        padding: 1rem 5rem;
     }
-    .dropdown li:hover{
-        background-color: #4c9e9e;
+    #check:checked ~ .menu{
+        left: 0;
     }
-    .footer{
-        height: 490px;
+    label.logo{
+        padding: 0 20px;
     }
-    .news-btn,.news-input{
-        margin-top: .5rem;
+    .img{
+        position: relative;
+        top: 15px;
     }
-    .news-btn{
-        padding: 12px 50px;
-    }
-    .about-section{
-        height: 430px;
-    }
-    code{
-        font-size: 13px;
-        padding: 10px 13px;
-        overflow: hidden;
-
-    }
-    .name,.email,.country,option,.query{
-        width: 80%;
-    }
-    .contact-form-img{
+    .news-input,.news-btn{
         width: 100%;
-        height: 100%;
+        margin-top: .7rem;
     }
-    .form-sub,.form-res{
-        width: 80%;
+    .position{
+        padding: 0;
     }
-    .mySlides{
+    .welcome-btn a:hover{
+        background: none;
+        color: #fff;
+        padding: 0;
+    }
+    .contact{
+        padding: 2rem 3rem;
+    }
+    .form-res,.form-sub{
         width: 100%;
-        height: 100%;
-    }
-    .btn-left,.btn-right{
-        margin-top: 5%;
+        margin-top: .6rem;
     }
 }
