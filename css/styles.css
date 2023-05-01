@@ -511,9 +511,10 @@ input:focus,.query:focus,.select:focus{
  .contact-form-img{
     border: 1px solid transparent;
     border-radius: 12px;
-    height: 250px;
+    height: 230px;
     width: 100%;
     object-fit: cover;
+    padding 12px 12px;
  }
  .panel a{
     color: hsl(347, 100%, 50%);
