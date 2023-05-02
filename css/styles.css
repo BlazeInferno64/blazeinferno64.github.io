@@ -266,7 +266,10 @@ a{
     padding: 1rem 1rem;
     color: #fff;
     font-size: 1.3rem;
-    background: linear-gradient(90deg,rgb(3, 179, 91),60%,rgb(0, 153, 255));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background: linear-gradient(90deg,rgb(3, 179, 91),60%,rgb(0, 153, 255)) top center;
 }
 .position{
     align-items: center;
