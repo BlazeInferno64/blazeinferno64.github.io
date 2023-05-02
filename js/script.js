@@ -141,3 +141,12 @@ function showDivs(n) {
     console.log('Welcome here @'+document.cookie);
     
   }
+function copyCode7(c){
+    const btn = document.getElementById("copy-btn7");
+    const code = document.getElementById("code7");
+
+    navigator.clipboard.writeText(code.innerText);
+    btn.innerText = "Copied!";
+    console.table(c);
+    console.log(`Successfully copied ${code.innerText} to clipboard`);
+}
