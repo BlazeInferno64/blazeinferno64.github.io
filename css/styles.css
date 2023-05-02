@@ -305,7 +305,7 @@ a{
     height: 50%;
     background: #1f1f1f;
     color: #fff;
-    padding: 13px 20px;
+    padding: 18px 20px;
     border: 0;
     outline: 0;
     overflow: auto;
@@ -428,7 +428,7 @@ input:focus,.query:focus,.select:focus{
     transform: scale(0.90);
 }
 .faqs-only{
-    padding: 2rem 3rem 2rem;
+    padding: 2rem 1.8rem 2rem;
     text-align: center;
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),url(../img/bg.jpg) top center;;
     background-repeat: no-repeat;
