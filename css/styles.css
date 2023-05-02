@@ -331,7 +331,7 @@ a{
     font-family: monospace;
     font-size: 18px;
     text-align: start;
-    white-space:pre-line ;
+    white-space:pre;
     border-bottom-right-radius: 1rem;
     border-bottom-left-radius: 1rem;
     animation: pop 0.5s ease-in-out;
