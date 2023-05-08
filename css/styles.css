@@ -588,6 +588,9 @@ input:focus,.query:focus,.select:focus{
     #check:checked ~ .menu{
         left: 0;
     }
+    #check:checked ~ .checkbtn{
+        transform: rotate(45deg);
+    }
     label.logo{
         padding: 0 20px;
     }
