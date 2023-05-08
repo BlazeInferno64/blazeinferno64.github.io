@@ -588,8 +588,11 @@ input:focus,.query:focus,.select:focus{
     #check:checked ~ .menu{
         left: 0;
     }
-    #check:checked ~ .checkbtn{
-        transform: rotate(45deg);
+    #check:checked ~ .fa-times{
+        transform: translate(-50%, -50%) rotate(180deg);
+    }
+    #check:checked ~ .fa-bars{
+        transform: translate(-50%, -50%) rotate(180deg);
     }
     label.logo{
         padding: 0 20px;
