@@ -485,7 +485,7 @@ input:focus,.query:focus,.select:focus{
  
  .active1, .accordion:hover {
    background-color: #ccc; 
-   transition:all 0.3s ease-in-out;
+   transition:all .8s ease-in-out;
  }
  .active1::after{
     content: '−';
@@ -500,13 +500,13 @@ input:focus,.query:focus,.select:focus{
    color: #000;
    border-bottom-left-radius: 5px;
    border-bottom-right-radius: 5px; 
-   transition:all 0.3s ease-in-out;
+   transition:all .8s;
    animation: drop 0.5s ease-in-out;
    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
  }
  @keyframes drop {
     0%{
-        transform: translate(0%,-30%);
+        transform: translate(0%,-10%);
     }
     100%{
         transform: translate(0%,0%);
