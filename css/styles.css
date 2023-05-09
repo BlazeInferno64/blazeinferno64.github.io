@@ -589,11 +589,42 @@ input:focus,.query:focus,.select:focus{
         left: 0;
     }
     #check:checked ~ .fa-times{
+        animation: rerotate 1s ease-in-out;
         transform: translate(-50%, -50%) rotate(180deg);
     }
+    @keyframes rotate {
+        0%{
+        translate: rotate (0deg);
+        }
+        50%{
+            translate: rotate(180deg);
+        }
+        100%{
+            translate: rotate(360deg);
+            }
+        @keyframes rerotate {
+
+        0%{
+
+        translate: rotate (0deg);
+
+        }
+
+        50%{
+
+            translate: rotate(-180deg);
+
+        }
+
+        100%{
+
+            translate: rotate(-360deg);
+
+            }
    #check:checked ~ .fa-bars{
         transform: translate(-50%, -50%) rotate(90deg);
-    }
+        animation: rotate 1s ease-in-out;
+        }
     label.logo{
         padding: 0 20px;
     }
