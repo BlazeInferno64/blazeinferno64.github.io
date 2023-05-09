@@ -588,7 +588,7 @@ input:focus,.query:focus,.select:focus{
     #check:checked ~ .menu{
         left: 0;
     }
-    #check:checked ~ .fa-times{
+   /* #check:checked ~ .fa-times{
         animation: rerotate 1s ease-in-out;
         /*transform: translate(-50%, -50%) rotate(180deg);*/
     }
@@ -624,7 +624,7 @@ input:focus,.query:focus,.select:focus{
    #check:checked ~ .fa-bars{
         /*transform: translate(-50%, -50%) rotate(90deg);*/
         animation: rotate 1s ease-in-out;
-        }
+        }*/
     label.logo{
         padding: 0 20px;
     }
