@@ -536,7 +536,7 @@ input:focus,.query:focus,.select:focus{
     height: 230px;
     width: 100%;
     object-fit: cover;
-    padding 12px 12px;
+    padding: 12px 12px;
  }
  .panel a{
     color: hsl(347, 100%, 50%);
