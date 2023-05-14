@@ -12,7 +12,7 @@
 }
 body{
     font-family:'Open Sans', sans-serif;
-    min-height: 100vh;
+   /* min-height: 100vh;*/
 }
 html{
     scroll-behavior: smooth;
