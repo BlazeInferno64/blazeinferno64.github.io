@@ -57,6 +57,33 @@
             </ul>
         </nav>
     </header>
+        <section class="maintenance">
+        <div class="notes">
+            <div class="notes-head">
+                <h3>
+                    Maintenance on 15/05/2023
+                </h3>
+                    <button class="close-nt" onclick="closePatch()">
+                        &times;
+                    </button>
+            </div>
+            <div class="patch">
+                <ul>
+                    <li>
+                        <p>
+                            Fixed some minor bugs and improved stability on 
+                            low-end devices
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="show-notes" id="informer" onclick="showPatch()">
+            <p>
+                Maintenance Information
+            </p>
+        </div>
+    </section>
     <section class="welcome">
         <span class="welcome-text">
             <h2>
@@ -412,33 +439,7 @@
                 </div>
             </div>
         </div>
-            <section class="maintenance">
-        <div class="notes">
-            <div class="notes-head">
-                <h3>
-                    Maintenance on 15/05/2023
-                </h3>
-                    <button class="close-nt" onclick="closePatch()">
-                        &times;
-                    </button>
-            </div>
-            <div class="patch">
-                <ul>
-                    <li>
-                        <p>
-                            Fixed some minor bugs and improved stability on 
-                            low-end devices
-                        </p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="show-notes" id="informer" onclick="showPatch()">
-            <p>
-                Maintenance Information
-            </p>
-        </div>
-    </section>
+
     </footer>
     <script src="./js/script.js"></script>
 </body>
