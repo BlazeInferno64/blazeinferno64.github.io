@@ -548,6 +548,67 @@ input:focus,.query:focus,.select:focus{
  .casual:hover{
     text-decoration: underline;
  }
+ .notes{
+    position: fixed;
+    top: 88%;
+    background: #2a2d2e;
+    color: #fff;
+    display: none;
+    width: 100%;
+    padding: 1rem 1rem 2rem 1rem;
+    opacity: 0.9;
+ }
+ .notes-head h3{
+    color: #3f95a0;
+ }
+ .show-notes{
+    position: fixed;
+    top: 93%;
+    background: #2a2d2e;
+    color: #25c0d4;
+    padding: 1rem 1rem 1rem 1rem;
+    opacity: 0.9;
+    display: none;
+    border-top-right-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    transition: all .5s;
+    cursor: pointer;
+ }
+ .show-notes:hover{
+    color: #25c0d4;
+    transition: all .5s;
+    text-decoration: underline;
+ }
+
+ /*.notes li{
+    list-style: initial ;
+ }*/
+ .close-nt{
+    float: right;
+    background: transparent;
+    border: 1px solid transparent;
+    color: #fff;
+    cursor: pointer;
+    font-size: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    position: fixed;
+    left: 92%;
+    bottom: 3%;
+    border-radius: .7rem;
+    transition: all .5s;
+    animation: pop 0.5s ease-in-out;
+ }
+ .patch{
+    padding-top: .5rem;
+    padding-right: 3rem;
+    padding-bottom: 1rem;
+ }
+ .close-nt:hover{
+    background: #3d4041;
+    border: 1px solid #52c2d1;
+    color: #52c2d1;
+ }
 @media (max-width:952px) {
     label.logo{
         font-size: 30px;
@@ -616,4 +677,65 @@ input:focus,.query:focus,.select:focus{
         width: 100%;
         margin-top: .6rem;
     }
+    .notes{
+        position: fixed;
+        top: 85%;
+        background: #2a2d2e;
+        color: #fff;
+        display: none;
+        width: 100%;
+        padding: 1rem 1rem 2rem 1rem;
+        opacity: 0.9;
+     }
+     .notes-head h3{
+        color: #3f95a0;
+     }
+     .show-notes{
+        position: fixed;
+        top: 93%;
+        background: #2a2d2e;
+        color: #25c0d4;
+        padding: 1rem 1rem 1rem 1rem;
+        opacity: 0.9;
+        display: none;
+        border-top-right-radius: .5rem;
+        border-bottom-right-radius: .5rem;
+        transition: all .5s;
+        cursor: pointer;
+     }
+     .show-notes:hover{
+        color: #25c0d4;
+        transition: all .5s;
+        text-decoration: underline;
+     }
+    
+     /*.notes li{
+        list-style: initial ;
+     }*/
+     .close-nt{
+        float: right;
+        background: transparent;
+        border: 1px solid transparent;
+        color: #fff;
+        cursor: pointer;
+        font-size: 2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        position: fixed;
+        left: 85%;
+        bottom: 5%;
+        border-radius: .7rem;
+        transition: all .5s;
+        animation: pop 0.5s ease-in-out;
+     }
+     .patch{
+        padding-top: .5rem;
+        padding-right: 3rem;
+        padding-bottom: 1rem;
+     }
+     .close-nt:hover{
+        background: #3d4041;
+        border: 1px solid #52c2d1;
+        color: #52c2d1;
+     }
 }
