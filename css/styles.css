@@ -548,6 +548,9 @@ input:focus,.query:focus,.select:focus{
  .casual:hover{
     text-decoration: underline;
  }
+.maintenance{
+    min-height: 100vh;
+    }
  .notes{
     position: sticky;
     top: 100%;
