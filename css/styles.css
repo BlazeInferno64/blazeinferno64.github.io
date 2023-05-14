@@ -553,7 +553,6 @@ input:focus,.query:focus,.select:focus{
     top: 88%;
     background: #2a2d2e;
     color: #fff;
-    display: none;
     width: 100%;
     padding: 1rem 1rem 2rem 1rem;
     opacity: 0.9;
