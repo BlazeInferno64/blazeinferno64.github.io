@@ -96,6 +96,15 @@ function showDivs(n) {
  }
  
  function bufferContent(){
+  const notes = document.querySelector(".notes");
+  const closeBtn = document.querySelector(".close-nt");
+
+  setTimeout(fun,1000);
+
+  function fun(){
+    notes.style.display = 'block';
+    closeBtn.style.display = 'block';
+  }
     function setCookie(Default, value, options = {}) {
   
       options = {
@@ -149,4 +158,23 @@ function copyCode7(c){
     btn.innerText = "Copied!";
     console.table(c);
     console.log(`Successfully copied ${code.innerText} to clipboard`);
+}
+function closePatch(){
+  const informer = document.getElementById("informer");
+  const closeBtn = document.querySelector(".close-nt");
+  const notes = document.querySelector(".notes");
+  
+  notes.style.display = 'none';
+  informer.style.display = 'block';
+  closeBtn.style.display = 'none'
+}
+function showPatch(){
+  const informer = document.getElementById("informer");
+  const notes = document.querySelector(".notes");
+  const closeBtn = document.querySelector(".close-nt");
+
+
+  informer.style.display = 'none';
+  notes.style.display = 'block';
+  closeBtn.style.display = 'block';
 }
