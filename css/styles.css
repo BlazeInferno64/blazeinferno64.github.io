@@ -551,6 +551,7 @@ input:focus,.query:focus,.select:focus{
  .notes{
     position: fixed;
     top: 88%;
+    bottom: 0;
     background: #2a2d2e;
     color: #fff;
     width: 100%;
@@ -679,6 +680,7 @@ input:focus,.query:focus,.select:focus{
     .notes{
         position: fixed;
         top: 85%;
+        bottom: 0;
         background: #2a2d2e;
         color: #fff;
         display: none;
