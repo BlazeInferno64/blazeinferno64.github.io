@@ -549,8 +549,8 @@ input:focus,.query:focus,.select:focus{
     text-decoration: underline;
  }
  .notes{
-    position: fixed;
-    top: 88%;
+    position: sticky;
+    top: 100%;
     background: #2a2d2e;
     color: #fff;
     width: 100%;
@@ -561,8 +561,8 @@ input:focus,.query:focus,.select:focus{
     color: #3f95a0;
  }
  .show-notes{
-    position: fixed;
-    top: 93%;
+    position: sticky;
+    top: 100%;
     background: #2a2d2e;
     color: #25c0d4;
     padding: 1rem 1rem 1rem 1rem;
@@ -678,7 +678,7 @@ input:focus,.query:focus,.select:focus{
     }
     .notes{
         position: sticky;
-        top: 85%;
+        top: 100%;
         background: #2a2d2e;
         color: #fff;
         display: none;
@@ -691,7 +691,7 @@ input:focus,.query:focus,.select:focus{
      }
      .show-notes{
         position: sticky;
-        top: 93%;
+        top: 100%;
         background: #2a2d2e;
         color: #25c0d4;
         padding: 1rem 1rem 1rem 1rem;
@@ -720,7 +720,7 @@ input:focus,.query:focus,.select:focus{
         font-size: 2rem;
         padding-left: 1rem;
         padding-right: 1rem;
-        position: sticky;
+        position: fixed;
         left: 85%;
         bottom: 5%;
         border-radius: .7rem;
