@@ -551,8 +551,8 @@ input:focus,.query:focus,.select:focus{
  }
   
  .notes{
-    position: sticky;
-    top: 100%;
+    position: fixed;
+    top: 83%;
     background: #2a2d2e;
     color: #fff;
     width: 100%;
@@ -563,8 +563,8 @@ input:focus,.query:focus,.select:focus{
     color: #3f95a0;
  }
  .show-notes{
-    position: sticky;
-    top: 100%;
+    position: fixed;
+    top: 93%;
     background: #2a2d2e;
     color: #25c0d4;
     padding: 1rem 1rem 1rem 1rem;
@@ -679,10 +679,10 @@ input:focus,.query:focus,.select:focus{
         margin-top: .6rem;
     }
     .notes{
-        position: sticky;
+        position: fixed;
         /*bottom: 100%;*/
         bottom: 100%;
-        top: 0;
+        top: 85%;
         background: #2a2d2e;
         color: #fff;
         display: none;
@@ -694,10 +694,9 @@ input:focus,.query:focus,.select:focus{
         color: #3f95a0;
      }
      .show-notes{
-        position: sticky;
+        position: fixed;
         /*bottom: 100%;*/
-         bottom: 100%;
-         top: 0;
+         top: 93%;
         background: #2a2d2e;
         color: #25c0d4;
         padding: 1rem 1rem 1rem 1rem;
