@@ -12,6 +12,7 @@
 }
 body{
     font-family:'Open Sans', sans-serif;
+    min-height: 100vh;
 }
 html{
     scroll-behavior: smooth;
@@ -549,13 +550,9 @@ input:focus,.query:focus,.select:focus{
     text-decoration: underline;
  }
   
-.maintenance{
-    position: sticky;
-    top: 100%;
-    }
  .notes{
     position: sticky;
-    bottom: 100%;
+    top: 100%;
     background: #2a2d2e;
     color: #fff;
     width: 100%;
@@ -567,7 +564,7 @@ input:focus,.query:focus,.select:focus{
  }
  .show-notes{
     position: sticky;
-    bottom: 100%;
+    top: 100%;
     background: #2a2d2e;
     color: #25c0d4;
     padding: 1rem 1rem 1rem 1rem;
@@ -684,6 +681,7 @@ input:focus,.query:focus,.select:focus{
     .notes{
         position: sticky;
         /*bottom: 100%;*/
+        top: 100%;
         background: #2a2d2e;
         color: #fff;
         display: none;
@@ -697,6 +695,7 @@ input:focus,.query:focus,.select:focus{
      .show-notes{
         position: sticky;
         /*bottom: 100%;*/
+         top: 100%;
         background: #2a2d2e;
         color: #25c0d4;
         padding: 1rem 1rem 1rem 1rem;
