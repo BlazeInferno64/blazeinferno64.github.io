@@ -677,7 +677,7 @@ input:focus,.query:focus,.select:focus{
         margin-top: .6rem;
     }
     .notes{
-        position: fixed;
+        position: sticky;
         top: 85%;
         background: #2a2d2e;
         color: #fff;
@@ -690,7 +690,7 @@ input:focus,.query:focus,.select:focus{
         color: #3f95a0;
      }
      .show-notes{
-        position: fixed;
+        position: sticky;
         top: 93%;
         background: #2a2d2e;
         color: #25c0d4;
@@ -720,7 +720,7 @@ input:focus,.query:focus,.select:focus{
         font-size: 2rem;
         padding-left: 1rem;
         padding-right: 1rem;
-        position: fixed;
+        position: sticky;
         left: 85%;
         bottom: 5%;
         border-radius: .7rem;
