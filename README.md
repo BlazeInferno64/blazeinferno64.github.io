@@ -3,10 +3,10 @@ My own website a.k.a Homepage/Landing Page anyways you all can use it but plss d
 |---------------|
 # View it here-
 
-<a href="https://blaizinginfernodragon123.github.io/">
+<a href="https://blazeinferno64.github.io/">
 
 ```
-https://blaizinginfernodragon123.github.io/
+https://blazeinferno64.github.io/
 ```
 </a>
 
