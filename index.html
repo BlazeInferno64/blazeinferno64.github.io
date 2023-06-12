@@ -13,43 +13,51 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2604597246009301"
     crossorigin="anonymous"></script>
 </head>
-<body onload="bufferContent()">
+<body onload="bufferContent()" id="body">
     <header>
         <nav>
             <input type="checkbox" id="check">
             <label for="check" class="checkbtn">
-                <i id="hamburger" class="fa fa-bars"></i>
-                <i id="close" class="fa fa-times"></i>
+                <div class="contain" onclick="display(this)">
+                     <div class="bar1"></div>
+                     <div class="bar2"></div>
+                     <div class="bar3"></div>
+                </div>
+                <script>
+                    function display(x){
+                        x.classList.toggle("change");
+                    }
+                </script>
             </label>
             <label for="Logo" class="logo">
-                <a class="link" href="https://github.com/blaizinginfernodragon123">
+                <a class="link" href="https://github.com/blazeinferno64/">
                 <img class="img" src="https://avatars.githubusercontent.com/u/96913755?v=4" alt="Profile Photo">
                 BlazeInferno
                 </a>
             </label>
             <ul class="menu">
                 <li>
-                   <a class="active" href="#">
+                   <a class="active" href="#" id="home1">
                     <i class="fa fa-home"></i>  Home
                    </a> 
                 </li>
                 <li>
-                    <a href="#about">
+                    <a href="#about" id="about1">
                         <i class="fa fa-user"></i>  About
                     </a> 
                  </li>
                  <li>
-                    <a href="#contact">
+                    <a href="#contact" id="contact1">
                         <i class="fa fa-comment"></i>  Contact
                     </a> 
                  </li>
                  <li>
-                    <a href="#faqs">
+                    <a href="#faqs" id="faqs1">
                         <i class="fa fa-question"></i>  FAQS
                     </a> 
                  </li>
                  <li>
-                    <a href="#api">
+                    <a href="#api" id="api1">
                         <i class="fa fa-send"></i>   API
                     </a> 
                  </li>
@@ -61,7 +69,7 @@
         <div class="notes">
             <div class="notes-head">
                 <h3>
-                    Maintenance on 15/05/2023
+                    Maintenance on 11/06/2023
                 </h3>
                     <button class="close-nt" onclick="closePatch()">
                         &times;
@@ -71,8 +79,8 @@
                 <ul>
                     <li>
                         <p>
-                            Fixed some minor bugs and improved stability on 
-                            low-end devices
+                            Improved ui and fixed some minor bugs
+                            
                         </p>
                     </li>
                 </ul>
@@ -106,7 +114,7 @@
             <br>
             <h3>
                 <i>
-                "Im a software developer and a web developer both frontend/backend,I have experience on many programming languages. Currently I have been sticking to Html, Css and JavaScript as it helps me develop many web applications/websites. Check out my github profile <a class="casual" href="https://github.com/blaizinginfernodragon123">here</a> to know more about me"
+                "Im a software developer and a web developer both frontend/backend,I have experience on many programming languages. Currently I have been sticking to Html, Css and JavaScript as it helps me develop many web applications/websites. Check out my github profile <a class="casual" href="https://github.com/blazeinferno64">here</a> to know more about me"
                 </i>
             </h3>
         </div>
@@ -141,9 +149,31 @@
             </p>
             <br>
             <div class="position">
-                <label for="code" class="info">
+                <label for="code" class="info1">
                 <h4><i class="fa-solid fa-code"></i>  <span class="red">Iframe</span>  Css</h4>
-                </label>
+                 
+                <div class="options" id="options">
+                 <span class="dot1"></span>
+                 <span class="dot2"></span>
+                 <span class="dot3"></span>
+                 </div>
+                 <div class="list-actions" id="list">
+                    <ul class="usage" id="more">
+                        <p class="p">
+                            Wrap type
+                        </p>
+                        <li id="pre" class="active-selection">
+                            pre 
+                        </li>
+                        <li id="pre-wrap" class="">
+                            pre wrap
+                        </li>
+                        <li id="no-wrap">
+                            no wrap
+                        </li>
+                    </ul>
+                 </div>    
+            </label>
             <div class="code1" id="code7">
    <span class="red">iframe</span><span class="green1"> {</span>
        <span class="yellow">border</span>: none; 
@@ -168,7 +198,7 @@
         </h3>
         <br>
         <p>
-            Copy the code below to use it  
+            Copy it below to use it  
         </p>
         <br>
         <div class="position">
@@ -442,5 +472,7 @@
 
     </footer>
     <script src="./js/script.js"></script>
+    <script src="./js/navbar.js"></script>
+    <script src="./js/code.js"></script>
 </body>
 </html>

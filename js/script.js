@@ -1,16 +1,3 @@
-const check = document.getElementById("check");
-const hamburger = document.getElementById("hamburger");
-const times = document.getElementById("close");
-times.style.display='none';
-hamburger.onclick = function(){
-    hamburger.style.display = 'none';
-    times.style.display='inline-block';
-}
-times.onclick = function(){
-    hamburger.style.display = 'inline-block';
-    times.style.display='none';
-}
-
 function copyCode(c){
     const btn = document.getElementById("copy-btn");
     const code = document.getElementById("code");
@@ -173,8 +160,12 @@ function showPatch(){
   const notes = document.querySelector(".notes");
   const closeBtn = document.querySelector(".close-nt");
 
-
-  informer.style.display = 'none';
-  notes.style.display = 'block';
-  closeBtn.style.display = 'block';
+  informer.style.cursor = 'progress';
+  setTimeout(load,1500)
+  function load(){
+    informer.style.cursor = 'pointer';
+    informer.style.display = 'none';
+    notes.style.display = 'block';
+    closeBtn.style.display = 'block';
+  }
 }
