@@ -1,34 +1,39 @@
 const preWrap = document.getElementById("pre-wrap");
 const noWrap = document.getElementById("no-wrap");
-const pre =document.getElementById("pre");
+const pre = document.getElementById("pre");
 const options = document.getElementById("options")
 const more = document.querySelector(".usage");
 const code = document.getElementById("code7");
 const list = document.getElementById("list");
 
 options.addEventListener("click",(e) =>{
-    if(more.style.display !== 'none'){
+   /* if(more.style.display !== 'none'){
         more.style.display = 'none';
         options.classList.remove("click");
     }
     else{
         more.style.display = 'block';
         options.classList.add("click");
-    }
+    }*/
 })
 
-options.addEventListener("dblclick",(e) =>{
-    if(more.style.display !== 'none'){
-        more.style.display = 'none';
-        options.classList.remove("click");
-    }
-    else{
-        more.style.display = 'block';
-        options.classList.add("click");
-    }
-})
+function change(x){
+    more.classList.toggle("none");
+    options.classList.toggle("click");
+}
 
-options.addEventListener("auxclick",(e) =>{
+/* options.addEventListener("dblclick",(e) =>{
+    if(more.style.display !== 'none'){
+        more.style.display = 'none';
+        options.classList.remove("click");
+    }
+    else{
+        more.style.display = 'block';
+        options.classList.add("click");
+    }
+})*/
+
+/* options.addEventListener("auxclick",(e) =>{
     if(more.style.display !== 'none'){
         more.style.display = 'none';
         options.classList.add("click");
@@ -37,7 +42,7 @@ options.addEventListener("auxclick",(e) =>{
         more.style.display = 'block';
         options.classList.remove("click");
     }
-})
+}) */
 
 preWrap.addEventListener("click",(e) =>{
     preWrap.classList.add("active-selection");
