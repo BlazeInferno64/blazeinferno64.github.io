@@ -6,7 +6,7 @@ const more = document.querySelector(".usage");
 const code = document.getElementById("code7");
 const list = document.getElementById("list");
 
-options.addEventListener("click",(e) =>{
+/*options.addEventListener("click",(e) =>{
    /* if(more.style.display !== 'none'){
         more.style.display = 'none';
         options.classList.remove("click");
@@ -15,7 +15,7 @@ options.addEventListener("click",(e) =>{
         more.style.display = 'block';
         options.classList.add("click");
     }*/
-})
+})*/
 
 function change(x){
     more.classList.toggle("none");
