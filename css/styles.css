@@ -404,7 +404,6 @@ a{
     border-radius: .5rem;
     text-align: left;
     margin-top: .6rem;
-    display: none;
     animation: displaydrop 1s ease-in-out;
  }
  @keyframes displaydrop {
