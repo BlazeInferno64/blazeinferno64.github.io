@@ -323,6 +323,9 @@ a{
 .position{
     padding: 0 20rem;
 }
+.none{
+    display: none;
+}
 .code{
     width: 100%;
     height: 50%;
