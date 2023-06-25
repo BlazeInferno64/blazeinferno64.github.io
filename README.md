@@ -1,12 +1,12 @@
-# blazeinferno64.github.io
+# blaizinginfernodragon123.github.io
 My own website a.k.a Homepage/Landing Page anyways you all can use it but plss don't misuse it for HARRASING/SPAMMING OR ABUSING OTHER PEOPLE IF ANY OF THIS OCCURS I ARENT RESPONSIBLE FOR ANYTHING AND SHOULDN'T BE RESPONSIBLE 
 |---------------|
 # View it here-
 
-<a href="https://blazeinferno64.github.io/">
+<a href="https://blaizinginfernodragon123.github.io/">
 
 ```
-https://blazeinferno64.github.io/
+https://blaizinginfernodragon123.github.io/
 ```
 </a>
 

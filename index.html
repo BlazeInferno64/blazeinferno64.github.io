@@ -23,11 +23,16 @@
                      <div class="bar2"></div>
                      <div class="bar3"></div>
                 </div>
-                
+                <script>
+                    function display(x){
+                        x.classList.toggle("change");
+                    }
+                </script>
             </label>
             <label for="Logo" class="logo">
                 <a class="link" href="https://github.com/blazeinferno64/">
-                <img class="img" src="https://avatars.githubusercontent.com/u/96913755?v=4" alt="Profile Photo">
+                <img class="img" id="img" src="https://avatars.githubusercontent.com/u/96913755?v=4" alt="Profile Photo">
+                <div class="skeleton"  alt="Profile Photo"></div>
                 BlazeInferno
                 </a>
             </label>
@@ -65,7 +70,7 @@
         <div class="notes">
             <div class="notes-head">
                 <h3>
-                    Maintenance on 11/06/2023
+                    Maintenance on 24/06/2023
                 </h3>
                     <button class="close-nt" onclick="closePatch()">
                         &times;
@@ -75,8 +80,10 @@
                 <ul>
                     <li>
                         <p>
-                            Improved ui and fixed some minor bugs
-                            
+                            Improved Ui and some bug fixes,  
+                            <br>
+                            along with a dark mode (still in beta)
+                            <br>
                         </p>
                     </li>
                 </ul>
@@ -92,6 +99,12 @@
         <span class="welcome-text">
             <h2>
                 Hi there,welcome to my <span class='casual'>website</span>
+                <div class="effect1">
+                    <div class="underline1">
+                        <div class="underline2">
+                        </div>
+                    </div>
+                </div>
             </h2>
             <a href="#about">
             <button class="welcome-btn">
@@ -148,7 +161,7 @@
                 <label for="code" class="info1">
                 <h4><i class="fa-solid fa-code"></i>  <span class="red">Iframe</span>  Css</h4>
                  
-                <div class="options" id="options" onclick="change(this)">
+                <div class="options" id="options" onclick="preview()">
                  <span class="dot1"></span>
                  <span class="dot2"></span>
                  <span class="dot3"></span>
@@ -158,6 +171,7 @@
                         <p class="p">
                             Wrap type
                         </p>
+                        <hr class="next">
                         <li id="pre" class="active-selection">
                             pre 
                         </li>
@@ -166,6 +180,9 @@
                         </li>
                         <li id="no-wrap">
                             no wrap
+                        </li>
+                        <li id="pre-line">
+                            pre line
                         </li>
                     </ul>
                  </div>    
@@ -224,42 +241,48 @@
         <img src="./img/Stacking Houses.gif" class="contact-form-img" />
     </div>
     <br>
-        <form onsubmit="showAlert()" action="https://formsubmit.co/14a1f475f44cdf7b428fb555b4a6e697" method="post" >
+        <form id="forms" onsubmit="showAlert()" action="https://formsubmit.co/14a1f475f44cdf7b428fb555b4a6e697" method="post" >
             <input type="hidden" name="_template" value="table">
             <label class="fname" for="First Name">First Name:</label>
             <br>      
-            <input type="text" class="name" name="First Name" placeholder="Enter your first name here..." required />
+            <input type="text" class="name" id="fname" name="First Name" placeholder="Enter your first name here..." required title="Enter your proper first name here..." />
             <br>
             <br>
             <label class="lname" for="Last Name">Last Name:</label>
             <br>
-            <input type="text" class="name" name="Last Name" placeholder="Enter your last name here..." required />
+            <input type="text" class="name" id="lname" name="Last Name" placeholder="Enter your last name here..." required title="Enter your proper Last name here..."/>
             <br>
             <br>
             <label class="mail" for="E-mail">E-mail:</label>
             <br>
             
-            <input type="email" class="email" name="E-mail" placeholder="Enter your E-mail here..." required />
+            <input type="email" class="email" name="E-mail" placeholder="Enter your E-mail here..." required title="Enter your proper correct email address here..."/>
             <br>
             <br>
             <label class="select" for="Country">Select Your Country:</label>
             <br>
-            <select id="country" class="country" name="Country" required>
-                <option id="" value="Austrailia">Austrailia</option>
-                <option id="" value="India">India</option>
-                <option id="" value="Canada">Canada</option>
-                <option id="" value="North America">North America</option>
-                <option id="" value="Italy">Italy</option>
-                <option id="" value="Mexico">Mexico</option>
-                <option id="" value="Brazil">Brazil</option>
-                <option id="" value="South Africa">South Africa</option>
-                <option id="" value="Germany">Germany</option>
-                <option id="" value="Saudi Arabia">Saudi Arabia</option>
-                <option id="" value="South America">South America</option>
+            <select id="country" class="country" name="Country" required title="Select your country here...">
+                <option id="select" value="Not specified">--Select--</option>
+                <option id="" value="Austrailia" required>Austrailia</option>
+                <option id="" value="India" required>India</option>
+                <option id="" value="Canada" required>Canada</option>
+                <option id="" value="North America" required>North America</option>
+                <option id="" value="Italy" required>Italy</option>
+                <option id="" value="Mexico" required>Mexico</option>
+                <option id="" value="Brazil" required>Brazil</option>
+                <option id="" value="South Africa" required>South Africa</option>
+                <option id="" value="Germany" required>Germany</option>
+                <option id="" value="Russia" required>Russia</option>
+                <option id="" value="England" required>England</option>
+                <option id="" value="China" required>China</option>
+                <option id="" value="Austria" required>Austria</option>
+                <option id="" value="Bangladesh" required>Bangladesh</option>
+                <option id="" value="Saudi Arabia" required>Saudi Arabia</option>
+                <option id="" value="South America" required>South America</option>
             </select>
             <br>
            <br>
-            <label class="text" for="Query">Write your query here:</label>
+            <label class="text" for="Query" title="Finally write your query here...">Write your query here:</label>
             <br>
             
             <textarea name="Query" id="textarea" class="query" placeholder="Write your query here..." style="height:170px" required></textarea>
@@ -290,13 +313,14 @@
             <button class="accordion">What is my Public Ip address?</button>
 <div class="panel">
   <p>
-    The address given below is your public ip address , which is used for many purposes like - tracking your location, getting information about your device,etc .
+    The address given below is your public ip address , which is used for many purposes like - tracking your location, getting information about your device,etc 
+    Try using a VPN and visit this website again and check your ip results, I am sure that you will understand the use of VPN after this, Hehehe!
     <br><br><br>
     <div class="position">
         <label for="code" class="info">
         <h4> <span class="orange"><i class="fa-solid fa-location-dot"></i> </span> <span class="green1"> Ip address</span>   </h4>
         </label>
-    <div class="code" id="code1">
+    <div class="code acc-shadow" id="code1">
         <p class="orange" id="ip">
             Hold on!!  Fetching your ip address...
         </p>
@@ -304,7 +328,7 @@
     </div>
     <br>
     <br>
-    <button class="copy" id="dis" onclick="txt()">
+    <button class="copy acc-btn" id="dis" onclick="txt()">
         <i class="fa fa-clone"></i>  Copy 
     </button>  
     <br>
@@ -321,11 +345,10 @@
     })*/
     </script>
 </div>
-        <button class="accordion">How to know if we have some issues with our network?</button>
+        <button class="accordion">Do you have any online network conectivity tester?</button>
 <div class="panel">
   <p>
-    If you wanna know whether you are online or not due to network issues,i e, whether you have any defects with your network, then why not check it here only
-    click the button below and get your result 
+    Yeah I have , Why not check it out? Click the button below and get your results :)
   </p>
   <button type="submit" class="online-check-btn" id="btn5" onclick="checkOnline()">
     Check Now
@@ -333,7 +356,7 @@
   <br>
   <br>
   <p id="online">
-
+    Status : IDLE...
   </p>
   <br>
 </div>
@@ -341,7 +364,7 @@
 <div class="panel">
   <p>
     It's a long story to tell btw, I remember when I was small I was always fascinated by the web, so from
-    there my journey started
+    there my journey started...
   </p>
   <br>
 </div>
@@ -349,15 +372,15 @@
 <div class="panel">
   <p>
     Yeah , I make, I also remember my Calculator app which I had designed for Android. But it isn't on Google
-    Play Store yet. As, I made it for demo purpose, and about desktop application I also made a one but it was
-    programmed in python , which I later converted it into a executable by a script.
+    Play Store yet. As, I made it for test purpose, and about desktop application I also made a one but it was
+    programmed in python , which I later converted it into a executable by a python module.
   </p>
   <br>
 </div>
 <button class="accordion">Any Social Media?</button>
 <div class="panel">
   <p>
-    Yeah I do have. Also I have an YouTube Channel, if you are interested in you can subscribe it by clicking here-
+    Not much of a Social Guy, yet I do posses an YouTube Channel, if you are interested in then you can for sure subscribe it by clicking here-
     <a class="yt" href="https://www.youtube.com/@InfernoBlaze64?sub_confirmation=1" >
         https://youtube.com/@Inferno
         Blaze64
@@ -372,6 +395,20 @@
     <a class="yt" href="https://github.com/BlazeInferno64" >
         https://github.com/Blaze
         Inferno64
+    </a>
+  </p>
+  <br>
+</div>
+<button class="accordion">How to download windows 11 ISO (disk image) file?</button>
+<div class="panel">
+  <p>
+    Its easy just search google - "Windows 11 ISO download", and visit the official website of microsoft 
+    Or Just click on the button below, dont worry its the original iso file(22h2) provided by microsoft
+    <br>
+    <a class="yt" href="https://software.download.prss.microsoft.com/dbazure/Win11_22H2_English_x64v2.iso?t=79468c3a-d316-465d-91a1-00b86fe8597e&e=1687616666&h=58266c6ec15d7cd601503fab36cf581eb293fab772dec7c3d07de127b5965351" download="Win11_22H2_English_x64v2">
+        <button class="dn-btn acc-shadow">
+            Download ISO 64-bit (English United States)
+        </button>
     </a>
   </p>
   <br>
@@ -396,10 +433,10 @@
         <label for="code" class="info">
         <h4><span class="orange"><i class="fa-solid fa-code"></i> </span> <span class="green1">Code</span>   </h4>
         </label>
-    <div class="code" id="code3">
+    <div class="code acc-shadow" id="code3">
         &lt;<span class="red">a</span><span class="yellow"> href=</span><span class="green">"https://blazeinferno64.github.io/"</span>&gt;<span class="orange">This project was made with refrence to BlazeInferno64</span>&lt;<span class="red">/a</span>&gt;
     </div>
-    <button class="copy" id="copy-btn3" onclick="copyLine()">
+    <button class="copy acc-btn" id="copy-btn3" onclick="copyLine()">
         <i class="fa fa-clone"></i>  Copy
     </button>
     </div>
@@ -418,13 +455,18 @@
                 </h2>
                 <br>
                 <br>
-                <form action="https://formsubmit.co/14a1f475f44cdf7b428fb555b4a6e697" method="post" >
+                <form id="news-forms" action="https://formsubmit.co/14a1f475f44cdf7b428fb555b4a6e697" method="post" >
                     <input type="hidden" name="_template" value="table">
-                <input type="email" class="news-input" name="E-mail(subscribed)" placeholder="Enter your E-mail..." required/>
+                <input type="email" class="news-input" title="Enter your proper email address here..." placeholder="Enter your E-mail" required/>
                 <button class="news-btn" type="submit">
                     <i class="fa fa-send"></i>    Subscribe
                 </button>
                 </form>
+                </div>
+                <br>
+                <br>
+                <div class="border">
+                    <div class="border-index"></div>
                 </div>
                 <br>
                 <br>
@@ -455,14 +497,20 @@
                 </div>
                 <br>
                 <div class="border">
+                    <div class="border-index"></div>
+                </div>
+                <br>
                 <h2 class="footer-text">
-                    Copyright &copy; 2023 
-                    <a class="git" href="https://github.com/BlazeInferno64">
+                    Copyright &copy; 2023-24 
+                    <a class="git" href="https://github.com/BlazeInferno64" id="github">
                         <i class="fa fa-github"></i>
                          BlazeInferno64
+                         <div class="effect">
+                            <div class="underline">
+                            </div>
+                        </div>
                          </a>
                 </h2>
-                </div>
             </div>
         </div>
 
@@ -470,5 +518,6 @@
     <script src="./js/script.js"></script>
     <script src="./js/navbar.js"></script>
     <script src="./js/code.js"></script>
+    <script src="./js/validation.js"></script>
 </body>
 </html>

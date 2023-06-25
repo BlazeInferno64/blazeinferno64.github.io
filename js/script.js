@@ -30,12 +30,21 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
+const img = document.querySelector(".img");
+const seketonLoading = document.querySelector(".skeleton");
+
+setTimeout(function(){
+    img.style.display = 'inline-block';
+    seketonLoading.style.display = 'none'
+},3500)
 function checkOnline(){
     const onlineBtn= document.getElementById("btn5");
     const txt = document.getElementById("online");
 
     onlineBtn.innerText = 'Checking...';
     txt.innerHTML = 'Checking...'
+    txt.style.color = 'rgb(230, 230, 16)';
+    txt.style.borderColor = 'rgb(230, 230, 16)';
 
     setTimeout(fun,2000);
 
@@ -43,11 +52,15 @@ function checkOnline(){
 
         if(navigator.onLine == true){
             onlineBtn.innerHTML = 'Check again';
-            txt.innerHTML = 'You are currently online';
+            txt.style.color = 'rgb(1, 182, 113)';
+            txt.style.borderColor = 'rgb(1, 182, 113)';
+            txt.innerHTML = 'You are currently online!';
         }
         else{
             onlineBtn.innerHTML = 'Check again';
-            txt.innerHTML = 'Seems like you are currently offline, try the tester again being online ';
+            txt.style.color = 'hsl(340, 90%, 53%)';
+            txt.style.borderColor = 'hsl(340, 90%, 53%)';
+            txt.innerHTML = 'Seems like you are currently offline, try the tester again after being online! ';
         }
     }
 }
@@ -62,7 +75,10 @@ function showDivs(n) {
     x[slideIndex-1].style.display = "block";  
   }
   function showAlert(){
-    alert("Thanks for contacting me, I would soon try to reach you, plss note that it might take around 24-48 hours time but I would try my best to reach soon!");
+    const country = document.getElementById("country");
+    const select = document.getElementById("select");
+
+      alert("Thanks for contacting me, I would soon try to reach you, plss note that it might take around 24-48 hours time but I would try my best to reach soon!");
   }
   function copyLine(){
     const btn = document.getElementById("copy-btn3");
