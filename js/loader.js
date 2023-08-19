@@ -19,8 +19,11 @@ window.onload = function(){
     setTimeout(() => {
         loaderText.innerText = `Loading..(25%)`;
     }, 1500);
-    setTimeout(() => {
+        setTimeout(() => {
         loaderText.innerText = `Loading..(50%)`;
+    }, 2500);
+    setTimeout(() => {
+        //loaderText.innerText = `Loading..(50%)`;
         popupBoxContainer1.style.bottom = '5%';
         popupBoxText1.classList.add("green");
         popupBoxText1.innerText = 'Welcome! to my website :)';
