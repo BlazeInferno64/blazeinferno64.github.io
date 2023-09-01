@@ -810,6 +810,7 @@ a{
   transition: all .5s ease-in-out;
 }
 .alert{
+  user-select: none;
   padding: .3rem .7rem;
   border-radius: .5rem;
   background: rgb(30,30,30);
