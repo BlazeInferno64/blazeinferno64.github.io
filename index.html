@@ -1,334 +1,363 @@
+<!--The source code of my website https://blazeinferno64.github.io/ -->
+<!--Visit https://blazeinferno64.github.io for more info-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="black">
-    <title>BlazeInferno64 | Homepage</title>
-    <link rel="stylesheet" href="./css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="HTML, CSS, JAVASCRIPT, NODEJS, PYTHON, RUBY, GOLANG, RUST, C++, C, C#, JSON, RESTAPI, GITHUB">
+    <meta name="author" content="BlazeInferno64">
+    <meta name="description" content="Know more about BlazeInferno64">
+    <title>BlazeInferno64</title>
+    <link rel="stylesheet" href="./public/css/styles.css" />
     <link rel="icon" href="https://avatars.githubusercontent.com/u/96913755?v=4" type="image/x-icon"/>
     <script src="https://kit.fontawesome.com/f3220d5256.js" crossorigin="anonymous"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2604597246009301"
     crossorigin="anonymous"></script>
 </head>
-<body onload="bufferContent()">
-  <div class="ip-displayer display">
-    <div class="area">
-      <p>
-        Your Public Ip address is
-      </p>
-      <input type="text" name="ip" id="ip" class="ip" value="Fetching Your Ip Address..." placeholder="Hold on  Fetching your ip address..." readonly  >
-      <div class="btns">
-        <button class="done-btn"><i class="fa fa-times"></i>  Close</button> 
-        <button class="copy"><i class="fa fa-clone"></i>  Copy </button>    
-      </div>
-    </div>
-  </div>
-  <div class="loader-bg">
-    <div class="loader"></div>
-    <div class="text-welcome">
-      Loading...(0%)
-    </div>
-  </div>
-  <a href="#">
-    <div class="top-btn hide">
-      <i class="fa fa-arrow-up"></i>
-    </div>
-  </a>
-  <!--<div class="themes">
-    <button class="dark"><i class="fa fa-moon"></i></button>
-    <button class="light hide"><i class="fa fa-lightbulb"></i></button>
-  </div>-->
-  <nav class="navbar">
-    <div class="content">
-      <div class="logo"><a href="hhtps://github.com/blazeinferno64">BlazeInferno64</a></div>
-      <ul class="menu-list">
-        <div class="icon cancel-btn">
-          <i class="fas fa-times"></i>
-        </div>
-        <li><a href="#"><i class="fa fa-home"></i>  Home</a></li>
-        <li><a href="#about"><i class="fa fa-user"></i>  About</a></li>
-        <li><a href="#api"><i class="fa fa-server"></i>  Api</a></li>
-        <li><a href="#projects"><i class="fa fa-project-diagram"></i>  Projects</a></li>
-        <li><a href="#blog"><i class="fa fa-comments"></i>  Blog</a></li>
-        <li><a href="#contact"><i class="fa fa-contact-card"></i>  Contact</a></li>
-      </ul>
-      <div class="icon menu-btn">
-        <div class="hamburger">
-          <div class="bar1"></div>
-          <div class="bar2"></div>
-          <div class="bar3"></div>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <div class="banner">
-    <div class="text">
-      <p id="p">
-        Hi I'm BlazeInferno
-      </p>
-      <p id="description">
-        Welcome to my website
-      </p>
-    </div>
-    <a href="#about">
-      <button class="btn">
-        <i class="fa fa-send"></i>  Let's go!
-      </button>
+<div class="top-btn no" title="Go Back to Top">
+    <a href="#">
+        <i class="fa fa-long-arrow-up"></i>
     </a>
-  </div>
- <!---- <div class="width">
-    <div class="bar"></div>
-  </div>-->
-  <div class="about my"  id="about">
-    <div class="content">
-         <div class="title white">About me</div>
+</div>
+<body class="no-scroll">
+    <div class="load-bg">
+        <div class="loader"></div>
+        <div class="txt">Loading...</div>
+    </div>
+    <div class="head">
+        <header class="header" id="header">
+            <nav class="nav">
+                <a href="https://github.com/blazeinferno64" title="BlazeInferno64" class="logo">
+                    BlazeInferno64
+                </a>
+    
+                <ul>
+                    <li>
+                        <a href="#main" title="Home"><i class="fa fa-home"></i>  Home</a>
+                    </li>
+                    <li>
+                        <a href="#about" title="About"><i class="fa fa-user"></i>  About</a>
+                    </li>
+                    <li>
+                        <a href="#projects" title="Projects"><i class="fa fa-project-diagram"></i>  Projects</a>
+                    </li>
+                    <li>
+                        <a href="#api" title="Rest Api"><i class="fa fa-server"></i>  Api</a>
+                    </li>
+                    <li>
+                        <a href="#contact" title="Contact"><i class="fa fa-contact-card"></i>  Contact</a>
+                    </li>
+                </ul>
+    
+                <div class="nav-actions">
+                    <div class="hamburger" title="Toggle Menu" onclick="change(this)">
+                        <span class="bar1"></span>
+                        <span class="bar2"></span>
+                        <span class="bar3"></span>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="mob-nav">
+            <ul>
+                <li>
+                    <a href="#main" title="Home"><i class="fa fa-home"></i>  Home</a>
+                </li>
+                <li>
+                    <a href="#about" title="About"><i class="fa fa-user"></i>  About</a>
+                </li>
+                <li>
+                    <a href="#projects" title="Projects"><i class="fa fa-project-diagram"></i>  Projects</a>
+                </li>
+                <li>
+                    <a href="#api" title="Rest Api"><i class="fa fa-server"></i>  Api</a>
+                </li>
+                <li>
+                    <a href="#contact" title="Contact"><i class="fa fa-contact-card"></i>  Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 
-         <br>
-         <div class="info">
-          <p>
-            Hi there, I am BlazeInferno64 I am a web/software developer both front-end/back-end 
-           </p>
-           <p>
-            I am interested in learning various programming language
-           </p>
-           <p>
-            Some of my favourite programming languages are - Python, JavaScript, C, C++,etc.
-           </p>
-         </div>
+    <!--Time to design the rest of the body!-->
+    
+    <div class="main" id="main">
+        <div class="bg">
+            <p>
+                Hi there!
+            </p>
+            <p>
+                I am <span class="highlight" title="BlazeInferno64">BlazeInferno64</span>
+            </p>
+            <button class="wel">
+                <a href="#about">
+                Let's get started  <i class="fa fa-long-arrow-right"></i>  
+                </a>
+            </button>
+        </div>
+    </div>
+
+    <!-- About section goes here-->
+    <div class="about" id="about">
+        <p class="ab">
+            About me
+        </p>
+        <div class="bck">
+            <div class="card" title="Just a simple brief introduction of me :)">
+                <p class="intro">
+                    Hello there! I am <span class="highlight">BlazeInferno64!</span>
+                </p>
+                <p class="info">
+                    I am a full stack developer
+                </p>
+                <p class="pr">
+                    I work on various types of projects in my free time
+                </p>
+                <p class="pr">
+                   Although I have experienced various types of programming languages, but JavaScript and Python are my favourite ones!
+                </p>
+                <p class="info-db" title="This was last updated on 26 April 2024">
+                    Last updated on <b>26 April 2024</b>
+                </p>
+            </div>
+            <button class="next">
+               <a href="#projects">
+                Next  <i class="fa fa-long-arrow-right"></i>
+               </a>
+            </button>
+        </div>
+
+    <div></div>
         
-      </div>
-  </div>
-  <div class="about pr"  id="projects">
-    <div class="content">
-         <div class="title white">Projects</div>
-
-        <div class="cards-display">
-          <div class="card">
-            <div class="heading">
-              <a class="link" href="https://github.com/blazeinferno64/blaze-file-editor-app/">
-                Blaze File Editor
-              </a>
-            </div>
-            <div class="context">
-              <p>
-                A simple yet powerfull file Editor made using JavaScript
-                <br>
-                with custom backend in Node.js
-              </p>
-            </div>
-            <div class="date">
-              <p>
-                Uploaded on 13/08/2023
-              </p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="heading">
-              <a class="link" href="https://github.com/blazeinferno64/blaze-chat-app/">
-                Blaze Chat App
-              </a>
-            </div>
-            <div class="context">
-              <p>
-                A simple yet powerfull Realtime Chat App made using JavaScript
-                <br>
-                with custom backend in Node.js
-              </p>
-            </div>
-            <div class="date">
-              <p>
-                Uploaded on 27/07/2023
-              </p>
-            </div>
-          </div>
-
-        </div>
-        <div class="more">
-          <button class="more-view">
-            <a href="https://github.com/blazeinferno64">
-              <i class="fa fa-github"></i> View more on Github
-            </a>
-          </button>
-        </div>
-      </div>
-  </div>
-
-  <div class="ip-shower">
-    <div class="ip-header">
-      Want to check your public ip address? then click on the button below
     </div>
-    <button class="check">Check</button>
-  </div>
 
-  <div class="about ap"  id="api">
-    <div class="content">
-         <div class="title white">Api</div>
-
-         <br>
-         <div class="soon">
-            <i class="fa fa-send"></i>  Api is Coming Soon!
-         </div>
-         <div class="sub">
-          <p class="white">
-            Subscribe to email newsletter to recieve the latest Updates
-          </p>
-          <div class="input-box">
-            <form action="https://formsubmit.co/14a1f475f44cdf7b428fb555b4a6e697" method="post" class="form" id="form">
-              <input type="hidden" name="_template" value="table">
-              <input type="email" name="E-mail Address of Subscriber" id="sub-email" class="sub-field" placeholder="Enter your email address here..." required/>
-              <button class="subscribe">
-               <i class="fa fa-send"></i> Subscribe
-              </button>
-            </form>
-          </div>
-         </div>
-      </div>
-  </div>
-  <div class="about bl"  id="blog">
-    <div class="content">
-         <div class="title white">Blog</div>
-
-         <br>
-         <div class="soon">
-            <i class="fa fa-send"></i>  Blog is Coming Soon!
-         </div>
-         <div class="sub">
-          <p class="white">
-            Subscribe to email newsletter to recieve the latest Updates
-          </p>
-          <div class="input-box">
-            <form action="https://formsubmit.co/14a1f475f44cdf7b428fb555b4a6e697" method="post" class="form" id="form" name="email-sub-form">
-              <input type="hidden" name="_template" value="table">
-              <input type="email" name="E-mail Address of Subscriber" id="sub-email" class="sub-field" placeholder="Enter your email address here..." required/>
-              <button class="subscribe">
-               <i class="fa fa-send"></i> Subscribe
-              </button>
-            </form>
-          </div>
-         </div>
-      </div>
-  </div>
-
-
-
-  <div class="about cnt"  id="contact">
-    <div class="content width">
-      <div class="center">
-        <div class="contact-head">
-          <div class="title white">Contact me</div>
-          <p class="white p">
-           Use the form present below to contact me
-          </p>
-        </div>
-        <div class="parent">
-         <img src="./img/boat water.gif" alt="" class="img">
-        </div>
-        <div class="forms">
-         <form action="https://formsubmit.co/14a1f475f44cdf7b428fb555b4a6e697" class="sub-form" id="form-send" method="post">
-          <input type="hidden" name="_autoresponse" value="The form has been successfully submitted, Thanks for contacting me! " />
-             <input type="hidden" name="_template" value="table">
-          <div class="name-input">
-            <label class="label" for="fname">
-              Your first name:
-            </label>
-            <input type="text" id="fname" name="First Name" class="name" placeholder="Type your first name here..." required/>
-          </div>
-          <div class="name-input">
-            <label class="label" for="lname">
-              Your last name:
-            </label>
-            <input type="text" id="lname" name="Last Name" class="name" placeholder="Type your last name here..." required/>
-          </div>
-          <div class="email-input">
-            <label class="label" for="fname">
-              Your e-mail:
-            </label>
-            <input type="email" name="E-mail" class="email" placeholder="Type your email here..." required/>
-          </div>
-          <div class="country-input">
-            <label class="label" for="fname">
-              Your Country:
-            </label>
-            <select name="Country" id="country" class="country" autocomplete="country" required>
-              <option value="Austrailia">Austrailia</option>
-              <option value="Brazil">Brazil</option>
-              <option value="Canada">Canada</option>
-              <option value="Dubai">Dubai</option>
-              <option value="India">India</option>
-              <option value="Malayasia">Malayasia</option>
-              <option value="New Zealand">New Zealand</option>
-              <option value="Germany">Germany</option>
-              <option value="Ither Countries">Other</option>
-            </select>
-          </div>
-          <div class="query-input">
-            <label class="label" for="fname">
-              Your Query:
-            </label>
-            <textarea name="Query of the user" id="query" class="query" placeholder="Write your query here..." required></textarea>
-            <div class="limit">
-              <span>
-                Total Words :
-              </span>
-              <span id="length">0 words</span>
+    <!--Projects section goes here-->
+    <div class="projects" id="projects">
+        <p class="pr-info" title="My Projects :)">
+            My Projects
+        </p>
+        <div class="pr-bg">
+            <div class="project-card" title="Blaze Web Server">
+                <p class="project-head">
+                    <a title="Blaze Web Server" href="https://github.com/blazeinferno64/blaze-web-server">Blaze Web Server</a>
+                </p>
+                <p class="project-info">
+                    A open source public web server made in NodeJS
+                </p>
+                <p class="db">
+                    Last updated on - <b>27/03/2024</b>
+                </p>
             </div>
-          </div>
-          <div class="button-input">
-            <button type="submit" class="submit done"><i class="fa fa-send"></i>  Submit</button>
-            <button type="reset" class="reset"><i class="fa fa-redo"></i>  Reset</button>
-          </div>
-         </form>
+            <br>
+            <div class="project-card" title="Blaze TTS(Text to Speech)">
+                <p class="project-head">
+                    <a title="Blaze TTS(Text to Speech)" href="https://github.com/blazeinferno64/Blaze-TTS">Blaze-TTS</a>
+                </p>
+                <p class="project-info">
+                    A open source project dedicated in making text to speech
+                </p>
+                <p class="db">
+                    Last updated on - <b>01/04/2024</b>
+                </p>
+            </div>
+            <br>
+            <div class="project-card" title="Blaze Chat App">
+                <p class="project-head">
+                    <a title="Blaze Chat App" href="https://github.com/blazeinferno64/blaze-chat-app">Blaze Chat App</a>
+                </p>
+                <p class="project-info">
+                    A simple chat app made using <b title="Socket.io is an websocket library">Socket.io</b>
+                </p>
+                <p class="db">
+                    Last updated on - <b>27/07/2023</b>
+                </p>
+            </div>
+            <br>
+            <button class="view">
+                <a title="BlazeInferno64's Github Respositories" href="https://github.com/blazeinferno64" target="_blank"><i class="fa fa-github"></i>  View more on Github  <i class="fa fa-long-arrow-right"></i></a>
+            </button>
         </div>
-      </div>
     </div>
-  </div>
+    <!--Let's design the api part here!-->
+    <div class="api" id="api">
+        <p class="api-info">
+            Rest Api
+        </p>
+        <p class="i">
+          Below is the rest api gateaway. You can checkout from <a href="https://github.com/blazeinferno64/blaze-web-server">here</a>
+        </p>
+        <div class="gt-bg">
+            <div class="gt">
+                <div class="gt-label">
+                  <i class="fa fa-server"></i>  Api Gateaway
+                </div>
+                <div title="Api Gateaway" class="gt-main">https://blaze-web-server.onrender.com/api
+                </div>
+            </div>
+        </div>
+        <br>
+        <button class="copy-api" title="Copy Api Gateaway">
+            <i class="fa fa-clone"></i>  <span class="cp">Copy Api</span>
+        </button>
+        <br>
+        <p class="i">
+            You may ask how to implement this?
+        </p>
+        <p class="i">
+            Let me show you a simple example below using <span class="black">JavaScript's native fetch api</span>
+        </p>
+        <br>
+        <div class="gt-bg">
+            <div class="gt">
+                <div class="gt-label">
+                  <i class="fa fa-code"></i>  JavaScript Fetch Api
+                </div>
+                <div class="gt-main-2" title="JavaScript Fetch Api example"><span class="yellow">fetch</span><span class="red">(</span><span class="green">"<span class="underline">https://blaze-web-server.onrender.com/api/user?name=John</span>"</span><span class="red">)</span>
+<span class="yellow">.then</span><span class="red">(</span><span class="blue">res</span><span class="red"> =></span> <span class="blue">res</span>.<span class="yellow">json()</span><span class="red">)</span>
+<span class="yellow">.then</span><span class="red">(</span><span class="blue">data</span><span class="red"> =></span> <span class="blue">console</span>.<span class="yellow">log(data)</span><span class="red">)</span>
+<span class="green">.catch</span><span class="red">(</span><span class="blue">err</span><span class="red"> =></span> <span class="blue">console</span>.<span class="yellow">error(err)</span><span class="red">)</span><span class="yellow">;</span></div>
+            </div>
+        </div>
+        <br>
+        <button class="copy" title="Copy Api Example">
+            <i class="fa fa-clone"></i>  <span class="cc">Copy Code</span>
+        </button>
+        <br>
+    </div>
 
-  <!--<div class="next-sect">
-    <div class="fluid"></div>
-  </div>-->
-  <div class="news">
-    <span class="foot-txt">
-      Never miss a update, Subscribe to my email newsletter
-    </span>
-    <div class="input">
-      <form action="https://formsubmit.co/14a1f475f44cdf7b428fb555b4a6e697" method="post" class="email-news">
-        <input type="hidden" name="_template" value="table">
-        <div class="news-input">
-          <label class="label" for="news-field">
-            Type your email below
-          </label>
-          <input type="email" name="E-mail of Subscriber" id="news-field" class="news-field" placeholder="Type email here..." required/>
-        </div> 
-        <button type="submit" class="news-btn">
-          <i class="fa fa-send"></i> Subscribe
-         </button>
-      </form>
+    <!--Now let's design the contact card here!-->
+    <div class="contact" id="contact">
+        <p class="cnt-info">
+            Contact
+        </p>
+        <p class="cnt-info-2">
+            Feel free to use the form below to contact me!
+        </p>
+        <div class="banner">
+            <div class="banner-bg">
+                <img class="img" src="./public/img/Flower garden.gif" alt="Banner.gif">
+            </div>
+        </div>
+        <form action="https://formsubmit.co/14a1f475f44cdf7b428fb555b4a6e697" id="form" class="form" method="post">
+            <input type="hidden" name="_template" value="table">
+            <input type="text" name="Other-Country" value="Not-Selected!" class="ot" readonly hidden="true">
+            <div class="input">
+                <label for="First-name">
+                    First Name:
+                </label>
+                <input type="text" autocomplete="name" title="Your first name goes here!" id="First-name" name="First-Name" class="fname" placeholder="Enter your first name here..." required/>
+            </div>
+            <div class="input">
+                <label for="Last-name">
+                    Last Name:
+                </label>
+                <input type="text" id="Last-name" title="Your last name goes here!" autocomplete="name" name="Last-Name" class="lname" placeholder="Enter your last name here..." required/>
+            </div>
+            <div class="input">
+                <label for="email">
+                    E-mail:
+                </label>
+                <input type="email" id="email" name="email" title="Your E-mail goes here!" autocomplete="email" class="email" placeholder="Enter your E-mail here..." required/>
+            </div>
+            <div class="input">
+                <label for="country">
+                    Country:
+                </label>
+                <select name="Country" title="Select your country" id="country" class="country" autocomplete="country-name">
+                    <option value="default">--Select--</option>
+                    <option value="Austrailia">Austrailia</option>
+                    <option value="Brazil">Brazil</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Germany">Germany</option>
+                    <option value="India">India</option>
+                    <option value="Mexico">Mexico</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="USA">United States of America</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="input">
+                <label for="Query">
+                    Your Query:
+                </label>
+                <textarea name="Query" id="Query" class="query" title="Your query goes here!" autocomplete="on" placeholder="Enter your query here..." required></textarea>
+                <div class="total">
+                    <p>Total Words:</p>
+                    <p id="wrds">0</p>
+                </div>
+            </div>
+            <div class="btns">
+                <button class="submit none" title="Submit the form" type="submit">
+                  <i class="fa fa-send"></i>  Submit
+                </button>
+                <button class="reset none" title="Reset the form" type="reset">
+                  <i class="fa fa-refresh"></i>  Reset
+                </button>
+            </div>
+        </form>
     </div>
-  </div>
-  <div class="footer">
-    <span class="foot-txt">
-      Copyright &copy; 2023-24 <a href="https://github.com/blazeinferno64">
-        <i class="fa fa-github"></i>  BlazeInferno64
-      </a>
-    </span>
-    <div class="bg">
-      <div class="fluid-bar"></div>
+    <!--Email newsletter section comes here :)-->
+    <div class="news-bg">
+        <p id="news-info">
+            Never miss any update! Subscribe to the email newsletter!
+        </p>
+        <form action="https://formsubmit.co/14a1f475f44cdf7b428fb555b4a6e697" method="post" class="news-form" id="news-form">
+            <input type="hidden" name="_template" value="table">
+            <div class="input">
+                <label for="email-news">
+                    Your Email:
+                </label>
+                <input type="email" name="Subscriber's-Email" autocomplete="email" title="Enter you E-mail address here" id="email-news" class="email-news" placeholder="Enter your email here..." required/>
+            </div>
+            <button class="sub none" title="Subscribe" type="submit">
+             <i class="fa fa-send"></i>   Subscribe
+            </button>
+        </form>
     </div>
-  </div>
-
-  <div class="cont">
-    <div class="alert">
-      <p id="text-popup">
-        Hello world
-      </p>
-      <span class="close"><span></span>&times;<span></span></span>
+    <!--Finally let's come to design of the footer part here-->
+    <div class="footer">
+        <div class="options">
+            <p>
+              <i class="fa fa-link"></i>  Links 
+            </p>
+            <ul>
+                <li>
+                    <a href="#" title="Back to Top"><i class="fa fa-long-arrow-up"></i>  Back to top</a>
+                </li>
+                <li>
+                    <a href="https://codepen.io/BlazeInferno64" title="BlazeInferno64's Codepen"><i class="fa fa-codepen"></i>  Codepen</a>
+                </li>
+                <li>
+                    <a href="https://github.com/blazeinferno64" title="BlazeInferno64's Github"><i class="fa fa-github"></i>  Github</a>
+                </li>
+                <li>
+                    <a href="https://gist.github.com/blazeinferno64" title="BlazeInferno64's Github Gists"><i class="fa fa-github"></i>  Github Gists</a>
+                </li>
+            </ul>
+        </div>
+        <div class="nxt">
+            <div class="fluid-1"></div>
+        </div>
+        <span class="foot-text">
+            Copyright &copy; 2024-25 <a title="Github" href="https://github.com/blazeinferno64" id="lin"><i class="fa fa-github"></i>  BlazeInferno64</a>
+        </span>
+        <div class="f-bg">
+            <div class="fluid"></div>
+        </div>
     </div>
-  </div>
-  <script defer src="./js/nav.js"></script>
-  <script defer src="./js/loader.js"></script>
-  <script defer src="./js/script.js"></script>
-  <script defer src="./js/ip.js"></script>
+    <!--Popup for alerting users!-->
+    <div class="popup-bg">
+        <div class="popup" title="Popup">
+            <p id="in">
+                Sending...
+            </p>
+            <span title="Close Popup" class="close">
+                &times;
+            </span>
+        </div>
+    </div>
+    <script defer src="./public/js/script.js"></script>
 </body>
 </html>
