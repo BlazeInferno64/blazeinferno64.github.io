@@ -103,8 +103,14 @@ form.addEventListener("input",(e) => {
 countryInput.addEventListener("change",async(e) => {
     if(countryInput.value == "other"){
         const countryName = prompt(`Please enter your country name below:`);
-        otherCountry.value = countryName;
-        alert(otherCountry.value);
+        if(countryName == ""){
+            alert(`Please provide a proper country name!`);
+            return;
+        }
+        else{
+            otherCountry.value = countryName;
+            //alert(otherCountry.value);
+        }
     }
     else{
         return;
