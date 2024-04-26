@@ -1,5 +1,5 @@
 # blazeinferno64.github.io
-My own website a.k.a Homepage/Landing Page 
+Source code of the website link provided below 
 |---------------|
 # View it here-
 
