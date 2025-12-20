@@ -334,7 +334,7 @@ window.onload = async (e) => {
         }, 500);
 
         
-       /* await loadVisitors();
+       await loadVisitors();
         const userRepo = await client.getSpecificRepo(username, "BlazeInferno64");
         const user = await client.getUser(username);
         //console.log(user);
@@ -348,7 +348,7 @@ window.onload = async (e) => {
 
         await loadProject("blaze-audio-player", "first-project", "project1");
         await loadProject("NotePlus", "second-project", "project2");
-        await loadProject("blazed.js", "third-project", "project3");*/
+        await loadProject("blazed.js", "third-project", "project3");
     } catch (error) {
         alert(error);
         console.error(error);
@@ -418,3 +418,4 @@ window.addEventListener("scroll", () => {
     }
     //console.log(y);
 });
+
