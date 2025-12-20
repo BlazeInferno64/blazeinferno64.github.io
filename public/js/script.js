@@ -309,7 +309,7 @@ const loadCountries = async () => {
 
         countries.forEach(country => {
             const option = document.createElement("option");
-            option.value = country.toLowerCase(); // in, us, etc.
+            option.value = country.toLocaleString("utf-8"); // convert to utf-8 string.
             option.textContent = country.toLocaleString("utf-8");
             select.appendChild(option);
         })
@@ -418,4 +418,5 @@ window.addEventListener("scroll", () => {
     }
     //console.log(y);
 });
+
 
