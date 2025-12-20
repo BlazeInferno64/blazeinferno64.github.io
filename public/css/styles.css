@@ -1799,7 +1799,6 @@ select {
     }
 }
 
-
 @media (max-width: 728px) {
     .card {
         width: 93%;
@@ -1949,6 +1948,24 @@ select {
         font-size: 1.4rem;
     }
 
+}
+
+@media (max-width: 360px) {
+    .about {
+        height: 120vh;
+    }
+    .projects {
+        height: 230vh;
+    }
+    .api {
+        height: 150vh;
+    }
+    .contact {
+        height: 150vh;
+    }
+    .footer {
+        height: 70vh;
+    }
 }
 
 @media (max-width: 900px) {
