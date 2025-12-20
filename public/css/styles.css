@@ -1802,7 +1802,7 @@ select {
     }
 }
 
-@media (max-width: 370px) {
+@media (max-width: 450px) {
     .card {
         width: 93%;
     }
@@ -1971,4 +1971,5 @@ select {
     .nav-actions {
         display: block;
     }
+
 }
