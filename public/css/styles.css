@@ -774,6 +774,8 @@ input {
     color: #fff;
     margin-top: 1rem;
     text-align: center;
+    font-family: "CartographItalic", "Monsterrat", sans-serif;
+
 }
 
 .pr-bg {
@@ -1730,6 +1732,7 @@ select {
         transform: scale(0);
         opacity: 0;
     }
+
     to {
         transform: scale(1);
         opacity: 1;
@@ -1796,13 +1799,8 @@ select {
     }
 }
 
-@media (max-width: 350px) {
-    .bg {
-        font-size: 2rem
-    }
-}
 
-@media (max-width: 450px) {
+@media (max-width: 728px) {
     .card {
         width: 93%;
     }
@@ -1826,9 +1824,11 @@ select {
     .popup {
         font-size: 1.1rem;
     }
-}
 
-@media (max-width: 908px) {
+    .pr-bg {
+        padding: .5rem 1rem;
+    }
+
     .footer {
         height: 55vh;
     }
@@ -1842,7 +1842,7 @@ select {
     }
 
     .contact {
-        height: 160vh;
+        height: 130vh;
     }
 
     .form,
@@ -1860,7 +1860,7 @@ select {
     }
 
     .api {
-        height: 145vh;
+        height: 115vh;
     }
 
     .options ul {
@@ -1875,7 +1875,7 @@ select {
     }
 
     .projects {
-        height: 200vh;
+        height: 180vh;
     }
 
     .pr-bg {
@@ -1902,6 +1902,10 @@ select {
         padding: .3rem .5rem;
         flex-direction: column;
     }
+
+    .about {
+        height: 90vh;
+    }
 }
 
 @media (max-width: 400px) {
@@ -1910,7 +1914,7 @@ select {
     }
 
     .contact {
-        height: 142vh;
+        height: 102vh;
     }
 
     .card {
@@ -1919,14 +1923,6 @@ select {
 
     .card-name {
         font-size: 1.3rem;
-    }
-
-    .projects {
-        height: 220vh;
-    }
-
-    .about {
-        height: 100vh;
     }
 
     .pr-bg {
@@ -1971,5 +1967,4 @@ select {
     .nav-actions {
         display: block;
     }
-
 }
