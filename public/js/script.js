@@ -361,7 +361,7 @@ window.onload = async (e) => {
         aboutDb.innerText = `${formatDate(userRepo.updated_at)} (${lastUpdated(userRepo.updated_at)})`;
 
         const mainInfo = await client.getSpecificRepo(username, "blazeinferno64.github.io");
-        websiteUpdateText.innerText = `Last updated: ${formatDate(mainInfo.updated_at)}`;
+        websiteUpdateText.innerText = `Last updated: ${formatDate(mainInfo.updated_at)} (${lastUpdated(mainInfo.updated_at)})`;
 
         await loadProject("blaze-audio-player", "first-project", "project1");
         await loadProject("NotePlus", "second-project", "project2");

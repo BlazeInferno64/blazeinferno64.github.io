@@ -1777,6 +1777,7 @@ select {
 }
 
 .footer .lst-up {
+    text-align: center;
     display: block;
     margin-top: .6rem;
     font-size: 0.95rem;
