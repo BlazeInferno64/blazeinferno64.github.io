@@ -13,6 +13,8 @@
 
 :root {
     --ff: "Monsterrat", sans-serif;
+    --main-gradient: linear-gradient(90deg, rgb(3, 189, 87), 74%, rgb(0, 195, 255));
+    --second-gradient: linear-gradient(90deg, #ff1b6b, 74%, #45caff);
 }
 
 *,
@@ -354,6 +356,8 @@ input {
     user-select: none;
     background: transparent;
     transform: translateY(-12px);
+    display: flex;
+    align-items: center;
 }
 
 .mob-nav ul li::after {
@@ -413,6 +417,12 @@ input {
     opacity: 1;
 }
 
+.mob-nav ul li a {
+    background: inherit;
+    width: 100%;
+    height: 100%;
+}
+
 .mob-hght {
     height: 240px;
     pointer-events: auto;
@@ -461,10 +471,23 @@ input {
     margin-top: .5rem;
 }
 
+
 .cursor {
     display: inline-block;
-    margin-left: 2px;
-    animation: blink 1s infinite;
+    margin-left: 4px;
+    width: 3px;
+    height: 1.2em;
+    background-color: yellow;
+    vertical-align: middle;
+    line-height: 1;
+    animation: blink 0.8s step-end infinite;
+}
+
+
+
+.cursor.typing {
+    animation: none;
+    background-color: yellow;
 }
 
 .wel {
@@ -514,7 +537,7 @@ input {
 
 .about {
     width: 100%;
-    height: 97vh;
+    height: fit-content;
     background: linear-gradient(rgba(0, 0, 0, .25), rgba(0, 0, 0, .35)), url("../img/image.jpg");
     background-position: center;
     background-size: cover;
@@ -529,6 +552,7 @@ input {
     font-size: 2.3rem;
     color: #fff;
     margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .bck {
@@ -633,7 +657,7 @@ input {
 .card-name {
     font-size: 1.5rem;
     margin-top: -2.7rem;
-    margin-left: 1rem;
+    margin-left: 1.5rem;
     font-weight: 600;
     width: 100%;
     text-align: center;
@@ -724,6 +748,7 @@ input {
     position: relative;
     overflow: hidden;
     transition: border 1s ease-in-out, box-shadow 1s ease-in-out;
+    margin-bottom: 2rem;
 }
 
 
@@ -757,7 +782,7 @@ input {
 
 .projects {
     width: 100%;
-    height: 91.5vh;
+    height: fit-content;
     background: linear-gradient(rgba(0, 0, 0, .85), rgba(0, 0, 0, .65)), url("../img/bg.jpg");
     background-size: cover;
     background-position: center;
@@ -767,9 +792,11 @@ input {
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
+    gap: 5rem;
 }
 
-.pr-info {
+.pr-info,
+.ab {
     font-size: 1.9rem;
     color: #fff;
     margin-top: 1rem;
@@ -780,7 +807,7 @@ input {
 
 .pr-bg {
     width: 100%;
-    height: 100vh;
+    height: fit-content;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1002,8 +1029,8 @@ input {
 .api {
     width: 100%;
     color: #fff;
-    height: 140vh;
-    background: linear-gradient(90deg, rgb(3, 189, 87), 74%, rgb(0, 195, 255));
+    height: fit-content;
+    background: var(--main-gradient);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -1016,6 +1043,7 @@ input {
 .api .api-info {
     font-size: 2.3rem;
     margin-top: .5rem;
+    font-family: "CartographItalic", "Monsterrat", sans-serif;
 }
 
 .i {
@@ -1062,7 +1090,120 @@ input {
     border-top-right-radius: .3rem;
     font-size: 1.3rem;
     font-family: "CartographItalic", monospace;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.gt-label p {
     color: rgb(255, 0, 106);
+}
+
+.gt-label .op {
+    background: transparent;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    transition: all .1s ease-in-out;
+}
+
+.gt-label .op:hover {
+    background: #4b494d;
+}
+
+.gt-label .op.active {
+    background: #4b494d;
+}
+
+.cd-set {
+    position: absolute;
+    z-index: 2;
+    background: #3a3e3f;
+    top: 0;
+    right: 0;
+    margin-top: 3rem;
+    margin-right: 2rem;
+    padding: .3rem .5rem;
+    display: flex;
+    width: 200px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.7);
+    border-radius: .3rem;
+    font-family: monospace;
+    gap: .5rem;
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.cd-set ul {
+    margin-top: .5rem;
+    width: 100%;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.cd-set ul li {
+    font-size: 1.13rem;
+    width: 100%;
+    border: 2px solid #5b6162;
+    padding: .5rem 1rem;
+    color: yellow;
+    border-radius: .3rem;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+}
+
+.cd-set ul li:hover {
+    background: #5b6162;
+}
+
+.cd-set ul li:active {
+    background: hsl(189, 4%, 47%);
+    scale: .97;
+    border-color: hsl(189, 4%, 47%);
+}
+
+.cd-set ul li.active {
+    background: rgb(83, 83, 217);
+    color: #fff;
+    border-color: rgb(83, 83, 217);
+}
+
+.cd-set ul li.active:hover {
+    background: hsl(240, 64%, 64%);
+    border-color: hsl(240, 64%, 64%);
+}
+
+.cd-set ul li.active:active {
+    background: hsl(240, 64%, 74%);
+    border-color: hsl(240, 64%, 74%);
+    scale: .97;
+}
+
+.cd-set.hidden {
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+}
+
+.op span {
+    background: #fff;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
 }
 
 .gt-main {
@@ -1143,6 +1284,14 @@ input {
     color: rgb(255, 0, 106);
 }
 
+.purple {
+    color: rgb(198, 89, 249);
+}
+
+.lightblue {
+    color: rgb(24, 181, 234);
+}
+
 .blue {
     color: rgb(0, 217, 255);
 }
@@ -1153,21 +1302,27 @@ input {
 
 .copy,
 .copy-api {
+    font-family: monospace;
     padding: .5rem 1rem;
     user-select: none;
-    font-size: 1.15rem;
+    font-size: 1.3rem;
     border: none;
     border-radius: .3rem;
     box-shadow: 0 10px 20px 0 rgba(0, 0, 0, .6);
     background: rgb(6, 75, 165);
+    border: 2px solid rgb(6, 75, 165);
     color: #fff;
     cursor: pointer;
     transition: all .2s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .copy:hover,
 .copy-api:hover {
     background: hsl(214, 93%, 44%);
+    border-color: hsl(214, 93%, 44%);
 }
 
 .copy:active,
@@ -1177,7 +1332,7 @@ input {
 
 .contact {
     width: 100%;
-    height: 107vh;
+    height: fit-content;
     background: linear-gradient(rgba(0, 0, 0, .25), rgba(0, 0, 0, .35)), url("../img/image.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -1207,6 +1362,7 @@ input {
     justify-content: center;
     flex-direction: column;
     text-align: center;
+    font-family: "CartographItalic", "Monsterrat", sans-serif;
 }
 
 .main-form {
@@ -1504,6 +1660,19 @@ select {
     font-weight: 600;
 }
 
+.foot-p1 {
+    width: 100%;
+    gap: 10px;
+    color: #3cffc1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem 1rem;
+    flex-direction: row;
+    font-family: "CartographItalic", "Monsterrat", sans-serif;
+    font-weight: 600;
+}
+
 .visitor-count {
     color: #4b494d;
     font-size: 1.1rem;
@@ -1512,11 +1681,19 @@ select {
     padding: .3rem .5rem;
     border-radius: .3rem;
     font-family: "CartographItalic", "Monsterrat", sans-serif;
+    background: rgba(255, 255, 255, 0.02);
+    transition: all .2s ease-in-out;
+}
+
+.visitor-count:hover {
+    color: #ffffff;
+    border-color: #3d4041;
+    background: #2a2d2e;
 }
 
 .footer {
     width: 100%;
-    height: 35vh;
+    height: fit-content;
     padding: .5rem 1rem;
     color: #fff;
     user-select: none;
@@ -1545,24 +1722,32 @@ select {
 .options ul li {
     color: rgb(4, 252, 157);
     transition: all .1s ease-in-out;
-    font-size: 1.2rem;
-    padding: .3rem .5rem;
+    font-size: 1.13rem;
+    padding: .5rem 1rem;
     background: transparent;
     border-radius: .3rem;
     cursor: pointer;
+    border: 3px dashed #2a2d2e;
+    font-family: "CartographItalic", "Monsterrat", sans-serif;
 }
 
 .options ul li:hover {
     background: #2a2d2e;
 }
 
+.options ul li:active {
+    scale: .97;
+    background: hsl(195, 5%, 27%);
+    border-color: hsl(195, 5%, 27%);
+}
+
 .nxt {
     width: 95%;
-    background: #4b494d;
+    max-width: 900px;
+    background: linear-gradient(90deg, transparent, #2a2d2e, transparent);
     height: 3px;
     border-radius: .3rem;
-    margin-top: .5rem;
-    margin-bottom: 1rem;
+    margin: .8rem 0 1rem;
 }
 
 .foot-text {
@@ -1581,6 +1766,23 @@ select {
 
 .foot-text a:hover {
     text-decoration: underline;
+}
+
+.footer .end {
+    color: #4b494d;
+    font-family: "CartographItalic", "Monsterrat", sans-serif;
+    margin-bottom: .5rem;
+    text-align: center;
+    font-size: 1.13rem;
+}
+
+.footer .lst-up {
+    display: block;
+    margin-top: .6rem;
+    font-size: 0.95rem;
+    opacity: 0.7;
+    font-family: "CartographItalic", "Montserrat", sans-serif;
+    color: #9a9a9a;
 }
 
 .popup-bg {
@@ -1625,6 +1827,10 @@ select {
 
 .popup .close:hover {
     background: #4b494d;
+}
+
+.popup p {
+    font-family: "CartographItalic", "Monsterrat", sans-serif;
 }
 
 .ok {
@@ -1699,8 +1905,9 @@ select {
     height: 100%;
     width: 0;
     border-radius: .5rem;
-    background: rgb(0, 217, 255);
     transition: all .6s ease-in-out;
+    max-width: 900px;
+    background: linear-gradient(90deg, transparent, rgb(0,217,255), transparent);
 }
 
 .no {
@@ -1777,15 +1984,13 @@ select {
 
 @keyframes blink {
 
-    0%,
-    50%,
-    100% {
-        opacity: 1;
+    from,
+    to {
+        background-color: transparent;
     }
 
-    25%,
-    75% {
-        opacity: 0;
+    50% {
+        background-color: yellow;
     }
 }
 
@@ -1829,7 +2034,7 @@ select {
     }
 
     .footer {
-        height: 55vh;
+        height: fit-content;
     }
 
     .foot-text {
@@ -1841,7 +2046,7 @@ select {
     }
 
     .contact {
-        height: 130vh;
+        height: fit-content;
     }
 
     .form,
@@ -1859,7 +2064,7 @@ select {
     }
 
     .api {
-        height: 115vh;
+        height: fit-content;
     }
 
     .options ul {
@@ -1874,11 +2079,14 @@ select {
     }
 
     .projects {
-        height: 180vh;
+        gap: 2rem;
+        height: fit-content;
     }
 
     .pr-bg {
+        gap: .5rem;
         height: 100%;
+        margin-bottom: .5rem;
     }
 
     .pr-info {
@@ -1893,6 +2101,10 @@ select {
         padding: 0 1rem;
     }
 
+    .btns {
+        margin-bottom: .5rem;
+    }
+
     .code-demo {
         box-shadow: 0 10px 20px 0 rgba(0, 0, 0, .6);
     }
@@ -1903,7 +2115,7 @@ select {
     }
 
     .about {
-        height: 90vh;
+        height: fit-content;
     }
 }
 
@@ -1913,7 +2125,7 @@ select {
     }
 
     .contact {
-        height: 102vh;
+        height: fit-content;
     }
 
     .card {
@@ -1952,19 +2164,31 @@ select {
 
 @media (max-width: 360px) {
     .about {
-        height: 120vh;
+        height: fit-content;
     }
+
     .projects {
-        height: 230vh;
+        gap: 2rem;
+        height: fit-content;
     }
+
+
+    .pr-bg {
+        gap: .5rem;
+        height: 100%;
+        margin-bottom: .5rem;
+    }
+
     .api {
-        height: 150vh;
+        height: fit-content;
     }
+
     .contact {
-        height: 150vh;
+        height: fit-content;
     }
+
     .footer {
-        height: 70vh;
+        height: fit-content;
     }
 }
 

@@ -56,6 +56,8 @@ const images = document.querySelectorAll("img");
 
 const img = document.querySelector(".img");
 
+const websiteUpdateText = document.querySelector(".lst-up");
+
 images.forEach(img => {
     img.addEventListener("contextmenu", (e) => {
         e.preventDefault();
@@ -182,16 +184,28 @@ function change(x) {
 copyEgBtn.addEventListener("click", async (e) => {
     try {
         const alertCopied = document.querySelector(".cc");
-        await navigator.clipboard.writeText(egCode.innerText);
-        alertCopied.innerText = `Copied!`;
-        alert(`Sucessfully copied!`)
-        setTimeout(() => {
-            alertCopied.innerText = `Copy Code`
-        }, 3000);
-    } catch (error) {
 
+        await navigator.clipboard.writeText(egCode.innerText);
+
+        alertCopied.innerText = `Copied!`;
+
+        alert(
+            `Successfully copied!
+
+⚠ Please Note:
+This snippet is only meant for display!
+In a real scenario, you must wrap this code inside an async function (or use it inside an ES module)!`
+        );
+
+        setTimeout(() => {
+            alertCopied.innerText = `Copy Code`;
+        }, 3000);
+
+    } catch (error) {
+        console.error("Copy failed:", error);
     }
-})
+});
+
 
 copyApiLinkBtn.addEventListener("click", async (e) => {
     try {
@@ -309,7 +323,7 @@ const loadCountries = async () => {
 
         countries.forEach(country => {
             const option = document.createElement("option");
-            option.value = country.toLocaleString("utf-8"); // convert to utf-8 string.
+            option.value = country.toLowerCase(); // in, us, etc.
             option.textContent = country.toLocaleString("utf-8");
             select.appendChild(option);
         })
@@ -330,11 +344,11 @@ window.onload = async (e) => {
 
         setTimeout(() => {
             popupBg.classList.add("ok");
-            popupInfo.innerText = `Welcome to my website :)`;
+            popupInfo.innerText = `Welcome here :D!`;
         }, 500);
 
-        
-       await loadVisitors();
+
+        await loadVisitors();
         const userRepo = await client.getSpecificRepo(username, "BlazeInferno64");
         const user = await client.getUser(username);
         //console.log(user);
@@ -342,9 +356,12 @@ window.onload = async (e) => {
 
         aboutDb.datetime = userRepo.updated_at;
         document.querySelector(".info-db").title = `This was last updated on ${formatDate(userRepo.updated_at)} (${lastUpdated(userRepo.updated_at)})`;
-        document.querySelector(".followers").innerHTML = `Followers: ${user.followers}`;
-        document.querySelector(".following").innerHTML = `Following: ${user.following}`;
+        document.querySelector(".followers").innerText = `Followers: ${user.followers}`;
+        document.querySelector(".following").innerText = `Following: ${user.following}`;
         aboutDb.innerText = `${formatDate(userRepo.updated_at)} (${lastUpdated(userRepo.updated_at)})`;
+
+        const mainInfo = await client.getSpecificRepo(username, "blazeinferno64.github.io");
+        websiteUpdateText.innerText = `Last updated: ${formatDate(mainInfo.updated_at)}`;
 
         await loadProject("blaze-audio-player", "first-project", "project1");
         await loadProject("NotePlus", "second-project", "project2");
@@ -418,5 +435,3 @@ window.addEventListener("scroll", () => {
     }
     //console.log(y);
 });
-
-

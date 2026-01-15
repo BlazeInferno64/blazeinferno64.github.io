@@ -74,16 +74,16 @@
                     <a href="#main" title="Home"><i class="fa fa-home"></i> Home</a>
                 </li>
                 <li>
-                    <a href="#about" title="About"><i class="fa fa-user"></i> About</a>
+                    <a href="#about" title="About Me"><i class="fa fa-user"></i> About</a>
                 </li>
                 <li>
-                    <a href="#projects" title="Projects"><i class="fa fa-project-diagram"></i> Projects</a>
+                    <a href="#projects" title="My Projects"><i class="fa fa-project-diagram"></i> Projects</a>
                 </li>
                 <li>
-                    <a href="#api" title="Rest Api"><i class="fa fa-server"></i> Blaze Server Api</a>
+                    <a href="#api" title="Blaze Server Rest Api"><i class="fa fa-server"></i> Blaze Server Api</a>
                 </li>
                 <li>
-                    <a href="#contact" title="Contact"><i class="fa fa-contact-card"></i> Contact</a>
+                    <a href="#contact" title="Contact Me"><i class="fa fa-contact-card"></i> Contact</a>
                 </li>
             </ul>
         </div>
@@ -100,7 +100,7 @@
                 Hello there! I am
                 <span class="highlight">BlazeInferno64</span>,
                 <br>
-                <span class="typed-text"></span><span class="cursor">|</span>
+                <span class="typed-text"></span><span class="cursor"></span>
             </p>
             <button class="wel">
                 <a href="#about">
@@ -140,7 +140,8 @@
                         <div class="card-lazy-load">
 
                         </div>
-                        <img src="https://avatars.githubusercontent.com/u/96913755?v=4" alt="" class="c-av hide absolute" />
+                        <img src="https://avatars.githubusercontent.com/u/96913755?v=4" alt=""
+                            class="c-av hide absolute" />
                     </div>
                     <div class="card-name">
                         BlazeInferno64
@@ -158,7 +159,7 @@
                             <b>Role</b>: Backend Developer
                         </li>
                         <li>
-                            <b>Languages</b>: JavaScript, Python, Ruby, Go, Rust, C++, C, C#
+                            <b>Languages</b>: JavaScript, Python, Ruby, Go, C++, C, C#
                         </li>
                         <li>
 
@@ -473,7 +474,9 @@
         <div class="gt-bg">
             <div class="gt">
                 <div class="gt-label">
-                    <i class="fa fa-server"></i> Rest api gateaway
+                    <p>
+                        <i class="fa fa-server"></i> Rest api gateaway
+                    </p>
                 </div>
                 <div title="Api Gateaway" class="gt-main">https://blaze-server-x75p.onrender.com/api
                 </div>
@@ -488,28 +491,45 @@
             Wondering how to implement this?
         </p>
         <p class="i">
-            Here is a simple example below using <span class="black">JavaScript’s native Fetch API</span> 👇
+            Here is a simple example below using <span class="black">JavaScript’s native Fetch Api</span> 👇
         </p>
 
         <br>
         <div class="gt-bg">
             <div class="gt">
                 <div class="gt-label">
-                    <i class="fa fa-code"></i> Javascript fetch api
+                    <p><i class="fa fa-code"></i> Javascript</p>
+                    <div class="op">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="cd-set hidden">
+                        <span class="hd">
+                            Code wrap style:
+                        </span>
+                        <ul>
+                            <li data-wrap="normal">
+                                > normal
+                            </li>
+                            <li data-wrap="nowrap">
+                                > nowrap
+                            </li>
+                            <li data-wrap="pre" class="active">
+                                > pre
+                            </li>
+                            <li data-wrap="pre-line">
+                                > pre-line
+                            </li>
+                            <li data-wrap="pre-wrap">
+                                > pre-wrap
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="gt-main-2" title="JavaScript Fetch Api example"><span class="yellow">fetch</span><span
-                        class="red">(</span><span class="green">"<span
-                            class="underline">https://blaze-server-x75p.onrender.com/api/users</span>"</span><span
-                        class="red">)</span>
-    <span class="yellow">.then</span><span class="red">(</span><span class="blue">res</span><span
-                        class="red"> =></span> <span class="blue">res</span>.<span class="yellow">json()</span><span
-                        class="red">)</span>
-    <span class="yellow">.then</span><span class="red">(</span><span class="blue">data</span><span
-                        class="red"> =></span> <span class="blue">console</span>.<span
-                        class="yellow">log(data)</span><span class="red">)</span>
-    <span class="green">.catch</span><span class="red">(</span><span class="blue">err</span><span
-                        class="red"> =></span> <span class="blue">console</span>.<span
-                        class="yellow">error(err)</span><span class="red">)</span>;</div>
+                <div class="gt-main-2" title="JavaScript Fetch Api example"><span class="yellow">const</span> <span class="blue">res</span> <span class="red">=</span> <span class="yellow">await</span> <span class="purple">fetch</span><span class="red">(</span><span class="green">"<span class="underline">https://blaze-server-x75p.onrender.com/api/users</span>"</span><span class="red">)</span>;
+<span class="yellow">const</span> <span class="blue">data</span> <span class="red">=</span> <span class="yellow">await</span> <span class="blue">res</span>.<span class="yellow">json</span><span class="red">(</span><span class="red">)</span>;
+<span class="blue">console</span>.<span class="yellow">log</span><span class="red">(</span><span class="blue">data</span><span class="red">)</span>;</div>
             </div>
         </div>
         <br>
@@ -525,6 +545,7 @@
             data-slug-hash="VYaoxZv" data-user="BlazeInferno64"
             style="height: 400px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid #ccc; margin: 1em 0; padding: 1em;">
         </p>
+        <br>
     </div>
 
     <!--Now let's design the contact card here!-->
@@ -543,7 +564,6 @@
             </div>
             <form action="https://formsubmit.co/14a1f475f44cdf7b428fb555b4a6e697" id="form" class="form" method="post">
                 <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_autoresponse" value="Hi there! Thanks for reaching out. This is BlazeInferno64, and I've successfully received your message. You can expect a response from me within 24–48 hours!">
                 <input type="text" name="Other-Country" value="Not-Selected!" class="ot" readonly hidden="true">
                 <div class="input">
                     <label for="First-name">
@@ -629,38 +649,61 @@
     <!--Finally let's come to design of the footer part here-->
     <div class="footer">
         <div class="options">
-            <p class="foot-p">
-                <i class="fa fa-link"></i> <span>
-                    Some useful links 👇
+            <p class="foot-p1">
+                <i class="fa-solid fa-earth-americas"></i> <span>
+                    Unique Visitors 🚀
                 </span>
             </p>
             <span class="visitor-count">
                 Loading...
             </span>
+            <div class="nxt">
+                <div class="fluid-1"></div>
+            </div>
+            <p class="foot-p">
+                <i class="fa fa-link"></i> <span>
+                    Some useful links 👇
+                </span>
+            </p>
             <ul>
                 <li>
-                    <a href="#" title="Back to Top"><i class="fa fa-long-arrow-up"></i> Back to top</a>
+                    <a href="#" title="Back to Top"><i class="fa fa-angle-up"></i> Back to top</a>
                 </li>
                 <li>
-                    <a href="https://codepen.io/BlazeInferno64" title="BlazeInferno64's Codepen"><i
-                            class="fa fa-codepen"></i> Codepen</a>
+                    <a rel="noopener noreferrer" target="_blank" href="https://codepen.io/BlazeInferno64"
+                        title="BlazeInferno64's Codepen"><i class="fa fa-codepen"></i> Codepen</a>
                 </li>
                 <li>
-                    <a href="https://github.com/blazeinferno64" title="BlazeInferno64's Github"><i
-                            class="fa fa-github"></i> Github</a>
+                    <a rel="noopener noreferrer" target="_blank" href="https://github.com/blazeinferno64"
+                        title="BlazeInferno64's Github">
+                        <i class="fa fa-github"></i> Github</a>
                 </li>
                 <li>
-                    <a href="https://gist.github.com/blazeinferno64" title="BlazeInferno64's Github Gists"><i
-                            class="fa fa-github"></i> Github gists</a>
+                    <a rel="noopener noreferrer" target="_blank" href="https://gist.github.com/blazeinferno64"
+                        title="BlazeInferno64's Github Gists">
+                        <i class="fa fa-github"></i> Github gists</a>
+                </li>
+                <li>
+                    <a rel="noopener noreferrer" target="_blank"
+                        href="https://stackoverflow.com/users/22214129/blazeinferno64"
+                        title="BlazeInferno64's Github Gists">
+                        <i class="fa-brands fa-stack-overflow"></i> Stack Overflow</a>
                 </li>
             </ul>
+        </div>
+        <br>
+        <div class="end" title="Built by BlazeInferno64">
+            Website made with ❤️ by BlazeInferno64
         </div>
         <div class="nxt">
             <div class="fluid-1"></div>
         </div>
         <span class="foot-text">
-            Copyright &copy; 2025-26. <a title="Github" href="https://github.com/blazeinferno64" id="lin"><i
+            Copyright &copy; 2026-27. <a title="Github" href="https://github.com/blazeinferno64" id="lin"><i
                     class="fa fa-github"></i> BlazeInferno64</a>
+        </span>
+        <span class="lst-up" title="Shows this website's last updated date">
+            Last updated: 15 Jan 2026
         </span>
         <div class="f-bg">
             <div class="fluid"></div>
@@ -683,6 +726,5 @@
     <script defer src="./public/js/github-client.js"></script>
     <script async defer src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 </body>
-
 
 </html>

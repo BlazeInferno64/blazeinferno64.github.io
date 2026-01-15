@@ -49,9 +49,3 @@ class GitHubClient {
 
 const client = new GitHubClient();
 
-
-/*fetch("https://blaze-server-x75p.onrender.com/api/users")
-    .then(res => res.json())
-    .then(data => console.log(data))
-    .catch(err => console.error(err));*/
-
