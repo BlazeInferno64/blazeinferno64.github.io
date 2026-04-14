@@ -269,12 +269,16 @@ newsForm.addEventListener("input", (e) => {
 
 form.addEventListener("submit", (e) => {
     if (countryInput.value === "default") {
-        alert(`Please select your country!`);
+        resetPopupMsg();
+        changePopupMsg(`Please select your country!`)
+        openPopup();
+        //alert(`Please select your country!`);
         e.preventDefault(); // Prevent form submission
         return;
     }
     resetPopupMsg();
     changePopupMsg(`Submitting contact form hold on...`)
+    openPopup();
     //popupBg.classList.add("ok");
     //popupInfo.innerText = `Sending...`;
     alert(`Thanks for contacting me! I’ll try to respond as soon as I can. However, please keep in mind that it may take up to 24–48 hours to get a reply!`);
@@ -356,22 +360,22 @@ window.onload = async (e) => {
 
 
 
-        
+
         await loadVisitors();
         const userRepo = await client.getSpecificRepo(username, "BlazeInferno64");
         const user = await client.getUser(username);
         //console.log(user);
         //const updatedDate = new Date(user.updated_at);
- 
+
         aboutDb.datetime = userRepo.updated_at;
         document.querySelector(".info-db").title = `This was last updated on ${formatDate(userRepo.updated_at)} (${lastUpdated(userRepo.updated_at)})`;
         document.querySelector(".followers").innerText = `Followers: ${user.followers}`;
         document.querySelector(".following").innerText = `Following: ${user.following}`;
         aboutDb.innerText = `${formatDate(userRepo.updated_at)} (${lastUpdated(userRepo.updated_at)})`;
- 
+
         const mainInfo = await client.getSpecificRepo(username, "blazeinferno64.github.io");
         websiteUpdateText.innerText = `Last updated: ${formatDate(mainInfo.updated_at)} (${lastUpdated(mainInfo.updated_at)})`;
- 
+
         await loadProject("blaze-audio-player", "first-project", "project1");
         await loadProject("NotePlus", "second-project", "project2");
         await loadProject("blazed.js", "third-project", "project3");
