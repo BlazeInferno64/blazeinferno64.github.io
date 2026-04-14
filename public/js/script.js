@@ -273,6 +273,8 @@ form.addEventListener("submit", (e) => {
         e.preventDefault(); // Prevent form submission
         return;
     }
+    resetPopupMsg();
+    changePopupMsg(`Submitting contact form hold on...`)
     //popupBg.classList.add("ok");
     //popupInfo.innerText = `Sending...`;
     alert(`Thanks for contacting me! I’ll try to respond as soon as I can. However, please keep in mind that it may take up to 24–48 hours to get a reply!`);
