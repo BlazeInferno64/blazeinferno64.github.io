@@ -23,10 +23,6 @@ const newsForm = document.querySelector(".news-form");
 const newsEmailInput = document.querySelector("#email-news");
 const submitEmailNewsFormBtn = document.querySelector(".sub");
 
-const popupBg = document.querySelector(".popup-bg");
-const popupInfo = document.querySelector("#in");
-const closePopupBtn = document.querySelector(".close");
-
 const loadBg = document.querySelector(".load-bg");
 //const loadingText = document.querySelector(".txt");
 const Body = document.querySelector("body");
@@ -57,6 +53,8 @@ const images = document.querySelectorAll("img");
 const img = document.querySelector(".img");
 
 const websiteUpdateText = document.querySelector(".lst-up");
+
+let isShown = false;
 
 images.forEach(img => {
     img.addEventListener("contextmenu", (e) => {
@@ -134,9 +132,10 @@ const loadVisitors = async (e) => {
         const formattedResponse = await res.json();
         visitorCount.innerText = `Visitors: ${formattedResponse.data.data.up_count ? formattedResponse.data.data.up_count : 0}`;
     } catch (error) {
-        alert(`Could not load visitor count!`);
+        //alert(`Could not load visitor count!`);
         visitorCount.innerText = `Visitors: 0`;
         console.error("Error fetching visitor count:", error);
+        throw `[Visitor_Count_Error]\nWell it seems like an error occured while loading visitor count!\nPlease try refreshing this page again!`;
     }
 }
 
@@ -246,8 +245,11 @@ countryInput.addEventListener("change", updateFormButtons);
 
 
 newsForm.addEventListener("submit", (e) => {
-    popupBg.classList.add("ok");
-    popupInfo.innerText = `Sending...`;
+    //popupBg.classList.add("ok");
+    //popupInfo.innerText = `Sending...`;
+    resetPopupMsg();
+    changePopupMsg(`Submitting the form hold on...`);
+    openPopup();
     alert(`Thanks for subscribing to my Email newsletter! You will be kept updated about everything!`);
 })
 
@@ -271,8 +273,8 @@ form.addEventListener("submit", (e) => {
         e.preventDefault(); // Prevent form submission
         return;
     }
-    popupBg.classList.add("ok");
-    popupInfo.innerText = `Sending...`;
+    //popupBg.classList.add("ok");
+    //popupInfo.innerText = `Sending...`;
     alert(`Thanks for contacting me! I’ll try to respond as soon as I can. However, please keep in mind that it may take up to 24–48 hours to get a reply!`);
     return console.log(`Form submitted!`);
 })
@@ -306,10 +308,10 @@ const loadProject = async (repoName, prefix, project) => {
 
         ProjectUpdatedDate.innerText =
             `${formatDate(repo.updated_at)} (${lastUpdated(repo.updated_at)})`;
-
     } catch (error) {
-        alert(error);
+        //alert(error);
         console.error(`Failed to load ${repoName}`, error);
+        throw `Unexpected error occured while loading ${repoName}!\nPlease try again after sometime or refresh this page again!`;
     }
 };
 
@@ -329,13 +331,14 @@ const loadCountries = async () => {
         })
     } catch (error) {
         console.error("Error loading countries:", error);
+        throw `[Country_List_Error]\nAn unexpected error occured while loading country lists!\nPlease try refreshing this page again!`;
     }
 }
 
 
 window.onload = async (e) => {
     try {
-
+        isShown = true;
         await loadCountries();
 
         console.log("Loaded window!");
@@ -343,31 +346,47 @@ window.onload = async (e) => {
         Body.classList.remove("no-scroll");
 
         setTimeout(() => {
-            popupBg.classList.add("ok");
-            popupInfo.innerText = `Welcome here :D!`;
+            resetPopupMsg()
+            openPopup();
+            //popupBg.classList.add("ok");
+            //popupInfo.innerText = `Welcome here :D!`;
         }, 500);
 
 
+
+        
         await loadVisitors();
         const userRepo = await client.getSpecificRepo(username, "BlazeInferno64");
         const user = await client.getUser(username);
         //console.log(user);
         //const updatedDate = new Date(user.updated_at);
-
+ 
         aboutDb.datetime = userRepo.updated_at;
         document.querySelector(".info-db").title = `This was last updated on ${formatDate(userRepo.updated_at)} (${lastUpdated(userRepo.updated_at)})`;
         document.querySelector(".followers").innerText = `Followers: ${user.followers}`;
         document.querySelector(".following").innerText = `Following: ${user.following}`;
         aboutDb.innerText = `${formatDate(userRepo.updated_at)} (${lastUpdated(userRepo.updated_at)})`;
-
+ 
         const mainInfo = await client.getSpecificRepo(username, "blazeinferno64.github.io");
         websiteUpdateText.innerText = `Last updated: ${formatDate(mainInfo.updated_at)} (${lastUpdated(mainInfo.updated_at)})`;
-
+ 
         await loadProject("blaze-audio-player", "first-project", "project1");
         await loadProject("NotePlus", "second-project", "project2");
         await loadProject("blazed.js", "third-project", "project3");
     } catch (error) {
-        alert(error);
+        if (navigator && !navigator.onLine) {
+            throw `[Network_Error]\nNo internet connection detected!\nPlease try again after connectuing back to internet or try refreshing this page again!`;
+        }
+        if (isShown) {
+            // Use a slight delay to ensure it doesn't clash with the loading screen transition
+            setTimeout(() => {
+                //closePopup(); // Ensure any existing popup is cleared
+                resetPopupMsg();
+                openPopup();
+                changePopupMsg(error);
+            }, 600);
+        }
+        //alert(error);
         console.error(error);
     }
 }
@@ -435,3 +454,40 @@ window.addEventListener("scroll", () => {
     }
     //console.log(y);
 });
+
+/*
+
+const originalFetch = window.fetch;
+
+window.fetch = async (...args) => {
+    const url = args[0]; // The URL being requested
+    console.log("🚀 Fetch Request Started:", url);
+
+    try {
+        const response = await originalFetch(...args);
+
+        // Check if the HTTP status is NOT in the 200-299 range (e.g., 404 or 500)
+        if (!response.ok) {
+            handleFetchError(`Request to ${url} failed with status: ${response.status}`);
+        }
+
+        console.log("✅ Fetch Request Finished:", url, "Status:", response.status);
+        return response;
+    } catch (error) {
+        // This catches network errors (e.g., user is offline, DNS failure)
+        handleFetchError(`Network error while fetching ${url}: ${error.message}`);
+        console.error("❌ Fetch Request Failed:", url, error);
+        throw error;
+    }
+};
+
+/**
+ * Helper to display the error in your existing popup system
+ */
+/*
+function handleFetchError(message) {
+    resetPopupMsg();
+    changePopupMsg(message);
+    openPopup();
+}
+*/
