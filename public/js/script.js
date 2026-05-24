@@ -54,6 +54,8 @@ const img = document.querySelector(".img");
 
 const websiteUpdateText = document.querySelector(".lst-up");
 
+const parentNav = document.querySelector(".nav");
+
 let isShown = false;
 
 images.forEach(img => {
@@ -172,6 +174,7 @@ if (cardAvatar.complete) {
 
 
 hamburger.addEventListener("click", (e) => {
+    parentNav.classList.toggle("shadow");
     mobileNav.classList.toggle("mob-hght");
     //const checked = document.getElementById("check");
 })
@@ -360,6 +363,7 @@ window.onload = async (e) => {
 
 
 
+        
 
         await loadVisitors();
         const userRepo = await client.getSpecificRepo(username, "BlazeInferno64");
@@ -379,6 +383,7 @@ window.onload = async (e) => {
         await loadProject("blaze-audio-player", "first-project", "project1");
         await loadProject("NotePlus", "second-project", "project2");
         await loadProject("blazed.js", "third-project", "project3");
+        
     } catch (error) {
         if (navigator && !navigator.onLine) {
             throw `[Network_Error]\nNo internet connection detected!\nPlease try again after connectuing back to internet or try refreshing this page again!`;
@@ -497,3 +502,16 @@ function handleFetchError(message) {
     openPopup();
 }
 */
+
+const tryCodeBtn = document.querySelector(".try-jolt");
+
+tryCodeBtn.addEventListener("click", (e) => {
+    //alert(`This will open Jolt, an online JavaScript playground, in a new tab with the code already filled in for you to try out!`);
+    changePopupMsg(`This will open Jolt, an online JavaScript playground, in a new tab with the code already filled in for you to try out!`);
+    openPopup();
+    const myCodeURL = '?code=Ly8gUHVibGljIGlwIGxvb2t1cCBhcGkgLS0%2BIGZyZWUgcHVibGljIGlwIGxvb2t1cCBzZXJ2aWNlCmNvbnN0IGlwVVJMID0gImh0dHBzOi8vYmxhemUtc2VydmVyLXg3NXAub25yZW5kZXIuY29tL2FwaS9pcCI7Ci8vVXNlcnMgYXBpIC0%2BIGZldGNoZXMgZHVtbXkgdXNlcnMgZGF0YQpjb25zdCB1c2Vyc1VSTCA9ICJodHRwczovL2JsYXplLXNlcnZlci14NzVwLm9ucmVuZGVyLmNvbS9hcGkvdXNlcnMiCi8vUHJveHkgYXBpIC0%2BIGp1c3QgYWRkID91cmw9e3NvbWVfdXJsfSB0byBsb2FkIGl0CmNvbnN0IHByb3h5VVJMID0gImh0dHBzOi8vYmxhemUtc2VydmVyLXg3NXAub25yZW5kZXIuY29tL2FwaS9wcm94eSIKLy8gU3RhcnQgdGhpcyByZXF1ZXN0IHVzaW5nIGZldGNoIGFwaQpjb25zdCByZXMgPSBhd2FpdCBmZXRjaCh1c2Vyc1VSTCk7CmNvbnN0IGRhdGEgPSBhd2FpdCByZXMuanNvbigpOwpjb25zb2xlLmxvZyhkYXRhKTs%3D&run=true';
+    const constructedLink = `${window.location.origin}/jolt.html${myCodeURL}`;
+    setTimeout(() => {
+        window.open(constructedLink, "_blank");
+    }, 1000);
+})

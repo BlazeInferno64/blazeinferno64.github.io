@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords"
+        content="Jolt, BlazeInferno64, online code editor, JavaScript editor, browser-based code editor, free code editor, minimalistic code editor, fast code editor">
+    <meta name="description" content="Jolt is a fast and minimalistic online code editor for JavaScript">
+    <title>Jolt - The fast minimalistic code editor | Made by BlazeInferno64 | Free online browser-based code editor for
+        JavaScript</title>
+    <link rel="icon"
+        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAAD+UlEQVR4nO2ZXUhTYRzGB2baTKikCAtDouk055w6Tx+mRIkVVjIRBLPsQvwq8/Om267sJgKNrropxEAvtLsM+jDoonqvytF2UWEJUYFBZR/6j3c62dbOPMfNs+28zwPPzd5zdnb+v3fv/znvMRggCIIgCIIgCIIgCIIgSEbM6aplTtcMc7oJdvvYNfNy6k2NFgBQfKcshI8aAIj2Tbpj2gDgFAzAiykXjUw8ocHhcRocHqPRiUnPZ0rHmc6sOQBe0Gu3R/3MP1M6znRmzQHwmR1Y4IHhccXjTGeOAoCx/wp84+644nGmM2sOINgSM/JgUvE405k1B8AbKi8yn+lyTTjUONOZNQcAuwGAxZABwAkAQtugNQCTTRLaDAAkABDZDAAkABDZDAAkABDZDAAkABDZDAAkABDZDAAkAIi2C05bqY8Slt32LgUAtPSx/kw/AI6hdADQ0ueebvEDcLDdDABa2bzPTl0/E5eL3z2XSDn77QCglUsvmP1m/9nJLZpeX3gANUPpfgAq+zMBIBzb6y3U+Gyz4uNb36f4AbCdsgY9jn9nUW0+AMjZVm2l+vtbqW9hsZCRjp98vPfvOqod2U55RwoBwGtLpc1TFF4c32JGOn76Htf5LYlOXN9F2ZJdXAC55UVUfWunJ7X4FkcNADXxM9g1+PJV3mcSCwCPiHz2dc4mBS2KUgBq42eoa51/vonsdRZ9A8gqLqGKK7vp4qcNIYvR7E6hQx3ZEY+fB1pyqNm1Ufa6vfMJVHdvG1kqCvUJoPWtf1oJdPsHIx2+vIeyitYufmbZSzzHhfr3dX1fT1UDGfoDIHfDnbOLDdGssiEqjZ+h+k/Pb//Gr7YHxT0Ax50dlFtWpKrw3LzYgc1U7XdwFzryPUuXsADapo2K1vu12v3kzx4Nj9PEANA+bZT9u595lEYFVQWKvytw1vKGrKbwfAniPaT3j0BLEI+NJ29mUM+v4Lm/ey7RM75SLwhn99ObxDq+JssWnj9Nq/lXxg0A3+0Dvi8jW4BpI5Vdyo747iePoS1u+Rja/WNxAqh9Oo47AF7zJ9COL/IzMdK7n7IReGEx/+cdXd3+UNwC8K7FDr4WzysHsNr4Gaz4Ta9TSWrcG9Y9xDUAk88WdNOr1BUBhPPy3fe8js/Jnl6g9KFP9wBMSw2y8mqm50lUDkA48ZMfz1MPPyentDhiv1s3AExLth4voIaHaRGPn/xcnvsj/Xt1B8AUoy/fhQdQGuWX78IDqInyy3fhAbSGsfsJADo2AwAJAEQ2AwAJAEQ2AwAJAEQ2AwAJAEQ2AwAJAEQ2AwAJAEQ2AwBJbACwGwBYDBkAnAAgtA0QBEEQBEEQBEEQBEEQZAiuf1njulfecT1jAAAAAElFTkSuQmCC"
+        type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/geist-mono" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0e12;
+            color: #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .code {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            background-color: #1a1c23;
+            border: 1px solid #2d313f;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .editor-header {
+            display: flex;
+            align-items: center;
+            background-color: #16181e;
+            padding: 0 16px;
+            height: 40px;
+            border-bottom: 1px solid #2d313f;
+        }
+
+        .lang-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            height: 100%;
+            padding: 0 4px;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            color: #04d671;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #04d671;
+        }
+
+        .lang-badge i {
+            font-size: 13px;
+        }
+
+        .editor-wrap {
+            position: relative;
+            width: 100%;
+            min-height: 280px;
+            max-height: 60vh;
+            background-color: #111318;
+        }
+
+        .editor-textarea,
+        .editor-highlight {
+            position: absolute;
+            top: 0;
+            /* Changed from inset: 0 */
+            left: 0;
+            /* Changed from inset: 0 */
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 15px;
+            line-height: 1.7;
+            tab-size: 2;
+            -moz-tab-size: 2;
+            white-space: pre;
+            overflow: auto;
+            word-wrap: normal;
+            border: none;
+            outline: none;
+        }
+
+        .editor-textarea {
+            z-index: 2;
+            background: transparent;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            caret-color: #04d671;
+            resize: none;
+            scrollbar-width: thin;
+            scrollbar-color: #232731 #111318;
+        }
+
+        .editor-textarea::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        .editor-textarea::-webkit-scrollbar-track {
+            background: #111318;
+        }
+
+        .editor-textarea::-webkit-scrollbar-thumb {
+            background: #232731;
+            border-radius: 4px;
+        }
+
+        .editor-textarea::-webkit-scrollbar-thumb:hover {
+            background: #2d323f;
+        }
+
+        .editor-textarea::placeholder {
+            color: #4a5568;
+            -webkit-text-fill-color: #4a5568;
+            opacity: 1;
+        }
+
+        .editor-highlight {
+            z-index: 1;
+            pointer-events: none;
+            background-color: #111318;
+            scrollbar-width: none;
+        }
+
+        .editor-highlight::-webkit-scrollbar {
+            display: none;
+        }
+
+        .editor-highlight pre,
+        .editor-highlight code {
+            background: transparent !important;
+            font-family: inherit !important;
+            font-size: inherit !important;
+            line-height: inherit !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            border: none !important;
+            box-shadow: none !important;
+            text-shadow: none !important;
+            /* Kills Prism's blurry shadow */
+            word-spacing: normal !important;
+            /* Forces 1:1 pixel alignment */
+            letter-spacing: normal !important;
+            /* Forces 1:1 pixel alignment */
+            tab-size: inherit !important;
+            -moz-tab-size: inherit !important;
+            white-space: pre !important;
+            overflow: visible !important;
+        }
+
+        .actions-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            z-index: 10;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        button i {
+            font-size: 12px;
+        }
+
+        #run {
+            color: #041a0f;
+            background-color: #04d671;
+            box-shadow: 0 0 20px rgba(4, 214, 113, 0.15);
+        }
+
+        #run:hover {
+            background-color: #05f281;
+            transform: translateY(-1px);
+            box-shadow: 0 0 25px rgba(4, 214, 113, 0.3);
+        }
+
+        #run:active {
+            transform: translateY(1px);
+            box-shadow: 0 0 10px rgba(4, 214, 113, 0.1);
+        }
+
+        #copy-output {
+            color: #1a1402;
+            background-color: #ffca28;
+            box-shadow: 0 0 20px rgba(255, 202, 40, 0.1);
+        }
+
+        #copy-output:hover {
+            background-color: #ffd54f;
+            transform: translateY(-1px);
+            box-shadow: 0 0 25px rgba(255, 202, 40, 0.25);
+        }
+
+        #copy-output:active {
+            transform: translateY(1px);
+            box-shadow: 0 0 10px rgba(255, 202, 40, 0.05);
+        }
+
+        #share-page {
+            color: #0f172a;
+            background-color: #38bdf8;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+        }
+
+        #share-page:hover {
+            background-color: #7dd3fc;
+            transform: translateY(-1px);
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.3);
+        }
+
+        #share-page:active {
+            transform: translateY(1px);
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.05);
+        }
+
+        .console-container {
+            width: 100%;
+            border-top: 1px solid #2d313f;
+        }
+
+        .console {
+            width: 100%;
+            height: 220px;
+            background-color: #07080a;
+            color: #a4b1cd;
+            padding: 20px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            scrollbar-width: thin;
+            scrollbar-color: #232731 #07080a;
+        }
+
+        .console::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .console::-webkit-scrollbar-track {
+            background: #07080a;
+        }
+
+        .console::-webkit-scrollbar-thumb {
+            background: #232731;
+            border-radius: 4px;
+        }
+
+        .console::-webkit-scrollbar-thumb:hover {
+            background: #2d323f;
+        }
+
+        .console pre[class*="language-"],
+        .console code[class*="language-"] {
+            margin: 0 !important;
+            padding: 0 !important;
+            background: transparent !important;
+            font-family: inherit !important;
+            font-size: inherit !important;
+            white-space: pre-wrap !important;
+        }
+
+        .console div {
+            padding: 4px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .log-error {
+            color: #ff5565;
+            background-color: rgba(255, 85, 101, 0.05);
+            margin: 4px 0;
+            padding-left: 8px !important;
+            border-left: 3px solid #ff5565;
+        }
+
+        .log-warn {
+            color: #ffb86c;
+            background-color: rgba(255, 184, 108, 0.05);
+            margin: 4px 0;
+            padding-left: 8px !important;
+            border-left: 3px solid #ffb86c;
+        }
+
+        /* ── Explicit Consent Toast UI Style (Fixed & Compressed) ────── */
+        .toast-gateway {
+            position: fixed;
+            bottom: -150px;
+            /* Further down when hidden to clear box-shadow */
+            right: 24px;
+            background-color: #16181e;
+            border: 1px solid #04d671;
+            border-radius: 10px;
+            padding: 14px 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 320px;
+            height: 135px;
+            /* Fixed height ensures it fits perfectly */
+            box-shadow: 0 10px 30px rgba(4, 214, 113, 0.15);
+            z-index: 9999;
+            transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+        }
+
+        .toast-gateway.show {
+            bottom: 24px;
+            /* Matches the right spacing flawlessly */
+        }
+
+        .toast-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #e2e8f0;
+        }
+
+        .toast-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            color: #04d671;
+        }
+
+        .toast-title i {
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        .toast-close {
+            background: transparent;
+            color: #4a5568;
+            padding: 2px;
+            cursor: pointer;
+            font-size: 14px;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .toast-close:hover {
+            color: #ff5565;
+        }
+
+        .toast-body {
+            font-size: 12px;
+            line-height: 1.4;
+            color: #a4b1cd;
+            margin-top: -4px;
+        }
+
+        .toast-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .toast-btn {
+            padding: 5px 12px;
+            font-size: 11px;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .toast-btn-run {
+            background-color: #04d671;
+            color: #041a0f;
+        }
+
+        .toast-btn-run:hover {
+            background-color: #05f281;
+        }
+
+        .toast-btn-ignore {
+            background-color: #232731;
+            color: #e2e8f0;
+            border: 1px solid #2d313f;
+        }
+
+        .toast-btn-ignore:hover {
+            background-color: #2d323f;
+        }
+
+        @keyframes pulse {
+            from {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            to {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="code">
+        <div class="editor-header">
+            <div class="lang-badge">
+                <i class="fab fa-js-square"></i> JavaScript
+            </div>
+        </div>
+
+        <div class="editor-wrap">
+            <textarea
+                id="code"
+                class="editor-textarea"
+                spellcheck="false"
+                autocorrect="off"
+                autocapitalize="off"
+                placeholder="Write your JavaScript code here...&#10;&#10;Try running something like:&#10;const res = await fetch('https://blaze-server-x75p.onrender.com/api/users');&#10;const data = await res.json();&#10;console.log(data);"
+            ></textarea>
+
+            <div class="editor-highlight" aria-hidden="true"><pre class="language-js"><code id="highlight-code" class="language-js"></code></pre></div>
+        </div>
+
+        <div class="actions-bar">
+            <button id="run">
+                <i class="fa fa-play"></i>
+                <span id="run-txt">Run Code</span>
+            </button>
+            <button id="copy-output">
+                <i class="fa fa-regular fa-copy"></i>
+                <span id="copy-txt">Copy Output</span>
+            </button>
+            <button id="share-page">
+                <i class="fa-solid fa-share-nodes"></i>
+                <span id="share-txt">Share Page</span>
+            </button>
+        </div>
+
+        <div class="console-container">
+            <div id="console" class="console">Code Output here...</div>
+        </div>
+    </div>
+
+    <div id="consent-toast" class="toast-gateway">
+        <div class="toast-header">
+            <div class="toast-title">
+                <i class="fa-solid fa-triangle-exclamation"></i> Auto-Run Triggered
+            </div>
+            <div class="toast-close" id="toast-close"><i class="fa-solid fa-xmark"></i></div>
+        </div>
+        <div class="toast-body">
+            This URL request contains pre-loaded code that wants to execute instantly. Do you trust this script?
+        </div>
+        <div class="toast-actions">
+            <button class="toast-btn toast-btn-ignore" id="toast-ignore"><i class="fa-solid fa-ban"></i>  Ignore</button>
+            <button class="toast-btn toast-btn-run" id="toast-run"><i class="fa-solid fa-play"></i> Run Code</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+
+    <script>
+        const codeInput = document.getElementById('code');
+        const highlightCode = document.getElementById('highlight-code');
+        const highlightDiv = document.querySelector('.editor-highlight');
+        const runBtn = document.getElementById('run');
+        const copyBtn = document.getElementById('copy-output');
+        const shareBtn = document.getElementById('share-page');
+        const consoleScreen = document.getElementById('console');
+        const runTxt = document.getElementById('run-txt');
+
+        // Gateway Elements
+        const consentToast = document.getElementById('consent-toast');
+        const toastRun = document.getElementById('toast-run');
+        const toastIgnore = document.getElementById('toast-ignore');
+        const toastClose = document.getElementById('toast-close');
+
+        // ── Real-time syntax highlighting ──────────────────────────────
+        function syncHighlight() {
+            let src = codeInput.value;
+            if (src.endsWith('\n') || src === '') src += ' ';
+            highlightCode.innerHTML = Prism.highlight(
+                src, Prism.languages.javascript, 'javascript'
+            );
+        }
+
+        function syncScroll() {
+            highlightDiv.scrollTop  = codeInput.scrollTop;
+            highlightDiv.scrollLeft = codeInput.scrollLeft;
+        }
+
+        codeInput.addEventListener('input',  syncHighlight);
+        codeInput.addEventListener('scroll', syncScroll);
+
+
+        // ── Run Logic Handler Function ─────────────────────────────────
+        async function executeCode() {
+            runTxt.textContent = 'Running…';
+            consoleScreen.innerHTML = '';
+            const outputStart = consoleOutputCount;
+
+            try {
+                const src = codeInput.value;
+                if (!src.trim()) { console.warn('The editor is empty. Write some code first!'); return; }
+                const result = await new Function(`return (async () => { ${src} })()`)();
+                if (consoleOutputCount === outputStart) {
+                    appendLog(processArgs([result]), 'log');
+                }
+            } catch (err) {
+                console.error(err);
+            } finally {
+                runTxt.textContent = 'Run Code';
+            }
+        }
+
+        // ── URL Query Parameter Code Loader (With Base64 Fallback) ─────
+        const urlParams = new URLSearchParams(window.location.search);
+        const codeParam = urlParams.get('code');
+        const autoRunParam = urlParams.get('run');
+
+        if (codeParam !== null) {
+            try {
+                codeInput.value = atob(codeParam);
+            } catch (e) {
+                codeInput.value = codeParam;
+            }
+            codeInput.selectionStart = codeInput.selectionEnd = codeInput.value.length;
+
+            // Trigger gateway toast notification if run=true parameter exists
+            if (autoRunParam === 'true') {
+                setTimeout(() => {
+                    consentToast.classList.add('show');
+                }, 400);
+            }
+        }
+
+        syncHighlight();
+        syncScroll();
+
+        // ── Tab → 2 spaces ─────────────────────────────────────────────
+        codeInput.addEventListener('keydown', e => {
+            if (e.key !== 'Tab') return;
+            e.preventDefault();
+            const s = codeInput.selectionStart, end = codeInput.selectionEnd;
+            codeInput.value = codeInput.value.slice(0, s) + '  ' + codeInput.value.slice(end);
+            codeInput.selectionStart = codeInput.selectionEnd = s + 2;
+            syncHighlight();
+            syncScroll();
+        });
+
+        // ── Global Persistent Console intercept ────────────────────────
+        const _log = console.log.bind(console);
+        const _warn = console.warn.bind(console);
+        const _error = console.error.bind(console);
+        let consoleOutputCount = 0;
+
+
+        function processArgs(args) {
+            return args.map(arg => {
+                if (arg instanceof Error) {
+                    return { type: 'text', content: arg.stack || `${arg.name}: ${arg.message}` };
+                }
+                if (arg !== null && typeof arg === 'object') {
+                    try {
+                        const inspected = inspectObject(arg);
+                        const html = Prism.highlight(inspected, Prism.languages.json, 'json');
+                        return { type: 'html', content: `<pre class="language-json"><code class="language-json">${html}</code></pre>` };
+                    } catch { return { type: 'text', content: String(arg) }; }
+                }
+                return { type: 'text', content: String(arg) };
+            });
+        }
+
+        function safeAccess(obj, key) {
+            try {
+                return obj[key];
+            } catch (err) {
+                return `[Throws: ${err.message}]`;
+            }
+        }
+
+        function safeCall(obj, method, ...args) {
+            try {
+                return typeof obj[method] === 'function' ? obj[method](...args) : undefined;
+            } catch (err) {
+                return `[Throws: ${err.message}]`;
+            }
+        }
+
+        function isPluginArray(obj) {
+            return obj && typeof obj === 'object' && typeof obj.length === 'number' && typeof obj.item === 'function' && typeof obj.namedItem === 'function' &&
+                (obj.constructor?.name === 'PluginArray' || Object.prototype.toString.call(obj) === '[object PluginArray]');
+        }
+
+        function isMimeTypeArray(obj) {
+            return obj && typeof obj === 'object' && typeof obj.length === 'number' && typeof obj.item === 'function' && typeof obj.namedItem === 'function' &&
+                (obj.constructor?.name === 'MimeTypeArray' || Object.prototype.toString.call(obj) === '[object MimeTypeArray]');
+        }
+
+        function inspectPluginArray(obj, depth, seen) {
+            const length = Number(safeAccess(obj, 'length')) || 0;
+            const items = [];
+            for (let i = 0; i < length; i++) {
+                const plugin = safeAccess(obj, i) ?? safeCall(obj, 'item', i);
+                items.push(inspectPlugin(plugin, depth + 1, seen));
+            }
+            return `{
+  "length": ${length},
+  "plugins": [
+    ${items.join(',\n    ')}
+  ]
+}`;
+        }
+
+        function inspectMimeTypeArray(obj, depth, seen) {
+            const length = Number(safeAccess(obj, 'length')) || 0;
+            const items = [];
+            for (let i = 0; i < length; i++) {
+                const mime = safeAccess(obj, i) ?? safeCall(obj, 'item', i);
+                items.push(inspectMimeType(mime, depth + 1, seen));
+            }
+            return `{
+  "length": ${length},
+  "mimeTypes": [
+    ${items.join(',\n    ')}
+  ]
+}`;
+        }
+
+        function inspectPlugin(plugin, depth, seen) {
+            if (!plugin || typeof plugin !== 'object') return inspectObject(plugin, depth, seen);
+            const name = safeAccess(plugin, 'name');
+            const filename = safeAccess(plugin, 'filename');
+            const description = safeAccess(plugin, 'description');
+            return `{
+      "name": ${inspectObject(name, depth + 1, seen)},
+      "filename": ${inspectObject(filename, depth + 1, seen)},
+      "description": ${inspectObject(description, depth + 1, seen)}
+    }`;
+        }
+
+        function inspectMimeType(mime, depth, seen) {
+            if (!mime || typeof mime !== 'object') return inspectObject(mime, depth, seen);
+            const type = safeAccess(mime, 'type');
+            const description = safeAccess(mime, 'description');
+            const suffixes = safeAccess(mime, 'suffixes');
+            const enabledPlugin = safeAccess(mime, 'enabledPlugin');
+            const enabledPluginName = enabledPlugin && typeof enabledPlugin === 'object' ? safeAccess(enabledPlugin, 'name') : enabledPlugin;
+            return `{
+      "type": ${inspectObject(type, depth + 1, seen)},
+      "description": ${inspectObject(description, depth + 1, seen)},
+      "suffixes": ${inspectObject(suffixes, depth + 1, seen)},
+      "enabledPlugin": ${inspectObject(enabledPluginName || '[Plugin]', depth + 1, seen)}
+    }`;
+        }
+
+        function inspectObject(obj, depth = 0, seen = new WeakSet()) {
+            if (obj === null) return 'null';
+            if (typeof obj === 'undefined') return 'undefined';
+            if (typeof obj === 'string') return JSON.stringify(obj);
+            if (typeof obj === 'symbol') return obj.toString();
+            if (typeof obj === 'number' || typeof obj === 'boolean' || typeof obj === 'bigint') return String(obj);
+            if (typeof obj === 'function') return '[Function]';
+            if (obj instanceof Date) return JSON.stringify(obj.toString());
+            if (obj instanceof RegExp) return JSON.stringify(obj.toString());
+            if (obj instanceof Error) return JSON.stringify({ name: obj.name, message: obj.message }, null, 2);
+
+            if (seen.has(obj)) return '[Circular]';
+            seen.add(obj);
+
+            if (isPluginArray(obj)) {
+                return inspectPluginArray(obj, depth, seen);
+            }
+
+            if (isMimeTypeArray(obj)) {
+                return inspectMimeTypeArray(obj, depth, seen);
+            }
+
+            if (Array.isArray(obj)) {
+                const items = obj.map(item => inspectObject(item, depth + 1, seen));
+                return `[
+  ${items.join(',\n  ')}
+]`;
+            }
+
+            const json = (() => {
+                try { return JSON.stringify(obj, null, 2); } catch { return null; }
+            })();
+            if (json && json !== '{}' && json !== 'null') return json;
+
+            const propNames = new Set(Object.getOwnPropertyNames(obj));
+            const proto = Object.getPrototypeOf(obj);
+            if (proto && proto !== Object.prototype && proto !== null) {
+                Object.getOwnPropertyNames(proto).forEach(name => propNames.add(name));
+            }
+
+            const props = [...propNames].filter(name => name !== 'constructor' && name !== '__proto__');
+            const lines = props.map(name => {
+                let value;
+                try { value = obj[name]; } catch (err) { value = `[Throws: ${err.message}]`; }
+                return `"${name}": ${inspectObject(value, depth + 1, seen)}`;
+            });
+
+            return `{
+  ${lines.join(',\n  ')}
+}`;
+        }
+
+        function appendLog(items, level) {
+            if (consoleScreen.textContent === 'Code Output here...') {
+                consoleScreen.innerHTML = '';
+            }
+
+            const line = document.createElement('div');
+            if (level === 'error') line.className = 'log-error';
+            if (level === 'warn') line.className = 'log-warn';
+
+            items.forEach((item, i) => {
+                const span = document.createElement('span');
+                if (item.type === 'html') span.innerHTML = item.content;
+                else span.textContent = item.content;
+                line.appendChild(span);
+                if (i < items.length - 1) line.appendChild(document.createTextNode(' '));
+            });
+            consoleScreen.appendChild(line);
+            consoleScreen.scrollTop = consoleScreen.scrollHeight;
+            consoleOutputCount += 1;
+        }
+
+        console.log = (...a) => { _log(...a); appendLog(processArgs(a), 'log'); };
+        console.warn = (...a) => { _warn(...a); appendLog(processArgs(a), 'warn'); };
+        console.error = (...a) => { _error(...a); appendLog(processArgs(a), 'error'); };
+
+        // Manual Execution Button Hook
+        runBtn.addEventListener('click', executeCode);
+
+        // ── Gateway Toast Interaction Controllers ──────────────────────
+        function closeToast() {
+            consentToast.classList.remove('show');
+        }
+
+        toastRun.addEventListener('click', () => {
+            closeToast();
+            executeCode();
+        });
+
+        toastIgnore.addEventListener('click', closeToast);
+        toastClose.addEventListener('click', closeToast);
+
+        // ── Clipboard Copy Feature implementation ──────────────────────
+        copyBtn.addEventListener('click', async () => {
+            const textToCopy = consoleScreen.innerText;
+            if (textToCopy === 'Code Output here...') return;
+            try {
+                await navigator.clipboard.writeText(textToCopy);
+                const originalHtml = copyBtn.innerHTML;
+                copyBtn.innerHTML = `<i class="fa fa-solid fa-check"></i> <span id="copy-txt">Copied!</span>`;
+                setTimeout(() => { copyBtn.innerHTML = originalHtml; }, 2000);
+            } catch (error) {
+                _error('Failed to copy text into clipboard container:', error);
+            }
+        });
+
+        // ── Web Share API Implementation ──────────────────────────────
+        shareBtn.addEventListener('click', async () => {
+            const currentCode = codeInput.value;
+            const shareUrl = new URL(window.location.href);
+
+            const encodedCode = btoa(String.fromCharCode(...new TextEncoder().encode(currentCode)));
+            shareUrl.searchParams.set('code', encodedCode);
+            // Optional: You can append &run=true to generated links manually if desired
+
+            const shareData = {
+                title: 'Jolt Code Snippet',
+                text: 'Check out this JavaScript code snippet on Jolt!',
+                url: shareUrl.toString()
+            };
+
+            if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+                try {
+                    await navigator.share(shareData);
+                } catch (error) {
+                    if (error.name !== 'AbortError') {
+                        _error('Web Share failed:', error);
+                    }
+                }
+            } else {
+                try {
+                    await navigator.clipboard.writeText(shareUrl.toString());
+                    const originalHtml = shareBtn.innerHTML;
+                    shareBtn.innerHTML = `<i class="fa-solid fa-link"></i> <span id="share-txt">Link Copied!</span>`;
+                    setTimeout(() => { shareBtn.innerHTML = originalHtml; }, 2000);
+                } catch (clipError) {
+                    _error('Fallback copy link generation error:', clipError);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -257,6 +257,9 @@ input {
 
 .nav ul li a {
     padding: .5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .nav ul li::after {
@@ -284,7 +287,11 @@ input {
     width: 100%;
 }
 
-
+.nav ul li img {
+    width: 30px;
+    height: 30px;
+    margin-left: .3rem;
+}
 
 .nav-actions {
     width: 50px;
@@ -440,10 +447,19 @@ input {
     background: inherit;
     width: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.mob-nav ul li img,
+.footer ul li img {
+    width: 30px;
+    height: 30px;
 }
 
 .mob-hght {
-    height: 240px;
+    height: 260px;
     pointer-events: auto;
     opacity: 1;
 }
@@ -609,6 +625,7 @@ input {
     border-radius: .3rem;
     overflow: hidden;
     box-shadow: 0 10px 20px 0 rgba(0, 0, 0, .25);
+    font-family: var(--ff-mono);
 }
 
 .card-head {
@@ -812,6 +829,9 @@ input {
     justify-content: space-between;
     flex-direction: column;
     gap: 5rem;
+
+    font-variant-ligatures: no-common-ligatures;
+    text-rendering: optimizeLegibility;
 }
 
 .pr-info,
@@ -907,6 +927,32 @@ input {
     width: 100%;
 }
 
+/* Target the logo container specifically (it's the 1st child here) */
+.project-main .project-logo {
+
+    display: flex;
+    border-radius: .4rem;
+    /* Makes it look rounded-rectangular instead of a circle */
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /* Prevents the image from spilling out */
+    width: 100px;
+    /* Set a fixed width for the logo container */
+    height: 100px;
+    /* Set a fixed height for the logo container */
+}
+
+/* Fix the squishing issue on the inner image */
+.project-main .project-logo .pr-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* CRITICAL: Scales the image nicely without stretching or squishing it */
+    padding: .2rem;
+    /* Optional: gives the logo image a little breathing room from the borders */
+}
+
 .project-main .project-ab {
     width: 100%;
     display: flex;
@@ -942,6 +988,7 @@ input {
     width: 100%;
     align-items: center;
     flex-direction: column;
+    font-size: .93rem;
 }
 
 .project-in ul {
@@ -1048,7 +1095,7 @@ input {
 
 .api {
     width: 100%;
-    color: #fff;
+    color: #111111;
     height: fit-content;
     background: var(--main-gradient);
     background-repeat: no-repeat;
@@ -1058,6 +1105,7 @@ input {
     display: flex;
     align-items: center;
     flex-direction: column;
+    font-family: var(--ff-mono);
 }
 
 .api .api-info {
@@ -1071,15 +1119,16 @@ input {
     margin-top: .5rem;
     text-align: center;
     font-size: 1.1rem;
+    font-weight: 600;
 }
 
 .i a {
-    color: black;
+    color: rgb(255, 0, 55);
 }
 
 .i a:hover {
     text-decoration: underline;
-    color: black;
+    color: hsl(347, 100%, 40%);
 }
 
 .gt-bg {
@@ -1099,6 +1148,7 @@ input {
     border-bottom-right-radius: .5rem;
     border-bottom-left-radius: .5rem;
     box-shadow: 0 10px 20px 0 rgba(0, 0, 0, .6);
+    color: #fff;
 }
 
 .gt-label {
@@ -1232,7 +1282,7 @@ input {
     padding: .5rem 1rem;
     overflow: auto;
     font-family: var(--ff-mono);
-    font-size: 1.3rem;
+    font-size: 1.13rem;
     white-space: nowrap;
     text-align: left;
     border-bottom-left-radius: .5rem;
@@ -1258,12 +1308,17 @@ input {
     background: hsl(270, 3%, 49%);
 }
 
+.gt-main {
+    scrollbar-width: thin;
+    scrollbar-color: #4b494d transparent;
+}
+
 .gt-main-2 {
     width: 100%;
     background: #2a2d2e;
     padding: .5rem 1rem;
     overflow: auto;
-    font-size: 1.3rem;
+    font-size: 1.13rem;
     white-space: pre;
     text-align: left;
     border-bottom-left-radius: .5rem;
@@ -1286,6 +1341,11 @@ input {
 
 .gt-main-2::-webkit-scrollbar-thumb:active {
     background: hsl(270, 3%, 49%);
+}
+
+.gt-main-2 {
+    scrollbar-width: thin;
+    scrollbar-color: #4b494d transparent;
 }
 
 .black {
@@ -1347,6 +1407,30 @@ input {
 
 .copy:active,
 .copy-api:active {
+    scale: .95;
+}
+
+.try-jolt {
+    font-family: var(--ff-mono);
+    padding: .5rem 1rem;
+    user-select: none;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: .3rem;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, .6);
+    background: rgb(6, 75, 165);
+    border: 2px solid rgb(6, 75, 165);
+    color: #fff;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.try-jolt:hover {
+    background: hsl(214, 93%, 44%);
+    border-color: hsl(214, 93%, 44%);
+}
+
+.try-jolt:active {
     scale: .95;
 }
 
@@ -1465,6 +1549,9 @@ select {
     border-bottom-left-radius: .3rem;
     border-bottom-right-radius: .3rem;
     font-family: var(--ff-mono);
+
+    font-variant-ligatures: no-common-ligatures;
+    text-rendering: optimizeLegibility;
 }
 
 .form .input select {
@@ -1480,6 +1567,9 @@ select {
     font-family: var(--ff-mono);
     height: 170px;
     resize: none;
+
+    font-variant-ligatures: no-common-ligatures;
+    text-rendering: optimizeLegibility;
 }
 
 .form .input textarea::-webkit-scrollbar {
@@ -1623,6 +1713,9 @@ select {
     border-bottom-right-radius: .3rem;
     transition: all .3s ease-in-out;
     font-family: var(--ff-mono);
+
+    font-variant-ligatures: no-common-ligatures;
+    text-rendering: optimizeLegibility;
 }
 
 .news-form .input input:hover {
@@ -1758,6 +1851,9 @@ select {
     padding: .5rem 1rem;
     width: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .options ul li:hover {
@@ -1903,6 +1999,7 @@ select {
 }
 
 .popup-bg .popup .popup-close {
+    user-select: none;
     font-size: 1.5rem;
     height: 40px;
     width: 40px;
@@ -2041,6 +2138,10 @@ select {
 
 .pop {
     animation: pop 0.8s ease-out forwards;
+}
+
+.shadow {
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, .6);
 }
 
 @keyframes pop {
