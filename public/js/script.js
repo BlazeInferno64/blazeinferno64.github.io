@@ -112,6 +112,7 @@ const resourceObserver = new PerformanceObserver((list) => {
         if (loadedCount >= expectedAssets) {
             setTimeout(() => {
                 loadBg.classList.add("hide");
+                Body.classList.remove("no-scroll");
                 setTimeout(() => loadBg.remove(), 400);
             }, 400);
         }
@@ -507,7 +508,7 @@ window.onload = async (e) => {
 
         console.log("Loaded window!");
         //loadBg.classList.add("hide");
-        Body.classList.remove("no-scroll");
+        //Body.classList.remove("no-scroll");
 
         setTimeout(() => {
             resetPopupMsg()
