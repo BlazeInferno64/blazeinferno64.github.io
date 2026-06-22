@@ -453,12 +453,12 @@ const renderProjectCard = async (projectConfig, index) => {
         const data = await client.getSpecificRepo(username, repo);
 
         document.getElementById(`${uid}-title`).innerText = data.name;
-        document.getElementById(`${uid}-name`).innerText  = data.name;
+        document.getElementById(`${uid}-name`).innerText = data.name;
         document.getElementById(`${uid}-about`).innerText = data.description || "No description provided.";
         document.getElementById(`${uid}-stars`).innerText = `Stars: ${data.stargazers_count}`;
         document.getElementById(`${uid}-forks`).innerText = `Forks: ${data.forks_count}`;
-        document.getElementById(`${uid}-demo`).href       = data.homepage || data.html_url;
-        document.getElementById(`${uid}-repo`).href       = data.html_url;
+        document.getElementById(`${uid}-demo`).href = data.homepage || data.html_url;
+        document.getElementById(`${uid}-repo`).href = data.html_url;
 
         document.getElementById(`${uid}-created`).innerText =
             `${formatDate(data.created_at)} (${lastUpdated(data.created_at)})`;
@@ -467,7 +467,7 @@ const renderProjectCard = async (projectConfig, index) => {
     } catch (error) {
         console.error(`Failed to load project "${repo}":`, error);
         document.getElementById(`${uid}-title`).innerText = repo;
-        document.getElementById(`${uid}-name`).innerText  = repo;
+        document.getElementById(`${uid}-name`).innerText = repo;
         document.getElementById(`${uid}-about`).innerText = "Could not load project data.";
     }
 };
@@ -515,6 +515,21 @@ window.onload = async (e) => {
             //popupBg.classList.add("ok");
             //popupInfo.innerText = `Welcome here :D!`;
         }, 500);
+
+        await loadVisitors();
+        const userRepo = await client.getSpecificRepo(username, "BlazeInferno64");
+        const user = await client.getUser(username);
+        //console.log(user);
+        //const updatedDate = new Date(user.updated_at);
+
+        aboutDb.datetime = userRepo.updated_at;
+        document.querySelector(".info-db").title = `This was last updated on ${formatDate(userRepo.updated_at)} (${lastUpdated(userRepo.updated_at)})`;
+        document.querySelector(".followers").innerText = `Followers: ${user.followers}`;
+        document.querySelector(".following").innerText = `Following: ${user.following}`;
+        aboutDb.innerText = `${formatDate(userRepo.updated_at)} (${lastUpdated(userRepo.updated_at)})`;
+
+        const mainInfo = await client.getSpecificRepo(username, "blazeinferno64.github.io");
+        websiteUpdateText.innerText = `Last updated: ${formatDate(mainInfo.updated_at)} (${lastUpdated(mainInfo.updated_at)})`;
 
 
 
@@ -571,10 +586,10 @@ window.addEventListener("scroll", () => {
         }
     }
     if (y > 700) {
-            document.querySelectorAll(".project-card").forEach(card => card.classList.add("pop"));
-        } else {
-            document.querySelectorAll(".project-card").forEach(card => card.classList.remove("pop"));
-        }
+        document.querySelectorAll(".project-card").forEach(card => card.classList.add("pop"));
+    } else {
+        document.querySelectorAll(".project-card").forEach(card => card.classList.remove("pop"));
+    }
     if (codeDemo) {
         if (y > 900) {
             codeDemo.forEach(card => {
