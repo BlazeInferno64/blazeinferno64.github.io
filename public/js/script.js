@@ -1,4 +1,3 @@
-
 const hamburger = document.querySelector(".hamburger");
 const mobileNav = document.querySelector(".mob-nav");
 
@@ -54,6 +53,8 @@ const img = document.querySelector(".img");
 
 const websiteUpdateText = document.querySelector(".lst-up");
 
+const loaderText = document.querySelector(".loader-txt");
+
 const parentNav = document.querySelector(".nav");
 
 let isShown = false;
@@ -63,6 +64,65 @@ images.forEach(img => {
         e.preventDefault();
     });
 })
+
+/*
+const updateLoadProgress = () => {
+    if (!loaderText) return;
+
+    if (document.readyState === 'loading') {
+        loaderText.innerText = '25%';
+    }
+    else if (document.readyState === 'interactive') {
+        loaderText.innerText = '50%';
+        //progressBar.style.width = '50%';
+    }
+    else if (document.readyState === 'complete') {
+        loaderText.innerText = '100%';
+
+        //progressBar.style.width = '100%';
+
+        // Handle the fade-out and removal seamlessly once complete
+        setTimeout(() => {
+            //progressBar.style.opacity = '0';
+            loadBg.classList.add("hide");
+            setTimeout(() => loadBg.remove(), 400);
+        }, 400);
+    }
+}*/
+
+
+// Count expected assets from the DOM as our denominator
+const expectedAssets = document.querySelectorAll(
+    "img, script[src], link[rel='stylesheet'], link[rel='preload'], video, audio, source"
+).length;
+
+let loadedCount = 0;
+
+const resourceObserver = new PerformanceObserver((list) => {
+    for (const entry of list.getEntries()) {
+        loadedCount++;
+        const name = entry.name.split('/').pop();
+
+        const percent = expectedAssets > 0
+            ? Math.min(100, Math.round((loadedCount / expectedAssets) * 100))
+            : 100;
+
+        loaderText.innerText = `Loading: ${name} - ${percent}%`;
+
+        if (loadedCount >= expectedAssets) {
+            setTimeout(() => {
+                loadBg.classList.add("hide");
+                setTimeout(() => loadBg.remove(), 400);
+            }, 400);
+        }
+    }
+});
+
+resourceObserver.observe({ type: "resource", buffered: true });
+
+// Listen for lifecycle transitions (interactive & complete)
+//document.addEventListener('readystatechange', updateLoadProgress);
+
 
 const username = "blazeinferno64";
 
@@ -290,38 +350,133 @@ form.addEventListener("submit", (e) => {
 
 
 
-const loadProject = async (repoName, prefix, project) => {
-    try {
-        const Project = document.querySelector(`#${project}`);
-        const ProjectAbout = document.querySelector(`#${prefix}-about`);
-        const ProjectName = document.querySelector(`#${prefix}`);
-        const ProjectStars = document.querySelector(`#${prefix}-stars`);
-        const ProjectForks = document.querySelector(`#${prefix}-fork`);
-        const ProjectDemo = document.querySelector(`#${prefix}-demo`);
-        const ProjectRepo = document.querySelector(`#${prefix}-repo`);
-        const ProjectCreatedDate = document.querySelector(`#${prefix}-date-created`);
-        const ProjectUpdatedDate = document.querySelector(`#${prefix}-date-updated`);
-
-        const repo = await client.getSpecificRepo(username, repoName);
-
-        Project.innerText = repo.name;
-        ProjectName.innerText = repo.name;
-        ProjectAbout.innerText = repo.description || "No description provided.";
-        ProjectStars.innerText = `Stars: ${repo.stargazers_count}`;
-        ProjectForks.innerText = `Forks: ${repo.forks_count}`;
-        ProjectDemo.href = repo.homepage || repo.html_url;
-        ProjectRepo.href = repo.html_url;
-
-        ProjectCreatedDate.innerText =
-            `${formatDate(repo.created_at)} (${lastUpdated(repo.created_at)})`;
-
-        ProjectUpdatedDate.innerText =
-            `${formatDate(repo.updated_at)} (${lastUpdated(repo.updated_at)})`;
-    } catch (error) {
-        //alert(error);
-        console.error(`Failed to load ${repoName}`, error);
-        throw `Unexpected error occured while loading ${repoName}!\nPlease try again after sometime or refresh this page again!`;
+// ─────────────────────────────────────────────────────────────────────────────
+// PROJECTS CONFIG — add / remove / reorder entries here, nothing else changes.
+// ─────────────────────────────────────────────────────────────────────────────
+const PROJECTS = [
+    {
+        repo: "blaze-audio-player",
+        logo: "https://blaze-audio-player.vercel.app/public/img/icon.png",
+        logoBg: "",
+    },
+    {
+        repo: "NotePlus",
+        logo: "https://note-plus-mu.vercel.app/public/img/icon.png",
+        logoBg: "",
+    },
+    {
+        repo: "blazed.js",
+        logo: "https://github.com/BlazeInferno64/blazed.js/releases/download/v3.4.0/blazed.js-logo-new.png",
+        logoBg: "#1e2021",
+    },
+    {
+        repo: 'QR-Codify',
+        logo: 'https://qr-codify.vercel.app/logo',
+        logoBg: '',
     }
+    // ── Add more projects below ──────────────────────────────────────────────
+    // {
+    //     repo: "your-repo-name",          // GitHub repo name (case-sensitive)
+    //     logo: "https://...",              // URL to the project logo image
+    //     logoBg: "",                       // Optional background colour for the logo box
+    // },
+    // ────────────────────────────────────────────────────────────────────────
+];
+
+/**
+ * Creates and injects a project card into #projects-grid,
+ * then fetches real data from GitHub and populates it.
+ */
+const renderProjectCard = async (projectConfig, index) => {
+    const { repo, logo, logoBg } = projectConfig;
+    const grid = document.querySelector("#projects-grid");
+    if (!grid) return;
+
+    const uid = `proj-${index}`;
+
+    const card = document.createElement("div");
+    card.className = "project-card";
+    card.innerHTML = `
+        <div class="project-head">
+            <p id="${uid}-title">Loading...</p>
+        </div>
+        <div class="project-main">
+            <div class="project-logo"${logoBg ? ` style="background-color:${logoBg}"` : ""}>
+                <img src="${logo}" alt="${repo} logo" class="pr-logo" />
+            </div>
+            <br>
+            <div class="project-ab">
+                <p class="proj-name" id="${uid}-name">Loading...</p>
+                <p class="proj-about" id="${uid}-about">Loading...</p>
+            </div>
+            <div class="project-in">
+                <ul>
+                    <li>
+                        <i class="fa fa-star"></i>
+                        <p id="${uid}-stars">Stars: —</p>
+                    </li>
+                    <li>
+                        <i class="fa fa-code-fork"></i>
+                        <p id="${uid}-forks">Forks: —</p>
+                    </li>
+                    <li>
+                        <i class="fa-regular fa-calendar"></i>
+                        <p id="${uid}-created">Created: —</p>
+                    </li>
+                    <li>
+                        <i class="fa-regular fa-clock"></i>
+                        <p id="${uid}-updated">Updated: —</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="project-options">
+                <ul>
+                    <li>
+                        <a id="${uid}-demo" href="#" target="_blank" rel="noopener noreferrer">
+                            Live demo <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="${uid}-repo" href="#" target="_blank" rel="noopener noreferrer">
+                            GitHub Repo <i class="fa fa-github"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    `;
+
+    grid.appendChild(card);
+
+    // Fetch & populate
+    try {
+        const data = await client.getSpecificRepo(username, repo);
+
+        document.getElementById(`${uid}-title`).innerText = data.name;
+        document.getElementById(`${uid}-name`).innerText  = data.name;
+        document.getElementById(`${uid}-about`).innerText = data.description || "No description provided.";
+        document.getElementById(`${uid}-stars`).innerText = `Stars: ${data.stargazers_count}`;
+        document.getElementById(`${uid}-forks`).innerText = `Forks: ${data.forks_count}`;
+        document.getElementById(`${uid}-demo`).href       = data.homepage || data.html_url;
+        document.getElementById(`${uid}-repo`).href       = data.html_url;
+
+        document.getElementById(`${uid}-created`).innerText =
+            `${formatDate(data.created_at)} (${lastUpdated(data.created_at)})`;
+        document.getElementById(`${uid}-updated`).innerText =
+            `${formatDate(data.updated_at)} (${lastUpdated(data.updated_at)})`;
+    } catch (error) {
+        console.error(`Failed to load project "${repo}":`, error);
+        document.getElementById(`${uid}-title`).innerText = repo;
+        document.getElementById(`${uid}-name`).innerText  = repo;
+        document.getElementById(`${uid}-about`).innerText = "Could not load project data.";
+    }
+};
+
+/**
+ * Renders all projects listed in the PROJECTS array.
+ */
+const loadAllProjects = () => {
+    PROJECTS.forEach((project, i) => renderProjectCard(project, i));
 };
 
 
@@ -351,7 +506,7 @@ window.onload = async (e) => {
         await loadCountries();
 
         console.log("Loaded window!");
-        loadBg.classList.add("hide");
+        //loadBg.classList.add("hide");
         Body.classList.remove("no-scroll");
 
         setTimeout(() => {
@@ -363,27 +518,9 @@ window.onload = async (e) => {
 
 
 
-        
+        // Render all projects from the PROJECTS config array (see top of this file)
+        loadAllProjects();
 
-        await loadVisitors();
-        const userRepo = await client.getSpecificRepo(username, "BlazeInferno64");
-        const user = await client.getUser(username);
-        //console.log(user);
-        //const updatedDate = new Date(user.updated_at);
-
-        aboutDb.datetime = userRepo.updated_at;
-        document.querySelector(".info-db").title = `This was last updated on ${formatDate(userRepo.updated_at)} (${lastUpdated(userRepo.updated_at)})`;
-        document.querySelector(".followers").innerText = `Followers: ${user.followers}`;
-        document.querySelector(".following").innerText = `Following: ${user.following}`;
-        aboutDb.innerText = `${formatDate(userRepo.updated_at)} (${lastUpdated(userRepo.updated_at)})`;
-
-        const mainInfo = await client.getSpecificRepo(username, "blazeinferno64.github.io");
-        websiteUpdateText.innerText = `Last updated: ${formatDate(mainInfo.updated_at)} (${lastUpdated(mainInfo.updated_at)})`;
-
-        await loadProject("blaze-audio-player", "first-project", "project1");
-        await loadProject("NotePlus", "second-project", "project2");
-        await loadProject("blazed.js", "third-project", "project3");
-        
     } catch (error) {
         if (navigator && !navigator.onLine) {
             throw `[Network_Error]\nNo internet connection detected!\nPlease try again after connectuing back to internet or try refreshing this page again!`;
@@ -433,17 +570,11 @@ window.addEventListener("scroll", () => {
             profileCard.classList.remove("pop");
         }
     }
-    if (projectCards) {
-        if (y > 700) {
-            projectCards.forEach(card => {
-                card.classList.add("pop");
-            })
+    if (y > 700) {
+            document.querySelectorAll(".project-card").forEach(card => card.classList.add("pop"));
         } else {
-            projectCards.forEach(card => {
-                card.classList.remove("pop");
-            })
+            document.querySelectorAll(".project-card").forEach(card => card.classList.remove("pop"));
         }
-    }
     if (codeDemo) {
         if (y > 900) {
             codeDemo.forEach(card => {
