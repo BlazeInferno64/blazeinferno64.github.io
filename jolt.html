@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/geist-mono" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
 
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
@@ -26,6 +29,12 @@
             box-sizing: border-box;
             padding: 0;
             margin: 0;
+        }
+
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            display: inline-block;
+            vertical-align: middle;
         }
 
         body {
@@ -55,6 +64,7 @@
         .editor-header {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             background-color: #16181e;
             padding: 0 16px;
             height: 40px;
@@ -175,6 +185,43 @@
             -moz-tab-size: inherit !important;
             white-space: pre !important;
             overflow: visible !important;
+        }
+
+        /* ── Drag & Drop File Loader ──────────────────────────────────── */
+        .editor-wrap.drag-over {
+            outline: 2px dashed #04d671;
+            outline-offset: -2px;
+        }
+
+        .drop-hint {
+            position: absolute;
+            inset: 0;
+            z-index: 5;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: rgba(13, 14, 18, 0.85);
+            color: #04d671;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            padding: 20px;
+            pointer-events: none;
+        }
+
+        .drop-hint i {
+            font-size: 22px;
+        }
+
+        .editor-wrap.drag-over .drop-hint {
+            display: flex;
+        }
+
+        .drop-hint.drop-hint-error {
+            color: #ff5565;
         }
 
         .actions-bar {
@@ -439,6 +486,290 @@
                 opacity: 1;
             }
         }
+
+        /* ── External Script Loader: Header Menu Button ─────────────── */
+        .header-menu-btn {
+            background: transparent;
+            color: #a4b1cd;
+            padding: 6px 8px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .header-menu-btn:hover {
+            background-color: #232731;
+            color: #e2e8f0;
+        }
+
+        .header-menu-btn:active {
+            transform: scale(0.94);
+        }
+
+        /* ── External Script Loader: Modal Overlay ───────────────────── */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(7, 8, 10, 0.6);
+            backdrop-filter: blur(3px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-box {
+            width: 100%;
+            max-width: 420px;
+            max-height: 90vh;
+            margin: 0 20px;
+            background-color: #1a1c23;
+            border: 1px solid #2d313f;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transform: translateY(-10px) scale(0.98);
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-overlay.show .modal-box {
+            transform: translateY(0) scale(1);
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 18px;
+            border-bottom: 1px solid #2d313f;
+            flex-shrink: 0;
+        }
+
+        .modal-title {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .modal-title i {
+            color: #04d671;
+            font-size: 13px;
+        }
+
+        .modal-close {
+            background: transparent;
+            color: #4a5568;
+            padding: 4px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            color: #ff5565;
+        }
+
+        .modal-body {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            overflow-y: auto;
+        }
+
+        .modal-input {
+            width: 100%;
+            background-color: #111318;
+            border: 1px solid #2d313f;
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 13px;
+            color: #e2e8f0;
+            outline: none;
+            transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .modal-input::placeholder {
+            color: #4a5568;
+        }
+
+        .modal-input:focus {
+            border-color: #04d671;
+        }
+
+        #fetch-script {
+            width: 100%;
+            justify-content: center;
+            color: #041a0f;
+            background-color: #04d671;
+            box-shadow: 0 0 20px rgba(4, 214, 113, 0.15);
+        }
+
+        #fetch-script:hover {
+            background-color: #05f281;
+            transform: translateY(-1px);
+            box-shadow: 0 0 25px rgba(4, 214, 113, 0.3);
+        }
+
+        #fetch-script:active {
+            transform: translateY(1px);
+            box-shadow: 0 0 10px rgba(4, 214, 113, 0.1);
+        }
+
+        #fetch-script:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .script-status {
+            font-size: 12.5px;
+            line-height: 1.5;
+            min-height: 16px;
+            color: #a4b1cd;
+        }
+
+        .script-status.status-loading {
+            color: #ffca28;
+        }
+
+        .script-status.status-success {
+            color: #04d671;
+        }
+
+        .script-status.status-error {
+            color: #ff5565;
+        }
+
+        .scripts-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            max-height: 150px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #232731 #111318;
+        }
+
+        .scripts-list:empty {
+            display: none;
+        }
+
+        .scripts-list li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            background-color: #111318;
+            border: 1px solid #2d313f;
+            border-radius: 6px;
+            padding: 7px 10px;
+        }
+
+        .scripts-list .script-url {
+            font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 11.5px;
+            color: #a4b1cd;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .scripts-list .script-remove {
+            background: transparent;
+            border: none;
+            color: #4a5568;
+            cursor: pointer;
+            padding: 2px 4px;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .scripts-list .script-remove:hover {
+            color: #ff5565;
+        }
+
+        /* ── Mobile Optimizations (External Script Modal) ────────────── */
+        @media (max-width: 480px) {
+            .header-menu-btn {
+                padding: 8px 10px;
+                font-size: 16px;
+            }
+
+            .modal-box {
+                max-width: none;
+                width: calc(100% - 24px);
+                margin: 0 12px;
+                max-height: 85vh;
+                border-radius: 14px;
+            }
+
+            .modal-header {
+                padding: 14px 16px;
+            }
+
+            .modal-title {
+                font-size: 13.5px;
+            }
+
+            .modal-body {
+                padding: 14px 16px 16px;
+                gap: 10px;
+            }
+
+            .modal-input {
+                /* 16px prevents iOS Safari from auto-zooming the page on focus */
+                font-size: 16px;
+                padding: 12px 12px;
+            }
+
+            #fetch-script {
+                width: 100%;
+                padding: 12px 16px;
+                font-size: 14px;
+            }
+
+            .scripts-list {
+                max-height: 120px;
+            }
+
+            .scripts-list .script-url {
+                font-size: 11px;
+            }
+
+            .drop-hint {
+                font-size: 12px;
+                padding: 16px;
+            }
+
+            .drop-hint i {
+                font-size: 18px;
+            }
+        }
     </style>
 </head>
 
@@ -448,32 +779,37 @@
             <div class="lang-badge">
                 <i class="fab fa-js-square"></i> JavaScript
             </div>
+            <button id="scripts-menu-btn" class="header-menu-btn" title="External Scripts"
+                aria-label="External Scripts">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+            </button>
         </div>
 
         <div class="editor-wrap">
-            <textarea
-                id="code"
-                class="editor-textarea"
-                spellcheck="false"
-                autocorrect="off"
-                autocapitalize="off"
-                placeholder="Write your JavaScript code here...&#10;&#10;Try running something like:&#10;const res = await fetch('https://blaze-server-x75p.onrender.com/api/users');&#10;const data = await res.json();&#10;console.log(data);"
-            ></textarea>
+            <textarea id="code" class="editor-textarea" spellcheck="false" autocorrect="off" autocapitalize="off"
+                placeholder="Write your JavaScript code here...&#10;&#10;Try running something like:&#10;const res = await fetch('https://blaze-server-x75p.onrender.com/api/users');&#10;const data = await res.json();&#10;console.log(data);"></textarea>
 
-            <div class="editor-highlight" aria-hidden="true"><pre class="language-js"><code id="highlight-code" class="language-js"></code></pre></div>
+            <div class="editor-highlight" aria-hidden="true">
+                <pre class="language-js"><code id="highlight-code" class="language-js"></code></pre>
+            </div>
+
+            <div id="drop-hint" class="drop-hint">
+                <i id="drop-hint-icon" class="fa-solid fa-file-arrow-down"></i>
+                <span id="drop-hint-text">Drop a .js, .json, or .ts file to load it</span>
+            </div>
         </div>
 
         <div class="actions-bar">
             <button id="run">
-                <i class="fa fa-play"></i>
+                <i class="material-symbols-outlined">play_circle</i>
                 <span id="run-txt">Run Code</span>
             </button>
             <button id="copy-output">
-                <i class="fa fa-regular fa-copy"></i>
+                <i class="material-symbols-outlined">content_copy</i>
                 <span id="copy-txt">Copy Output</span>
             </button>
             <button id="share-page">
-                <i class="fa-solid fa-share-nodes"></i>
+                <i class="material-symbols-outlined">share</i>
                 <span id="share-txt">Share Page</span>
             </button>
         </div>
@@ -494,13 +830,36 @@
             This URL request contains pre-loaded code that wants to execute instantly. Do you trust this script?
         </div>
         <div class="toast-actions">
-            <button class="toast-btn toast-btn-ignore" id="toast-ignore"><i class="fa-solid fa-ban"></i>  Ignore</button>
+            <button class="toast-btn toast-btn-ignore" id="toast-ignore"><i class="fa-solid fa-ban"></i> Ignore</button>
             <button class="toast-btn toast-btn-run" id="toast-run"><i class="fa-solid fa-play"></i> Run Code</button>
         </div>
     </div>
 
+    <div id="script-modal-overlay" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <div class="modal-title" style="font-size: 1.13rem;"><i class="fa-solid fa-code"
+                        style="font-size: 1.13rem;"></i> Script Link</div>
+                <button class="modal-close" id="script-modal-close" aria-label="Close"><i class="fa-solid fa-xmark"
+                        style="font-size: 1.3rem;"></i></button>
+            </div>
+            <div class="modal-body">
+                <input type="url" id="script-url-input" class="modal-input" placeholder="https://example.com/script.js"
+                    autocomplete="off" spellcheck="false" />
+                <button id="fetch-script" style="font-size: 1.1rem;">
+                    <i class="material-symbols-outlined" style="font-size: 1.3rem;">download_2</i>
+                    <span id="fetch-script-txt">Fetch Script</span>
+                </button>
+                <div id="script-status" class="script-status"></div>
+                <ul id="scripts-list" class="scripts-list"></ul>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-clike.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
 
     <script>
@@ -519,21 +878,41 @@
         const toastIgnore = document.getElementById('toast-ignore');
         const toastClose = document.getElementById('toast-close');
 
+        // Current highlighting language — stays 'javascript' unless a .json/.ts
+        // file is dropped into the editor, so default behavior is unchanged.
+        let currentLanguage = 'javascript';
+
         // ── Real-time syntax highlighting ──────────────────────────────
         function syncHighlight() {
             let src = codeInput.value;
             if (src.endsWith('\n') || src === '') src += ' ';
+            const grammar = Prism.languages[currentLanguage] || Prism.languages.javascript;
             highlightCode.innerHTML = Prism.highlight(
-                src, Prism.languages.javascript, 'javascript'
+                src, grammar, currentLanguage
             );
         }
 
         function syncScroll() {
-            highlightDiv.scrollTop  = codeInput.scrollTop;
+            highlightDiv.scrollTop = codeInput.scrollTop;
             highlightDiv.scrollLeft = codeInput.scrollLeft;
         }
 
-        codeInput.addEventListener('input',  syncHighlight);
+        codeInput.addEventListener('input', () => {
+            syncHighlight();
+            // The highlighted <pre><code> content just changed height, and typing
+            // (or deleting) near the bottom/right edge can trigger the browser's
+            // own auto-scroll of the textarea in this same tick. Wait two frames
+            // so layout (and any auto-scroll) has settled before copying the
+            // scroll position over — otherwise the overlay can drift out of sync.
+            requestAnimationFrame(() => {
+                requestAnimationFrame(syncScroll);
+            });
+            // Bigger edits (e.g. deleting a whole word, especially on longer
+            // loaded files) can cause a heavier reflow that occasionally takes
+            // a little longer than two frames to fully settle. This trailing
+            // re-sync is a cheap safety net that catches those slower cases.
+            setTimeout(syncScroll, 60);
+        });
         codeInput.addEventListener('scroll', syncScroll);
 
 
@@ -547,7 +926,7 @@
                 const src = codeInput.value;
                 if (!src.trim()) { console.warn('The editor is empty. Write some code first!'); return; }
                 const result = await new Function(`return (async () => { ${src} })()`)();
-                if (consoleOutputCount === outputStart) {
+                if (consoleOutputCount === outputStart && result !== undefined) {
                     appendLog(processArgs([result]), 'log');
                 }
             } catch (err) {
@@ -839,6 +1218,272 @@
                 }
             }
         });
+
+        // ── External JavaScript Loader ──────────────────────────────────
+        (function externalScriptLoader() {
+            const menuBtn = document.getElementById('scripts-menu-btn');
+            const overlay = document.getElementById('script-modal-overlay');
+            const closeBtn = document.getElementById('script-modal-close');
+            const urlInput = document.getElementById('script-url-input');
+            const fetchBtn = document.getElementById('fetch-script');
+            const fetchTxt = document.getElementById('fetch-script-txt');
+            const statusEl = document.getElementById('script-status');
+            const listEl = document.getElementById('scripts-list');
+
+            // Tracks every external script currently loaded into the runtime,
+            // keyed by its normalized URL. No artificial cap on how many can be added.
+            const loadedScripts = new Map();
+
+            function setStatus(message, kind) {
+                statusEl.textContent = message;
+                statusEl.classList.remove('status-loading', 'status-success', 'status-error');
+                if (kind) statusEl.classList.add(`status-${kind}`);
+            }
+
+            function openModal() {
+                overlay.classList.add('show');
+                setStatus('', null);
+                setTimeout(() => urlInput.focus(), 50);
+            }
+
+            function closeModal() {
+                overlay.classList.remove('show');
+            }
+
+            function normalizeUrl(raw) {
+                try {
+                    return new URL(raw, window.location.href).href;
+                } catch {
+                    return null;
+                }
+            }
+
+            // GitHub serves raw files with Content-Type: text/plain + nosniff,
+            // which browsers refuse to execute as a script (CORB). Transparently
+            // rewrite such URLs to their jsDelivr mirror, which serves the
+            // correct application/javascript content type.
+            function resolveLoadableUrl(url) {
+                const rawGithubPattern =
+                    /^https:\/\/raw\.githubusercontent\.com\/([^/]+)\/([^/]+)\/(?:refs\/heads\/)?([^/]+)\/(.+)$/;
+                const match = url.match(rawGithubPattern);
+                if (!match) return { loadUrl: url, rewritten: false };
+
+                const [, user, repo, branch, path] = match;
+                const jsDelivrUrl = `https://cdn.jsdelivr.net/gh/${user}/${repo}@${branch}/${path}`;
+                return { loadUrl: jsDelivrUrl, rewritten: true };
+            }
+
+            function addScriptListItem(url) {
+                const li = document.createElement('li');
+
+                const urlSpan = document.createElement('span');
+                urlSpan.className = 'script-url';
+                urlSpan.textContent = url;
+                urlSpan.title = url;
+
+                const removeBtn = document.createElement('button');
+                removeBtn.className = 'script-remove';
+                removeBtn.setAttribute('aria-label', 'Remove script');
+                removeBtn.innerHTML = '<i class="fa-solid fa-trash"></i>';
+                removeBtn.addEventListener('click', () => removeScript(url, li));
+
+                li.appendChild(urlSpan);
+                li.appendChild(removeBtn);
+                listEl.appendChild(li);
+            }
+
+            function removeScript(url, li) {
+                const entry = loadedScripts.get(url);
+                if (entry && entry.el && entry.el.parentNode) {
+                    entry.el.parentNode.removeChild(entry.el);
+                }
+                loadedScripts.delete(url);
+                if (li && li.parentNode) li.parentNode.removeChild(li);
+            }
+
+            function loadExternalScript(rawUrl) {
+                const url = normalizeUrl(rawUrl);
+                if (!url) {
+                    setStatus('Invalid URL. Please enter a valid, complete URL.', 'error');
+                    return;
+                }
+
+                if (loadedScripts.has(url)) {
+                    setStatus('This script has already been loaded.', 'error');
+                    return;
+                }
+
+                const { loadUrl, rewritten } = resolveLoadableUrl(url);
+
+                setStatus(
+                    rewritten
+                        ? 'Detected a GitHub raw URL — routing through jsDelivr for correct script loading…'
+                        : 'Loading…',
+                    'loading'
+                );
+                fetchBtn.disabled = true;
+                fetchTxt.textContent = 'Fetching…';
+
+                const scriptEl = document.createElement('script');
+                scriptEl.src = loadUrl;
+                scriptEl.async = false; // preserve the order scripts were added in
+
+                scriptEl.onload = () => {
+                    loadedScripts.set(url, { el: scriptEl });
+                    addScriptListItem(rewritten ? `${url} (via jsDelivr)` : url);
+                    setStatus('Script loaded successfully.', 'success');
+                    fetchBtn.disabled = false;
+                    fetchTxt.textContent = 'Fetch Script';
+                    urlInput.value = '';
+                };
+
+                scriptEl.onerror = () => {
+                    if (scriptEl.parentNode) scriptEl.parentNode.removeChild(scriptEl);
+                    const hint = rewritten
+                        ? 'Failed to load script via jsDelivr as well. The file may not exist on that branch/path.'
+                        : 'Failed to load script. If this is a raw.githubusercontent.com URL, GitHub serves it with a content type browsers refuse to execute — try the jsDelivr mirror instead (cdn.jsdelivr.net/gh/user/repo@branch/path).';
+                    setStatus(hint, 'error');
+                    fetchBtn.disabled = false;
+                    fetchTxt.textContent = 'Fetch Script';
+                };
+
+                document.head.appendChild(scriptEl);
+            }
+
+            menuBtn.addEventListener('click', openModal);
+            closeBtn.addEventListener('click', closeModal);
+
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) closeModal();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && overlay.classList.contains('show')) closeModal();
+            });
+
+            fetchBtn.addEventListener('click', () => {
+                const value = urlInput.value.trim();
+                if (!value) {
+                    setStatus('Please enter a URL first.', 'error');
+                    return;
+                }
+                loadExternalScript(value);
+            });
+
+            urlInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    fetchBtn.click();
+                }
+            });
+        })();
+
+        // ── Drag & Drop File Loader (JavaScript / JSON / TypeScript) ────
+        (function dragDropLoader() {
+            const editorWrap = document.querySelector('.editor-wrap');
+            const dropHint = document.getElementById('drop-hint');
+            const dropHintText = document.getElementById('drop-hint-text');
+            const dropHintIcon = document.getElementById('drop-hint-icon');
+            const langBadge = document.querySelector('.lang-badge');
+
+            const DEFAULT_HINT_TEXT = 'Drop a .js, .json, or .ts file to load it';
+            const DEFAULT_HINT_ICON = 'fa-solid fa-file-arrow-down';
+
+            // Supported file extensions and how each should be highlighted/labeled.
+            const LANGUAGES = {
+                js: { grammar: 'javascript', className: 'language-js', label: 'JavaScript', icon: 'fab fa-js-square' },
+                mjs: { grammar: 'javascript', className: 'language-js', label: 'JavaScript', icon: 'fab fa-js-square' },
+                cjs: { grammar: 'javascript', className: 'language-js', label: 'JavaScript', icon: 'fab fa-js-square' },
+                json: { grammar: 'json', className: 'language-json', label: 'JSON', icon: 'fa-solid fa-file-code' },
+                ts: { grammar: 'typescript', className: 'language-typescript', label: 'TypeScript', icon: 'fa-solid fa-file-code' },
+                tsx: { grammar: 'typescript', className: 'language-typescript', label: 'TypeScript', icon: 'fa-solid fa-file-code' }
+            };
+
+            let dragCounter = 0;
+            let hintResetTimer = null;
+
+            function detectLanguage(filename) {
+                const ext = filename.split('.').pop().toLowerCase();
+                return LANGUAGES[ext] || null;
+            }
+
+            function applyLanguage(info) {
+                currentLanguage = info.grammar;
+                langBadge.innerHTML = `<i class="${info.icon}"></i> ${info.label}`;
+                highlightCode.className = info.className;
+                highlightCode.parentElement.className = info.className;
+            }
+
+            function flashHint(message, iconClass, isError) {
+                clearTimeout(hintResetTimer);
+                dropHintText.textContent = message;
+                dropHintIcon.className = iconClass;
+                dropHint.classList.toggle('drop-hint-error', !!isError);
+                editorWrap.classList.add('drag-over');
+                hintResetTimer = setTimeout(() => {
+                    editorWrap.classList.remove('drag-over');
+                    dropHint.classList.remove('drop-hint-error');
+                    dropHintText.textContent = DEFAULT_HINT_TEXT;
+                    dropHintIcon.className = DEFAULT_HINT_ICON;
+                }, 1400);
+            }
+
+            function loadFile(file) {
+                const info = detectLanguage(file.name);
+                if (!info) {
+                    flashHint('Unsupported file. Use .js, .json, or .ts.', 'fa-solid fa-triangle-exclamation', true);
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = () => {
+                    codeInput.value = reader.result;
+                    applyLanguage(info);
+                    syncHighlight();
+                    // Wait for the (possibly large) re-highlighted content to finish
+                    // laying out before touching focus/caret. Also set the selection
+                    // BEFORE calling focus(), so the browser never paints a frame
+                    // with the caret at its old/default position first — that stray
+                    // paint is what shows up as a "ghost" cursor mid-word.
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            syncScroll();
+                            const end = codeInput.value.length;
+                            codeInput.selectionStart = codeInput.selectionEnd = end;
+                            codeInput.focus();
+                        });
+                    });
+                    flashHint(`Loaded ${file.name}`, 'fa-solid fa-check', false);
+                };
+                reader.onerror = () => {
+                    flashHint('Failed to read the dropped file.', 'fa-solid fa-triangle-exclamation', true);
+                };
+                reader.readAsText(file);
+            }
+
+            editorWrap.addEventListener('dragenter', (e) => {
+                e.preventDefault();
+                dragCounter++;
+                editorWrap.classList.add('drag-over');
+            });
+
+            editorWrap.addEventListener('dragover', (e) => {
+                e.preventDefault(); // required to allow dropping
+            });
+
+            editorWrap.addEventListener('dragleave', () => {
+                dragCounter = Math.max(0, dragCounter - 1);
+                if (dragCounter === 0) editorWrap.classList.remove('drag-over');
+            });
+
+            editorWrap.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dragCounter = 0;
+                editorWrap.classList.remove('drag-over');
+                const files = e.dataTransfer && e.dataTransfer.files;
+                if (files && files.length > 0) loadFile(files[0]);
+            });
+        })();
     </script>
 </body>
 
