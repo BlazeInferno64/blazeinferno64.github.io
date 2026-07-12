@@ -112,7 +112,6 @@
             line-height: 1.7;
             tab-size: 2;
             -moz-tab-size: 2;
-            white-space: pre;
             overflow: auto;
             word-wrap: normal;
             border: none;
@@ -121,6 +120,17 @@
 
         .editor-textarea {
             z-index: 2;
+            /* white-space: pre lives here only. It used to be on the shared
+               rule above, but .editor-highlight's only direct content is
+               whitespace (the indentation/newline sitting between the div's
+               opening tag and the nested <pre> in the markup below). With
+               white-space:pre applied to the div itself, that incidental
+               whitespace got preserved as a visible blank line, pushing the
+               highlighted code down and out of sync with the textarea. The
+               nested <pre>/<code> already force white-space:pre !important
+               on themselves further down, so this doesn't change how code
+               is displayed. */
+            white-space: pre;
             background: transparent;
             color: transparent;
             -webkit-text-fill-color: transparent;
@@ -146,6 +156,17 @@
 
         .editor-textarea::-webkit-scrollbar-thumb:hover {
             background: #2d323f;
+        }
+
+        /* Without this, selecting text reveals the textarea's own (normally
+           invisible) glyphs on top of the Prism overlay underneath — the
+           browser's default selection style ignores -webkit-text-fill-color,
+           so the raw text "un-hides" itself while selected, making it look
+           like the syntax-highlighted text is duplicated/misaligned. */
+        .editor-textarea::selection {
+            background: rgba(4, 214, 113, 0.25);
+            color: transparent;
+            -webkit-text-fill-color: transparent;
         }
 
         .editor-textarea::placeholder {
