@@ -110,11 +110,14 @@ const resourceObserver = new PerformanceObserver((list) => {
         loaderText.innerText = `Loading: ${name} - ${percent}%`;
 
         if (loadedCount >= expectedAssets) {
-            setTimeout(() => {
-                loadBg.classList.add("hide");
-                Body.classList.remove("no-scroll");
-                setTimeout(() => loadBg.remove(), 400);
-            }, 400);
+            window.addEventListener('load', (e) => {
+                setTimeout(() => {
+                    loadBg.classList.add("hide");
+                    Body.classList.remove("no-scroll");
+                    loaderText.innerText = `Everything loaded successfully!`;
+                    setTimeout(() => loadBg.remove(), 400);
+                }, 400);
+            })
         }
     }
 });
